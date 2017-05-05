@@ -41,7 +41,7 @@ function blueStatus () {
     document.getElementById("Status-Image").src = blueIndicator;
     document.getElementById("Status-Heading").innerHTML = "HEALTHY INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = blueColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Your home could need ventilation in " + rooms[0].name + ", but there is a good overall indoor climate.";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home could need ventilation in " + rooms[0].name + ", but otherwise there is a good overall indoor climate.";
 }
 
 function yellowStatus () {
