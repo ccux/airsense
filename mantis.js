@@ -14,47 +14,47 @@ var numberOfRooms = 5;
 var rooms = [];
 
 var roomNames = ["Living Room",
-				"Kitchen",
-				"Bedroom",
-				"Kids Room",
-				"Room"];
+                "Kitchen",
+                "Bedroom",
+                "Kids Room",
+                "Room"];
 
 var roomIcons = [
-				"https://raw.githubusercontent.com/ccux/airsense/master/Living%20room%402x.png",
-				"https://raw.githubusercontent.com/ccux/airsense/master/Kitchen%402x.png",
-				"https://raw.githubusercontent.com/ccux/airsense/master/Bedroom%402x.png",
-				"https://raw.githubusercontent.com/ccux/airsense/master/Children%20Room%402x.png",
-				"https://raw.githubusercontent.com/ccux/airsense/master/Office%402x.png"];
+                "https://raw.githubusercontent.com/ccux/airsense/master/Living%20room%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Kitchen%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Bedroom%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Children%20Room%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Office%402x.png"];
 
 
 function greenStatus () {
 //Green status
-		document.getElementById("Status-Back-Div").style.backgroundColor = greenColor;
-    document.getElementById("Status-Image").src = "https://daks2k3a4ib2z.cloudfront.net/58dab8fd2bebde920b1f3557/58ea9d944361b51e6cff8d01_Status-4.svg";
+    document.getElementById("Status-Back-Div").style.backgroundColor = greenColor;
+    document.getElementById("Status-Image").src = greenIndicator;
     document.getElementById("Status-Heading").innerHTML = "RIGTIG GODT INDEKLIMA";
     document.getElementById("Status-Heading").style.color = greenColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Din bolig har et rigtig godt og sundt indeklima.";
 }
 
 function blueStatus () {
-	document.getElementById("Status-Back-Div").style.backgroundColor = blueColor;
-    document.getElementById("Status-Image").src = "https://daks2k3a4ib2z.cloudfront.net/58dab8fd2bebde920b1f3557/58ea9d9424c32e23eb60554c_Status-3.svg"
+    document.getElementById("Status-Back-Div").style.backgroundColor = blueColor;
+    document.getElementById("Status-Image").src = blueIndicator;
     document.getElementById("Status-Heading").innerHTML = "SUNDT INDEKLIMA";
     document.getElementById("Status-Heading").style.color = blueColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Din bolig trænger til udluftning i *RUM*, og der er høj luftfugtighed i *RUM*";
 }
 
 function yellowStatus () {
-		document.getElementById("Status-Back-Div").style.backgroundColor = yellowColor;
-    document.getElementById("Status-Image").src = "https://daks2k3a4ib2z.cloudfront.net/58dab8fd2bebde920b1f3557/58ea9d9455b628679c1a1a38_Status-2.svg"
+    document.getElementById("Status-Back-Div").style.backgroundColor = yellowColor;
+    document.getElementById("Status-Image").src = yellowIndicator;
     document.getElementById("Status-Heading").innerHTML = "KAN FORBEDRES";
     document.getElementById("Status-Heading").style.color = yellowColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Din bolig kunne trænge til udluftning i *RUM*, og der er høj luftfugtighed i *RUM*";
 }
 
 function redStatus () {
-		document.getElementById("Status-Back-Div").style.backgroundColor = redColor;
-    document.getElementById("Status-Image").src = "https://daks2k3a4ib2z.cloudfront.net/58dab8fd2bebde920b1f3557/58ea9d94b543ae4fe7653865_Status-1.svg"
+    document.getElementById("Status-Back-Div").style.backgroundColor = redColor;
+    document.getElementById("Status-Image").src = redIndicator;
     document.getElementById("Status-Heading").innerHTML = "CRITICAL INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = redColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in *ROOM*, and the air humidity is too high in *ROOM*.";
@@ -62,42 +62,42 @@ function redStatus () {
 
 //Create a new Room object
 function Room() {
-	this.name = "";
-	this.sensorID = "";
-	this.icon = "";
-	this.temp = "";
-	this.humidity = "";
-	this.airqual = "";
-	this.sensorDetected = false;
-	//Create Room
-	//var room = new Room;
+    this.name = "";
+    this.sensorID = "";
+    this.icon = "";
+    this.temp = "";
+    this.humidity = "";
+    this.airqual = "";
+    this.sensorDetected = false;
+    //Create Room
+    //var room = new Room;
 }
 
 //Create a random number between 2 parameter values
 function randomize (min, max) {
-	var result = (Math.floor((Math.random() * (max-min+1) + min)));
-	return result;
+    var result = (Math.floor((Math.random() * (max-min+1) + min)));
+    return result;
 }
 
 //Create a random temperature between 2 values
 function randomizeTemperature () {
-	var min = 18;
-	var max = 26;
-	return (randomize(min, max));
+    var min = 18;
+    var max = 26;
+    return (randomize(min, max));
 }
 
 //Create a random humidity between 2 values
 function randomizeHumidity () {
-	var min = 30;
-	var max = 80;
-	return (randomize(min, max));
+    var min = 30;
+    var max = 80;
+    return (randomize(min, max));
 }
 
 //Create a random AirQuality between 2 values
 function randomizeAirQual () {
-	var min = 400;
-	var max = 1600;
-	return (randomize(min, max));
+    var min = 400;
+    var max = 1600;
+    return (randomize(min, max));
 }
 
 //Create a random Sensor ID
@@ -118,18 +118,18 @@ for (var i = 0; i < numberOfRooms; i++) {
 var myRoom = new Room;
 
 if (i <= 3) {
-	myRoom.icon = roomIcons[i];
-	myRoom.name = roomNames[i];
-		
+    myRoom.icon = roomIcons[i];
+    myRoom.name = roomNames[i];
+        
 }
 else {
-	myRoom.icon = roomIcons[4];
-	myRoom.name = "" + roomNames[4] + " " + (i - 3);
+    myRoom.icon = roomIcons[4];
+    myRoom.name = "" + roomNames[4] + " " + (i - 3);
 }
 
-	myRoom.sensorID = sensorID();
-	myRoom.temp = randomizeTemperature();
-	myRoom.humidity = randomizeHumidity();
+    myRoom.sensorID = sensorID();
+    myRoom.temp = randomizeTemperature();
+    myRoom.humidity = randomizeHumidity();
   
   /*DEMO*/
   if (returnHumidityStatus(myRoom.humidity) > 2)
@@ -137,7 +137,7 @@ else {
   myRoom.humidity = randomizeHumidity();
   }
   
-	myRoom.airqual = randomizeAirQual();
+    myRoom.airqual = randomizeAirQual();
   
   /*DEMO*/
   if (returnAirQualStatus(myRoom.airqual) > 2)
@@ -145,7 +145,7 @@ else {
   myRoom.airqual = randomizeAirQual();
   }
   
-	myRoom.sensorDetected = true;
+    myRoom.sensorDetected = true;
 
 //Add the room to the rooms array
 rooms.push(myRoom);
@@ -205,7 +205,7 @@ var color = "";
 
 //If the status is 3 or above
 if (status >= 3) {
-	redStatus();
+    redStatus();
 }
 //Else If the status is above 2
 else if (status > 2) {
@@ -219,7 +219,7 @@ else if (status >= 1.5) {
 }
 //Else If the status is lass or equal to 1.5
 else if (status < 1.5) {
-	greenStatus();
+    greenStatus();
 }
 }
 
@@ -256,7 +256,7 @@ var yellowColorMin = 1000;
 var yellowColorMax = 1299;
 var redColorMin = 1300;
 var redColorMax = 1600;
-	
+    
 if (value > redColorMin)
 {
 //console.log('RedColor ', value);
@@ -316,15 +316,15 @@ return greenColor;
 }
 
 function returnAirQualStatusImage (value) {
-	if (value === redColor) {
-		return redIndicator;
-	}
-	else if (value === yellowColor) {
-		return yellowIndicator;
-	}
-	else {
-		return greenIndicator;
-	}
+    if (value === redColor) {
+        return redIndicator;
+    }
+    else if (value === yellowColor) {
+        return yellowIndicator;
+    }
+    else {
+        return greenIndicator;
+    }
 }
 
 function setRoomDetailsOnDom () {
@@ -365,5 +365,5 @@ calculateOverallStatus();
 $('document').ready(function(){
          // your code
   console.log("The Dom has loaded");
-	setRoomDetailsOnDom();
+    setRoomDetailsOnDom();
    });
