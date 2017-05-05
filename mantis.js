@@ -31,25 +31,25 @@ function greenStatus () {
 //Green status
     document.getElementById("Status-Back-Div").style.backgroundColor = greenColor;
     document.getElementById("Status-Image").src = greenIndicator;
-    document.getElementById("Status-Heading").innerHTML = "RIGTIG GODT INDEKLIMA";
+    document.getElementById("Status-Heading").innerHTML = "GREAT INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = greenColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Din bolig har et rigtig godt og sundt indeklima.";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home has a great overall indoor climate.";
 }
 
 function blueStatus () {
     document.getElementById("Status-Back-Div").style.backgroundColor = blueColor;
     document.getElementById("Status-Image").src = blueIndicator;
-    document.getElementById("Status-Heading").innerHTML = "SUNDT INDEKLIMA";
+    document.getElementById("Status-Heading").innerHTML = "HEALTHY INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = blueColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Din bolig trænger til udluftning i *RUM*, og der er høj luftfugtighed i *RUM*";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home could need ventilation in " + rooms[0].name ", but there is a good overall indoor climate.";
 }
 
 function yellowStatus () {
     document.getElementById("Status-Back-Div").style.backgroundColor = yellowColor;
     document.getElementById("Status-Image").src = yellowIndicator;
-    document.getElementById("Status-Heading").innerHTML = "KAN FORBEDRES";
+    document.getElementById("Status-Heading").innerHTML = "COULD BE IMPROVED";
     document.getElementById("Status-Heading").style.color = yellowColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Din bolig kunne trænge til udluftning i *RUM*, og der er høj luftfugtighed i *RUM*";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in room " + rooms[0].name ", and " + rooms[1].name + ".";
 }
 
 function redStatus () {
@@ -57,7 +57,7 @@ function redStatus () {
     document.getElementById("Status-Image").src = redIndicator;
     document.getElementById("Status-Heading").innerHTML = "CRITICAL INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = redColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in *ROOM*, and the air humidity is too high in *ROOM*.";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in room " + rooms[0].name ", and " + rooms[1].name + ".";
 }
 
 //Create a new Room object
