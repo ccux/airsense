@@ -49,7 +49,7 @@ function yellowStatus () {
     document.getElementById("Status-Image").src = yellowIndicator;
     document.getElementById("Status-Heading").innerHTML = "COULD BE IMPROVED";
     document.getElementById("Status-Heading").style.color = yellowColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in room " + rooms[0].name + ", and " + rooms[1].name + ".";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
 
 function redStatus () {
@@ -57,7 +57,7 @@ function redStatus () {
     document.getElementById("Status-Image").src = redIndicator;
     document.getElementById("Status-Heading").innerHTML = "CRITICAL INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = redColor;
-    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in room " + rooms[0].name + ", and " + rooms[1].name + ".";
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
 
 //Create a new Room object
