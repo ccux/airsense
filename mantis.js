@@ -378,3 +378,14 @@ localStorage.setItem('rooms', JSON.stringify(rooms));
   
   });
 
+//Save the RoomData locally
+// Put the object into storage
+localStorage.setItem('rooms', JSON.stringify(rooms));
+
+//Set the links of the rooms to pass the romms to the Detail view
+var roomDetailLinks = document.getElementsByClassName("room-detail-link");
+for (var i = 0; rooms.length > i; i--) {
+    roomDetailLinks[i].href += "?roomid=" + i; 
+}
+
+
