@@ -164,6 +164,7 @@ console.log("1 " + getRoomStatus(rooms[0]));
 console.log("2 " + getRoomStatus(rooms[1]));
 console.log("3 " + getRoomStatus(rooms[2]));
 console.log("4 " + getRoomStatus(rooms[3]));
+console.log("5 " + getRoomStatus(rooms[4]));
 }
 
 
@@ -405,11 +406,13 @@ for (var i = 0; rooms.length > i +1; i++) {
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
 
+calculateOverallStatus();
+setRoomDetailsOnDom();
+
 
 $('document').ready(function(){
          // your code
-calculateOverallStatus();
-setRoomDetailsOnDom();
+
 
 //Save the RoomData locally
 // Put the object into storage
