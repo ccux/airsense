@@ -394,8 +394,9 @@ for (var i = 0; rooms.length > i +1; i++) {
 
 
 
+var hasLoaded = getParameterByName("loaded");
 
-if (getParameterByName("loaded") != null) {
+if (hasLoaded != null) {
 
 console.log("IThe status is loaded", getParameterByName("loaded"));
 }
