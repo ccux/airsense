@@ -393,9 +393,9 @@ for (var i = 0; rooms.length > i +1; i++) {
 }
 
 
-if (getElementsByClassName("loaded")) {
+if (getParameterByName("loaded")) {
 
-console.log("IThe status is loaded", getParameterByName(loaded));
+console.log("IThe status is loaded", getParameterByName("loaded"));
 }
 else {
 console.log("Is the status lis not loaded");
