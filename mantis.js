@@ -363,15 +363,22 @@ airQualIcon.src = airQualIconSrc;
 }
 }
 
+
+//Link parsing function
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 // ################################ RUN PROGRAM ##################################################
 createRooms();
 calculateOverallStatus();
-
-$('document').ready(function(){
-         // your code
-  console.log("The Dom has loaded");
-    setRoomDetailsOnDom();
-   });
+setRoomDetailsOnDom();
 
 //Save the RoomData locally
 // Put the object into storage
@@ -379,12 +386,19 @@ localStorage.setItem('rooms', JSON.stringify(rooms));
 
 //Set the links of the rooms to pass the romms to the Detail view
 var roomDetailLinks = document.getElementsByClassName("room-detail-link");
-for (var i = 0; rooms.length >=  i +1; i++) {
+for (var i = 0; rooms.length > i +1; i++) {
     roomDetailLinks[i].href += "?roomid=" + i; 
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
 
 
+console.log("Is the status loaded? ", getParameterByName(loaded));
+
+
+$('document').ready(function(){
+         // your code
+   
+   });
 
 
