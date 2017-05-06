@@ -371,4 +371,10 @@ $('document').ready(function(){
          // your code
   console.log("The Dom has loaded");
     setRoomDetailsOnDom();
-   });
+ 
+//Save the RoomData locally
+// Put the object into storage
+localStorage.setItem('rooms', JSON.stringify(rooms));
+  
+  });
+
