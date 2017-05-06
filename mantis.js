@@ -362,6 +362,18 @@ var airQualIcon = document.getElementsByClassName('room-block-airquality-status-
 var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
 airQualIcon.src = airQualIconSrc;
 }
+
+//Set the links of the rooms to pass the romms to the Detail view
+var roomDetailLinks = document.getElementsByClassName("room-detail-link");
+
+console.log("TEEEEST ", roomDetailLinks);
+
+for (var i = 0; rooms.length > i; i++) {
+    roomDetailLinks[i].href += "?roomid=" + i; 
+
+     console.log("The new link is: ", roomDetailLinks[i].href);
+}
+
 }
 
 
@@ -395,16 +407,7 @@ createRooms();
 
 }
 
-//Set the links of the rooms to pass the romms to the Detail view
-var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 
-console.log("TEEEEST ", roomDetailLinks);
-
-for (var i = 0; rooms.length > i +1; i++) {
-    roomDetailLinks[i].href += "?roomid=" + i; 
-
-     console.log("The new link is: ", roomDetailLinks[i].href);
-}
 
 calculateOverallStatus();
 setRoomDetailsOnDom();
