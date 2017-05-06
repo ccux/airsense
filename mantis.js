@@ -1,210 +1,173 @@
-var rooms = [];
-var greenColorMin = 0;
-var greenColorMax = 0;
-var yellowColorMax = 0;
-var yellowColorMin = 0;
-var redColorMin = 0;
-var redColorMax = 0;
-
-var maxMonthBars = 12;
-var maxWeekBars = 7;
-
-var minNumber = 1;
-var maxNumber = 100;
-
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
 var yellowColor = '#FFAA54';
+var blueColor = '#3498DB';
 
-var procentageScaleConverter = 148/100;
+var redStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-1.svg";
+var yellowStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-2.svg";
+var blueStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-3.svg";
+var greenStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-4.svg";
 
-var randomNumber = 0;
+var redIndicator = "https://rawgithub.com/ccux/airsense/master/status-red.svg";
+var yellowIndicator = "https://rawgithub.com/ccux/airsense/master/status-yellow.svg";
+var blueIndicator = "https://rawgithub.com/ccux/airsense/master/status-blue.svg";
+var greenIndicator = "https://rawgithub.com/ccux/airsense/master/status-green.svg";
 
-function getRandomNumber () {
-randomNumber = Math.floor((Math.random() * procentageScaleConverter * maxNumber) + minNumber);
-return randomNumber;
+var status = 0;
+
+var numberOfRooms = 5;
+var rooms = [];
+
+var roomNames = ["Living Room",
+                "Kitchen",
+                "Bedroom",
+                "Kids Room",
+                "Room"];
+
+var roomIcons = [
+                "https://raw.githubusercontent.com/ccux/airsense/master/Living%20room%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Kitchen%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Bedroom%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Children%20Room%402x.png",
+                "https://raw.githubusercontent.com/ccux/airsense/master/Office%402x.png"];
+
+
+function greenStatus () {
+//Green status
+    document.getElementById("Status-Back-Div").style.backgroundColor = greenColor;
+    document.getElementById("Status-Image").src = greenStatusImage;
+    document.getElementById("Status-Heading").innerHTML = "GREAT INDOOR CLIMATE";
+    document.getElementById("Status-Heading").style.color = greenColor;
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home has a great overall indoor climate.";
 }
 
-function setTemperatureGraphMonth () {
-
-minNumber = 45;
-maxNumber = 50;
-
-for (var i = Things.length - 1; i >= 0; i--) {
-	Things[i]
+function blueStatus () {
+    document.getElementById("Status-Back-Div").style.backgroundColor = blueColor;
+    document.getElementById("Status-Image").src = blueStatusImage;
+    document.getElementById("Status-Heading").innerHTML = "HEALTHY INDOOR CLIMATE";
+    document.getElementById("Status-Heading").style.color = blueColor;
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home could need ventilation in " + rooms[0].name + ", but otherwise there is a good overall indoor climate.";
 }
 
-for (var i = maxMonthBars; i >= 1; i--) {
-
-document.getElementById("Temp-Graph-Day-", i).style.height = getRandomNumber() + 'px';
-/*
-document.getElementById("Temp-Graph-Day-12").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-11").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-10").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-9").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-8").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-7").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-6").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-5").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-4").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-3").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-2").style.height = getRandomNumber() + 'px';
-document.getElementById("Temp-Graph-Day-1").style.height = getRandomNumber() + 'px';
-*/
+function yellowStatus () {
+    document.getElementById("Status-Back-Div").style.backgroundColor = yellowColor;
+    document.getElementById("Status-Image").src = yellowStatusImage;
+    document.getElementById("Status-Heading").innerHTML = "COULD BE IMPROVED";
+    document.getElementById("Status-Heading").style.color = yellowColor;
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
 
-function setHumidityGraphs () {
-
-minNumber = 40;
-maxNumber = 80;
-
-greenColorMin = 41 * procentageScaleConverter;
-greenColorMax = 59 * procentageScaleConverter;
-yellowColorMin = 0;
-yellowColorMax = 40 * procentageScaleConverter;
-redColorMin = 60 * procentageScaleConverter;
-redColorMax = 100 * procentageScaleConverter;
-
-document.getElementById("Humidity-Graph-1").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-1").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-2").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-2").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-3").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-3").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-4").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-4").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-5").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-5").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-6").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-6").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-7").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-7").style.backgroundColor = setHumidityGtaphBarColor();
+function redStatus () {
+    document.getElementById("Status-Back-Div").style.backgroundColor = redColor;
+    document.getElementById("Status-Image").src = redStatusImage;
+    document.getElementById("Status-Heading").innerHTML = "CRITICAL INDOOR CLIMATE";
+    document.getElementById("Status-Heading").style.color = redColor;
+    document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
 
-function setAirQualityGraphs () {
-
-minNumber = 40;
-maxNumber = 80;
-
-greenColorMin = 0 * procentageScaleConverter;
-greenColorMax = 59 * procentageScaleConverter;
-yellowColorMin = 60;
-yellowColorMax = 89 * procentageScaleConverter;
-redColorMin = 90 * procentageScaleConverter;
-redColorMax = 200 * procentageScaleConverter;
-
-getRandomNumber()
-document.getElementById("AirQuality-Graph-1").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-1").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-2").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-2").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-3").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-3").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-4").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-4").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-5").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-5").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-6").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-6").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-7").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-7").style.backgroundColor = setAirGtaphBarColor();
+//Create a new Room object
+function Room() {
+    this.name = "";
+    this.sensorID = "";
+    this.icon = "";
+    this.temp = "";
+    this.humidity = "";
+    this.airqual = "";
+    this.sensorDetected = false;
+    //Create Room
+    //var room = new Room;
 }
 
+//Create a random number between 2 parameter values
+function randomize (min, max) {
+    var result = (Math.floor((Math.random() * (max-min+1) + min)));
+    return result;
+}
 
-function setHumidityGtaphBarColor ()
+//Create a random temperature between 2 values
+function randomizeTemperature () {
+    var min = 18;
+    var max = 26;
+    return (randomize(min, max));
+}
+
+//Create a random humidity between 2 values
+function randomizeHumidity () {
+    var min = 30;
+    var max = 80;
+    return (randomize(min, max));
+}
+
+//Create a random AirQuality between 2 values
+function randomizeAirQual () {
+    var min = 400;
+    var max = 1600;
+    return (randomize(min, max));
+}
+
+//Create a random Sensor ID
+function sensorID()
 {
-if (randomNumber > redColorMin)
-{
-//console.log('RedColor ', randomNumber);
-return redColor;
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 12; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
 }
-else if (randomNumber > yellowColorMax && randomNumber < redColorMin) {
-//console.log('GreenColor ', randomNumber);
-return greenColor;
+
+//Create the rooms and add the to the rooms array
+function createRooms () {
+for (var i = 0; i < numberOfRooms; i++) {
+var myRoom = new Room;
+
+if (i <= 3) {
+    myRoom.icon = roomIcons[i];
+    myRoom.name = roomNames[i];
+        
 }
 else {
-//console.log('YellowColor ', randomNumber);
-return yellowColor;
-}
-}
-
-function setAirGtaphBarColor ()
-{
-if (randomNumber > redColorMin)
-{
-console.log('RedColor ', randomNumber);
-return redColor;
-}
-else if (randomNumber > greenColorMax && randomNumber < redColorMin) {
-console.log('YellowColor ', randomNumber);
-return yellowColor;
-}
-else {
-console.log('GreenColor ', randomNumber);
-return greenColor;
-}
+    myRoom.icon = roomIcons[4];
+    myRoom.name = "" + roomNames[4] + " " + (i - 3);
 }
 
-//Link parsing function
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    myRoom.sensorID = sensorID();
+    myRoom.temp = randomizeTemperature();
+    myRoom.humidity = randomizeHumidity();
+  
+  /*DEMO*/
+  if (returnHumidityStatus(myRoom.humidity) > 2)
+  {
+  myRoom.humidity = randomizeHumidity();
+  }
+  
+    myRoom.airqual = randomizeAirQual();
+  
+  /*DEMO*/
+  if (returnAirQualStatus(myRoom.airqual) > 2)
+  {
+  myRoom.airqual = randomizeAirQual();
+  }
+  
+    myRoom.sensorDetected = true;
+
+//Add the room to the rooms array
+rooms.push(myRoom);
+//console.log(rooms);
+}
+//Sort room array based on 
+rooms.sort(function(a, b){return getRoomStatus(b)-getRoomStatus(a)});
+
+//Print array
+console.log("1 " + getRoomStatus(rooms[0]));
+console.log("2 " + getRoomStatus(rooms[1]));
+console.log("3 " + getRoomStatus(rooms[2]));
+console.log("4 " + getRoomStatus(rooms[3]));
+console.log("5 " + getRoomStatus(rooms[4]));
 }
 
-function getRoomsDataFromStorage () {
-// Retrieve the object from storage
-rooms = JSON.parse(localStorage.getItem("rooms"));
-console.log('retrievedObject: ', rooms);
 
-var roomID = getParameterByName("roomid");
-console.log("Room ide is: ", roomID);
-
-var roomName = document.getElementById("detail-title");
-roomName.innerHTML = rooms[roomID].name.toUpperCase();
-
-
-//Set teh room icon
-var roomIcon = document.getElementsByClassName("details-header-status-image")[0];
-roomIcon.src = rooms[roomID].icon;
-
-
-
-
-//Set the back arrow url link so that the rooms will be loaded from memory
-
-var backArrowLink = document.getElementById("back-arrow-link");
-backArrowLink.href += "?loaded=1"; 
-console.log("The new link is: ", backArrowLink.href);
-
-
-var currentStatus = getRoomStatus(rooms[roomID]);
-console.log("The current room status is: ", currentStatus);
-//If the status is 3 or above
-if (currentStatus >= 3) {
-    redStatus();
-}
-//Else If the status is above 2
-else if (currentStatus > 2) {
-  yellowStatus();
-}
-//Else
-else  {
-  greenStatus();
-}
-}
-
-/*WARNING !!! THE FOLLOWING 4 METHODS ARE DIRECT DUBLICATES FROM MAIN.js - THEY SHOULD BE SEPERATED INTO SEPERATE JS FUNCTIONS --- */
 function getRoomStatus (room) {
 
     var midResult = 0;
@@ -213,6 +176,57 @@ function getRoomStatus (room) {
     midResult += hum + air;
 
     return midResult;
+}
+
+function calculateOverallStatus () {
+//First calculate the individual status of each room based on the three factors
+status = 0;
+
+console.log("Status 0: " + status);
+
+var midResult = 0;
+
+for (var i = rooms.length - 1; i >= 0; i--) {
+
+var hum = returnHumidityStatus(rooms[i].humidity);
+var air = returnAirQualStatus(rooms[i].airqual)
+
+console.log("Hum status: " + hum);
+console.log("Air status: " + air);
+
+midResult += hum + air;
+
+console.log("Status " + i + " " + midResult);
+}
+
+status += midResult;
+
+console.log("Status pre /: " + status);
+
+status /= (rooms.length/* * 2*/);
+
+console.log("Total status: " + status);
+
+var color = "";
+
+//If the status is 3 or above
+if (status >= 3) {
+    redStatus();
+}
+//Else If the status is above 2
+else if (status > 2) {
+  yellowStatus();
+
+}
+//Else If the status is above 1.5
+else if (status >= 1.5) {
+  blueStatus();
+
+}
+//Else If the status is lass or equal to 1.5
+else if (status < 1.5) {
+    greenStatus();
+}
 }
 
 function returnHumidityStatus (value) {
@@ -264,32 +278,148 @@ return 0;
 }
 }
 
-function greenStatus () {
-//Green status
-    document.getElementById("status-back-div").style.backgroundColor = greenColor;
-   // document.getElementById("Status-Image").src = greenStatusImage;
-    //document.getElementById("Status-Heading").innerHTML = "GREAT INDOOR CLIMATE";
-    //document.getElementById("Status-Heading").style.color = greenColor;
-    //document.getElementById("Status-Heading-Text").innerHTML = "Your home has a great overall indoor climate.";
+function humidityColor (value) {
+var colorStatus = returnHumidityStatus(value);
+
+console.log('The Color Value is: ' + value + " - And the Color Status is " + colorStatus);
+
+if (colorStatus >= 3)
+{
+//console.log('RedColor ', value);
+return redColor;
+}
+else if (colorStatus === 0) {
+//console.log('GreenColor ', value);
+return greenColor;
+}
+else if (colorStatus === 2){
+//console.log('YellowColor ', value);
+return yellowColor;
+}
+else {
+return greenColor;
+}
 }
 
-function yellowStatus () {
-    document.getElementById("status-back-div").style.backgroundColor = yellowColor;
-   // document.getElementById("Status-Image").src = yellowStatusImage;
-    //document.getElementById("Status-Heading").innerHTML = "COULD BE IMPROVED";
-    //document.getElementById("Status-Heading").style.color = yellowColor;
-    //document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
+function airQualColor (value) {
+var colorStatus = returnAirQualStatus(value);
+if (colorStatus >= 3)
+{
+//console.log('RedColor ', value);
+return redColor;
+}
+else if (colorStatus === 0) {
+//console.log('GreenColor ', value);
+return greenColor;
+}
+else if (colorStatus === 2){
+//console.log('YellowColor ', value);
+return yellowColor;
+}
+else {
+return greenColor;
+}
 }
 
-function redStatus () {
-    document.getElementById("status-back-div").style.backgroundColor = redColor;
-   // document.getElementById("Status-Image").src = redStatusImage;
-   // document.getElementById("Status-Heading").innerHTML = "CRITICAL INDOOR CLIMATE";
-   // document.getElementById("Status-Heading").style.color = redColor;
-   // document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
+function returnAirQualStatusImage (value) {
+    if (value === redColor) {
+        return redIndicator;
+    }
+    else if (value === yellowColor) {
+        return yellowIndicator;
+    }
+    else {
+        return greenIndicator;
+    }
 }
 
-setHumidityGraphs();
-setTemperatureGraphMonth();
-setAirQualityGraphs();
-getRoomsDataFromStorage();
+function setRoomDetailsOnDom () {
+
+//Loop trough the rooms and set the corresponding values
+for (var i = rooms.length - 1; i >= 0; i--) {
+
+//Set the name
+var roomTitle = document.getElementsByClassName('room-block-title')[i];
+//console.log(roomTitle);
+roomTitle.innerHTML = rooms[i].name.toUpperCase();
+
+//Set the temperature
+var temperature = document.getElementsByClassName('temperature-number')[i];
+temperature.innerHTML = rooms[i].temp;
+
+//Set Humidity color
+var humidity = document.getElementsByClassName('room-block-humidity')[i];
+humidity.innerHTML = rooms[i].humidity + "%";
+var statusColor = humidityColor(rooms[i].humidity);
+humidity.style.color = statusColor;
+console.log("Color is: ", statusColor);
+//console.log("TEST " + document.getElementsByClassName('room-block-humidity')[0]);
+
+var roomIcon = document.getElementsByClassName('room-block-icon')[i];
+roomIcon.src = rooms[i].icon;
+
+var airQualIcon = document.getElementsByClassName('room-block-airquality-status-image')[i];
+var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
+airQualIcon.src = airQualIconSrc;
+}
+
+//Set the links of the rooms to pass the romms to the Detail view
+var roomDetailLinks = document.getElementsByClassName("room-detail-link");
+
+console.log("TEEEEST ", roomDetailLinks);
+
+for (var i = 0; rooms.length > i; i++) {
+    roomDetailLinks[i].href += "?roomid=" + i; 
+
+     console.log("The new link is: ", roomDetailLinks[i].href);
+}
+
+}
+
+
+//Link parsing function
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// ################################ RUN PROGRAM ##################################################
+
+
+var hasLoaded = getParameterByName("loaded");
+
+if (hasLoaded != null) {
+
+console.log("The status is already here", getParameterByName("loaded"));
+
+rooms = JSON.parse(localStorage.getItem("rooms"));
+
+}
+else {
+console.log("The main status has not been loaded");
+
+createRooms();
+
+}
+
+
+
+calculateOverallStatus();
+setRoomDetailsOnDom();
+
+
+$('document').ready(function(){
+         // your code
+
+
+//Save the RoomData locally
+// Put the object into storage
+localStorage.setItem('rooms', JSON.stringify(rooms));
+   });
+
+
