@@ -1,5 +1,3 @@
-<script>
-
 var rooms = [];
 var greenColorMin = 0;
 var greenColorMax = 0;
@@ -295,5 +293,3 @@ setHumidityGraphs();
 setTemperatureGraphMonth();
 setAirQualityGraphs();
 getRoomsDataFromStorage();
-
-</script>
