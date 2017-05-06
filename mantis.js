@@ -370,7 +370,7 @@ function getParameterByName(name, url) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
-    if (!results) return "null";
+    if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
@@ -393,7 +393,9 @@ for (var i = 0; rooms.length > i +1; i++) {
 }
 
 
-if (getParameterByName("loaded")) {
+
+
+if (getParameterByName("loaded") != null) {
 
 console.log("IThe status is loaded", getParameterByName("loaded"));
 }
@@ -406,5 +408,3 @@ $('document').ready(function(){
          // your code
    
    });
-
-
