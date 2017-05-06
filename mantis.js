@@ -394,18 +394,6 @@ createRooms();
 
 }
 
-
-
-
-$('document').ready(function(){
-         // your code
-   calculateOverallStatus();
-setRoomDetailsOnDom();
-
-//Save the RoomData locally
-// Put the object into storage
-localStorage.setItem('rooms', JSON.stringify(rooms));
-
 //Set the links of the rooms to pass the romms to the Detail view
 var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 for (var i = 0; rooms.length > i +1; i++) {
@@ -413,6 +401,16 @@ for (var i = 0; rooms.length > i +1; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
+
+
+$('document').ready(function(){
+         // your code
+calculateOverallStatus();
+setRoomDetailsOnDom();
+
+//Save the RoomData locally
+// Put the object into storage
+localStorage.setItem('rooms', JSON.stringify(rooms));
    });
 
 
