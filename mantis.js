@@ -396,6 +396,9 @@ createRooms();
 
 //Set the links of the rooms to pass the romms to the Detail view
 var roomDetailLinks = document.getElementsByClassName("room-detail-link");
+
+console.log("TEEEEST ", roomDetailLinks);
+
 for (var i = 0; rooms.length > i +1; i++) {
     roomDetailLinks[i].href += "?roomid=" + i; 
 
