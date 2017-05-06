@@ -3,6 +3,11 @@ var redColor = '#FF5454';
 var yellowColor = '#FFAA54';
 var blueColor = '#3498DB';
 
+var redStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-1.svg";
+var yellowStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-2.svg";
+var blueStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-3.svg";
+var greenStatusImage = "https://rawgithub.com/ccux/airsense/master/Status-4.svg";
+
 var redIndicator = "https://rawgithub.com/ccux/airsense/master/status-red.svg";
 var yellowIndicator = "https://rawgithub.com/ccux/airsense/master/status-yellow.svg";
 var blueIndicator = "https://rawgithub.com/ccux/airsense/master/status-blue.svg";
@@ -30,7 +35,7 @@ var roomIcons = [
 function greenStatus () {
 //Green status
     document.getElementById("Status-Back-Div").style.backgroundColor = greenColor;
-    document.getElementById("Status-Image").src = greenIndicator;
+    document.getElementById("Status-Image").src = greenStatusImage;
     document.getElementById("Status-Heading").innerHTML = "GREAT INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = greenColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Your home has a great overall indoor climate.";
@@ -38,7 +43,7 @@ function greenStatus () {
 
 function blueStatus () {
     document.getElementById("Status-Back-Div").style.backgroundColor = blueColor;
-    document.getElementById("Status-Image").src = blueIndicator;
+    document.getElementById("Status-Image").src = blueStatusImage;
     document.getElementById("Status-Heading").innerHTML = "HEALTHY INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = blueColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Your home could need ventilation in " + rooms[0].name + ", but otherwise there is a good overall indoor climate.";
@@ -46,7 +51,7 @@ function blueStatus () {
 
 function yellowStatus () {
     document.getElementById("Status-Back-Div").style.backgroundColor = yellowColor;
-    document.getElementById("Status-Image").src = yellowIndicator;
+    document.getElementById("Status-Image").src = yellowStatusImage;
     document.getElementById("Status-Heading").innerHTML = "COULD BE IMPROVED";
     document.getElementById("Status-Heading").style.color = yellowColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
@@ -54,7 +59,7 @@ function yellowStatus () {
 
 function redStatus () {
     document.getElementById("Status-Back-Div").style.backgroundColor = redColor;
-    document.getElementById("Status-Image").src = redIndicator;
+    document.getElementById("Status-Image").src = redStatusImage;
     document.getElementById("Status-Heading").innerHTML = "CRITICAL INDOOR CLIMATE";
     document.getElementById("Status-Heading").style.color = redColor;
     document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
