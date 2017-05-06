@@ -395,7 +395,11 @@ createRooms();
 }
 
 
-calculateOverallStatus();
+
+
+$('document').ready(function(){
+         // your code
+   calculateOverallStatus();
 setRoomDetailsOnDom();
 
 //Save the RoomData locally
@@ -409,10 +413,6 @@ for (var i = 0; rooms.length > i +1; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
-
-$('document').ready(function(){
-         // your code
-   
    });
 
 
