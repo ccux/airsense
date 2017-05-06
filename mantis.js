@@ -393,7 +393,14 @@ for (var i = 0; rooms.length > i +1; i++) {
 }
 
 
-console.log("Is the status loaded? ", getParameterByName(loaded));
+if (getElementsByClassName"loaded") {
+
+console.log("IThe status is loaded", getParameterByName(loaded));
+}
+else {
+console.log("Is the status lis not loaded");
+
+}
 
 
 $('document').ready(function(){
