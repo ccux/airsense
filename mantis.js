@@ -371,12 +371,7 @@ $('document').ready(function(){
          // your code
   console.log("The Dom has loaded");
     setRoomDetailsOnDom();
- 
-//Save the RoomData locally
-// Put the object into storage
-localStorage.setItem('rooms', JSON.stringify(rooms));
-  
-  });
+   });
 
 //Save the RoomData locally
 // Put the object into storage
@@ -386,6 +381,10 @@ localStorage.setItem('rooms', JSON.stringify(rooms));
 var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 for (var i = 0; rooms.length > i; i--) {
     roomDetailLinks[i].href += "?roomid=" + i; 
+
+     console.log("The new link is: ", roomDetailLinks[i].href);
 }
+
+
 
 
