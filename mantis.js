@@ -376,9 +376,7 @@ function getParameterByName(name, url) {
 }
 
 // ################################ RUN PROGRAM ##################################################
-createRooms();
-calculateOverallStatus();
-setRoomDetailsOnDom();
+
 
 //Save the RoomData locally
 // Put the object into storage
@@ -393,19 +391,29 @@ for (var i = 0; rooms.length > i +1; i++) {
 }
 
 
-
 var hasLoaded = getParameterByName("loaded");
 
 if (hasLoaded != null) {
 
-console.log("IThe status is loaded", getParameterByName("loaded"));
-}
-else {
-console.log("Is the status lis not loaded");
+console.log("The status is already here", getParameterByName("loaded"));
+
+rooms = JSON.parse(localStorage.getItem("rooms"));
 
 }
+else {
+console.log("The main status has not been loaded");
+
+createRooms();
+
+}
+
+
+calculateOverallStatus();
+setRoomDetailsOnDom();
 
 $('document').ready(function(){
          // your code
    
    });
+
+
