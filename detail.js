@@ -53,15 +53,15 @@ function setHumidityGraphs () {
 var minNumber = 40;
 var maxNumber = 80;
 
-greenColorMin = 41;
-greenColorMax = 59;
-yellowColorMin = 0;
-yellowColorMax = 40;
-redColorMin = 60;
-redColorMax = 100;
+greenColorMin = 41 * procentageScaleConverter;
+greenColorMax = 59 * procentageScaleConverter;
+yellowColorMin = 0 * procentageScaleConverter;
+yellowColorMax = 40 * procentageScaleConverter;
+redColorMin = 60 * procentageScaleConverter;
+redColorMax = 100 * procentageScaleConverter;
 
 	
-var roomConvertedHumidity = rooms[roomID].humidity;
+var roomConvertedHumidity = rooms[roomID].humidity  * procentageScaleConverter;
 //Set the humidity status text
 if (roomConvertedHumidity > redColorMin) {
 setStatusAndImprovementDescription("red");
@@ -137,12 +137,12 @@ function setAirQualityGraphs () {
 var minNumber = 40;
 var maxNumber = 80;
 
-greenColorMin = 0;// * procentageScaleConverter;
-greenColorMax = 59;// * procentageScaleConverter;
-yellowColorMin = 60;
-yellowColorMax = 89;// * procentageScaleConverter;
-redColorMin = 90;// * procentageScaleConverter;
-redColorMax = 200;// * procentageScaleConverter;
+greenColorMin = 0 * procentageScaleConverter;
+greenColorMax = 59 * procentageScaleConverter;
+yellowColorMin = 60 * procentageScaleConverter;
+yellowColorMax = 89 * procentageScaleConverter;
+redColorMin = 90 * procentageScaleConverter;
+redColorMax = 200 * procentageScaleConverter;
 
 	/*
 getRandomNumber(minNumber, maxNumber)
@@ -183,6 +183,7 @@ document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQ
 	
 else {
 var randomAirQual = getRandomNumber(minNumber, maxNumber);// * procentageScaleConverter;
+randomAirQual = randomAirQual * procentageScaleConverter
 console.log("My random air qual is: ", randomAirQual);
 document.getElementById(myID).style.height = randomAirQual + 'px';
 console.log("My random graph hight is : ", document.getElementById(myID).style.height);
