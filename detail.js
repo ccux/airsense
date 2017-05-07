@@ -1,4 +1,3 @@
-<script>
 
 var rooms = [];
 var greenColorMin = 0;
@@ -342,6 +341,3 @@ document.getElementById("detail-status-description").innerHTML = humidityDescrip
 
 //Air Quality
 }
-
-
-</script>
