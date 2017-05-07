@@ -86,15 +86,50 @@ if (i === 1) {
 var myHumidity = rooms[roomID].humidity * procentageScaleConverter; //Does not show up 100% accuratly
 document.getElementById(myID).style.height = myHumidity + 'px';
 document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor(myHumidity);
+	
 }
 else {
 document.getElementById(myID).style.height = getRandomNumber() + 'px';
 document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor();
 }
 }
-
-
+	
+//Set the humidity status text
+if (rooms[roomID].humidity > redColorMin) {
+setStatusAndImprovementDescription("red");
 }
+else if (value > yellowColorMax && value < redColorMin) {
+setStatusAndImprovementDescription("green"); 
+}
+else {
+setStatusAndImprovementDescription("yellow"); 
+}
+}
+
+//Setup the detail text
+//Status ID: detail-status-description
+//Solution ID: detail-status-solution
+function setStatusAndImprovementDescription (status) {
+//Humidity
+var humidityDescriptionText = "";
+
+// Red status
+if (status === "red") {
+humidityDescriptionText = "This room has a very high humidity of " + rooms[roomID].humidity + "%. This can cause mould and fongus if the temperature gets too low. Make sure that you ventilate the room to bring the humidity down.";
+}
+// Yellow status
+else if (status === "yellow") {
+humidityDescriptionText = "This room has a low humidity level of " + rooms[roomID].humidity + "%. This can cause irritation for the loungs and allergies.";
+}
+// Green Status
+else if (status === "green") {
+humidityDescriptionText = "This room has a great humidity level of " + rooms[roomID].humidity + "%. Keep up the good work!";
+}
+//Set the text description on the DOM
+document.getElementById("detail-status-description").innerHTML = humidityDescriptionText;
+}
+
+
 
 function setAirQualityGraphs () {
 
@@ -320,27 +355,7 @@ setAirQualityGraphs();
 
 
 
-//Setup the detail text
 
-//Status ID: detail-status-description
-//Solution ID: detail-status-solution
-function setStatusAndImprovementDescription () {
-//Humidity
-var humidityDescriptionText = "";
-
-// Red status
-humidityDescriptionText = "This room has a very high humidity of " + rooms[roomID].humidity + "%. This can cause mould and fongus if the temperature gets too low. Make sure that you ventilate the room to bring the humidity down.";
-
-// Yellow status
-humidityDescriptionText = "This room has a low humidity level of " + rooms[roomID].humidity + "%. This can cause irritation for the loungs and allergies.";
-
-// Green Status
-humidityDescriptionText = "This room has a great humidity level of " + rooms[roomID].humidity + "%. Keep up the good work!";
-
-document.getElementById("detail-status-description").innerHTML = humidityDescriptionText;
-
-//Air Quality
-}
 
 
 $(window).load(function() {
