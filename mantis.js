@@ -1,4 +1,4 @@
-<script type='text/javascript'>
+
 
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
@@ -432,6 +432,3 @@ $('document').ready(function(){
   
 
    });
-
-
-</script>
