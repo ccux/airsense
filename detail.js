@@ -97,12 +97,15 @@ document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor()
 //Set the humidity status text
 if (rooms[roomID].humidity > redColorMin) {
 setStatusAndImprovementDescription("red");
+	console.log("Status - Red color");
 }
 else if (rooms[roomID].humidity > yellowColorMax && rooms[roomID].humidity < redColorMin) {
 setStatusAndImprovementDescription("green"); 
+	console.log("Status - green color");
 }
 else {
 setStatusAndImprovementDescription("yellow"); 
+	console.log("Status - Yellow color");
 }
 }
 
