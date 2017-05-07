@@ -417,7 +417,7 @@ $(window).load(function() {
   var loadingDiv = document.getElementsByClassName("loading")[0];
   console.log("Div is: ", loadingDiv);
   //loadingDiv.style.display = "none"
-  $(".loading").delay(1200).fadeOut();
+  $(".loading").delay(200).fadeOut();
 
 //Save the RoomData locally
 // Put the object into storage
