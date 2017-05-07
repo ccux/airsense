@@ -142,15 +142,15 @@ var airQualyDescriptionText = "";
 
 // Red status
 if (status === "red") {
-airQualyDescriptionText = "\nThe room has a very high CO2 level at " + rooms[roomID].airQual + "PPM. Research shows that levels above 1000 PPM has an effect on the mental performance of people that are in the rooms.";
+airQualyDescriptionText = "\nThe room has a very high CO2 level at " + rooms[roomID].airqual + "PPM. Research shows that levels above 1000 PPM has an effect on the mental performance of people that are in the rooms.";
 }
 // Yellow status
 else if (status === "yellow") {
-airQualyDescriptionText = "This room has medium/high level of CO2 at " + rooms[roomID].airQual + "PPM. Try not to exceed this level for longer periods of time.";
+airQualyDescriptionText = "This room has medium/high level of CO2 at " + rooms[roomID].airqual + "PPM. Try not to exceed this level for longer periods of time.";
 }
 // Green Status
 else if (status === "green") {
-airQualyDescriptionText = "This room has a great CO2 level at " + rooms[roomID].airQual + "%. Keep up the good work!";
+airQualyDescriptionText = "This room has a great CO2 level at " + rooms[roomID].airqual + "%. Keep up the good work!";
 }
 //Set the text description on the DOM
 document.getElementById("detail-status-description").innerHTML += airQualyDescriptionText;
@@ -171,7 +171,7 @@ redColorMin = 90 * procentageScaleConverter;
 redColorMax = 200 * procentageScaleConverter;
 	
 	
-var roomConvertedAirQual = rooms[roomID].airQual  * procentageScaleConverter;
+var roomConvertedAirQual = rooms[roomID].airqual  * procentageScaleConverter;
 //Set the humidity status text
 if (roomConvertedAirQual > redColorMin) {
 setStatusAndImprovementDescriptionAir("red");
@@ -194,7 +194,7 @@ var myID = "AirQuality-Graph-" + i;
 //onsole.log(myID);
 
 if (i === 1) {
-var myAirQual = rooms[roomID].airQual * procentageScaleConverter; //Does not show up 100% accuratly
+var myAirQual = rooms[roomID].airqual * procentageScaleConverter; //Does not show up 100% accuratly
 document.getElementById(myID).style.height = myAirQual + 'px';
 document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQual);	
 }
