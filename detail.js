@@ -25,8 +25,6 @@ var roomID = "";
 
 function getRandomNumber () {
 randomNumber = Math.floor((Math.random() * maxNumber) + minNumber);
-randomNumber = randomNumber * procentageScaleConverter;
-console.log("Random number is: ", randomNumber);
 return randomNumber;
 }
 
