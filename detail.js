@@ -93,6 +93,7 @@ document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor(m
 }
 else {
 var randomHumidity = getRandomNumber(minNumber, maxNumber);// * procentageScaleConverter;
+randomHumidity = randomHumidity * procentageScaleConverter;
 console.log("My random humidity is: ", randomHumidity);
 document.getElementById(myID).style.height = randomHumidity + 'px';
 console.log("My random graph hight is : ", document.getElementById(myID).style.height);
