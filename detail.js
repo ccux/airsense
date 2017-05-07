@@ -119,6 +119,8 @@ document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor()
 function setStatusAndImprovementDescription (status) {
 //Humidity
 var humidityDescriptionText = "";
+	
+	console.log("The status is: ", status);
 
 // Red status
 if (status === "red") {
@@ -179,7 +181,7 @@ function setHumidityGtaphBarColor (value)
 
 if (!value) {
 	value = randomNumber;
-	console.log("The random number is not here!");
+	//console.log("The random number is not here!");
 }
 
 if (value > redColorMin)
