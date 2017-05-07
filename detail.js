@@ -31,8 +31,8 @@ return randomNumber;
 
 function setTemperatureGraphMonth () {
 
-var minNumber = 45;
-var maxNumber = 50;
+var minNumber = 60;
+var maxNumber = 70;
 
 for (var i = maxDayBars; i >= 1; i--) {
 
@@ -50,8 +50,8 @@ document.getElementById(myID).style.height = getRandomNumber(minNumber, maxNumbe
 
 function setHumidityGraphs () {
 
-var minNumber = 40;
-var maxNumber = 80;
+var minNumber = 35;
+var maxNumber = 70;
 
 greenColorMin = 41 * procentageScaleConverter;
 greenColorMax = 59 * procentageScaleConverter;
@@ -134,8 +134,8 @@ document.getElementById("detail-status-description").innerHTML = humidityDescrip
 
 function setAirQualityGraphs () {
 
-var minNumber = 40;
-var maxNumber = 80;
+var minNumber = 30;
+var maxNumber = 90;
 
 greenColorMin = 0 * procentageScaleConverter;
 greenColorMax = 59 * procentageScaleConverter;
