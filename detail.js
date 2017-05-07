@@ -23,8 +23,9 @@ var procentageScaleConverter = 148/100;
 
 var roomID = "";
 
+//Random number test
 function getRandomNumber (minNumber, maxNumber) {
-var randomNumber = Math.floor((Math.random() * maxNumber) + minNumber);
+var randomNumber = Math.floor(Math.random() * (maxNumber - minNumber+1) + minNumber);
 return randomNumber;
 }
 
