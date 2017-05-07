@@ -96,7 +96,7 @@ var randomHumidity = getRandomNumber(minNumber, maxNumber);// * procentageScaleC
 console.log("My random humidity is: ", randomHumidity);
 document.getElementById(myID).style.height = randomHumidity + 'px';
 console.log("My random graph hight is : ", document.getElementById(myID).style.height);
-document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor();
+document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor(randomHumidity);
 console.log("My random color is : ", document.getElementById(myID).style.backgroundColor);
 }
 }
