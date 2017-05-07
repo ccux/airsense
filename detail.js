@@ -91,7 +91,7 @@ document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor(m
 	
 }
 else {
-var randomHumidity = getRandomNumber() * procentageScaleConverter;
+var randomHumidity = getRandomNumber();// * procentageScaleConverter;
 document.getElementById(myID).style.height = randomHumidity + 'px';
 document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor();
 }
