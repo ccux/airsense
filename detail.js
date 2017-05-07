@@ -10,8 +10,8 @@ var redColorMax = 0;
 var maxDayBars = 12;
 var maxWeekBars = 7;
 
-var minNumber = 1;
-var maxNumber = 100;
+//var minNumber = 1;
+//var maxNumber = 100;
 
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
@@ -19,19 +19,19 @@ var yellowColor = '#FFAA54';
 
 var procentageScaleConverter = 148/100;
 
-var randomNumber = 0;
+//var randomNumber = 0;
 
 var roomID = "";
 
-function getRandomNumber () {
-randomNumber = Math.floor((Math.random() * maxNumber) + minNumber);
+function getRandomNumber (minNumber, maxNumber) {
+var randomNumber = Math.floor((Math.random() * maxNumber) + minNumber);
 return randomNumber;
 }
 
 function setTemperatureGraphMonth () {
 
-minNumber = 45;
-maxNumber = 50;
+var minNumber = 45;
+var maxNumber = 50;
 
 for (var i = maxDayBars; i >= 1; i--) {
 
@@ -42,15 +42,15 @@ var myTemperature = rooms[roomID].temp * procentageScaleConverter; //Does not sh
 document.getElementById(myID).style.height = myTemperature + 'px';
 }
 else {
-document.getElementById(myID).style.height = getRandomNumber() + 'px';
+document.getElementById(myID).style.height = getRandomNumber(minNumber, maxNumber) + 'px';
 }
 }
 }
 
 function setHumidityGraphs () {
 
-minNumber = 40;
-maxNumber = 80;
+var minNumber = 40;
+var maxNumber = 80;
 
 greenColorMin = 41;
 greenColorMax = 59;
@@ -91,7 +91,7 @@ document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor(m
 	
 }
 else {
-var randomHumidity = getRandomNumber();// * procentageScaleConverter;
+var randomHumidity = getRandomNumber(minNumber, maxNumber);// * procentageScaleConverter;
 console.log("My random humidity is: ", randomHumidity);
 document.getElementById(myID).style.height = randomHumidity + 'px';
 console.log("My random graph hight is : ", document.getElementById(myID).style.height);
@@ -132,8 +132,8 @@ document.getElementById("detail-status-description").innerHTML = humidityDescrip
 
 function setAirQualityGraphs () {
 
-minNumber = 40;
-maxNumber = 80;
+var minNumber = 40;
+var maxNumber = 80;
 
 greenColorMin = 0 * procentageScaleConverter;
 greenColorMax = 59 * procentageScaleConverter;
@@ -142,7 +142,8 @@ yellowColorMax = 89 * procentageScaleConverter;
 redColorMin = 90 * procentageScaleConverter;
 redColorMax = 200 * procentageScaleConverter;
 
-getRandomNumber()
+	/*
+getRandomNumber(minNumber, maxNumber)
 document.getElementById("AirQuality-Graph-1").style.height = randomNumber + 'px';
 document.getElementById("AirQuality-Graph-1").style.backgroundColor = setAirGtaphBarColor();
 getRandomNumber()
@@ -163,6 +164,33 @@ document.getElementById("AirQuality-Graph-6").style.backgroundColor = setAirGtap
 getRandomNumber()
 document.getElementById("AirQuality-Graph-7").style.height = randomNumber + 'px';
 document.getElementById("AirQuality-Graph-7").style.backgroundColor = setAirGtaphBarColor();
+	*/
+	
+	//Set the graph bars
+for (var i = maxWeekBars; i >= 1; i--) {
+
+var myID = "AirQuality-Graph-" + i;
+
+//onsole.log(myID);
+
+if (i === 1) {
+var myAirQual = rooms[roomID].airQual * procentageScaleConverter; //Does not show up 100% accuratly
+document.getElementById(myID).style.height = myAirQual + 'px';
+document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQual);
+	
+}
+else {
+var randomAirQual = getRandomNumber(minNumber, maxNumber);// * procentageScaleConverter;
+console.log("My random air qual is: ", randomAirQual);
+document.getElementById(myID).style.height = randomAirQual + 'px';
+console.log("My random graph hight is : ", document.getElementById(myID).style.height);
+document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(randomAirQual);
+console.log("My random color hight is : ", document.getElementById(myID).style.backgroundColor);
+}
+}
+	
+
+}
 }
 
 
@@ -170,8 +198,8 @@ function setHumidityGtaphBarColor (value)
 {
 
 if (!value) {
-	value = randomNumber;
-	//console.log("The random number is not here!");
+console.log("Error - The random number is not here!");
+return;
 }
 
 if (value > redColorMin)
@@ -189,14 +217,20 @@ return yellowColor;
 }
 }
 
-function setAirGtaphBarColor ()
+function setAirGtaphBarColor (value)
 {
-if (randomNumber > redColorMin)
+	
+if (!value) {	
+console.log("Error - The random number is not here!");
+return;
+}
+	
+if (value > redColorMin)
 {
 //console.log('RedColor ', randomNumber);
 return redColor;
 }
-else if (randomNumber > greenColorMax && randomNumber < redColorMin) {
+else if (value > greenColorMax && value < redColorMin) {
 //console.log('YellowColor ', randomNumber);
 return yellowColor;
 }
