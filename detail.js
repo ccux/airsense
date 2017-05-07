@@ -54,37 +54,37 @@ function setHumidityGraphs () {
 minNumber = 40;
 maxNumber = 80;
 
-greenColorMin = 41 * procentageScaleConverter;
-greenColorMax = 59 * procentageScaleConverter;
+greenColorMin = 41;
+greenColorMax = 59;
 yellowColorMin = 0;
-yellowColorMax = 40 * procentageScaleConverter;
-redColorMin = 60 * procentageScaleConverter;
-redColorMax = 100 * procentageScaleConverter;
+yellowColorMax = 40;
+redColorMin = 60;
+redColorMax = 100;
 
-var roomConvertedHumidity = rooms[roomID].humidity * procentageScaleConverter;
+var roomConvertedHumidity = rooms[roomID].humidity;
 	
 //Set the humidity status text
 if (roomConvertedHumidity > redColorMin) {
 setStatusAndImprovementDescription("red");
-console.log("Status - Red color");
+//console.log("Status - Red color");
 }
 else if (roomConvertedHumidity > yellowColorMax && roomConvertedHumidity < redColorMin) {
 setStatusAndImprovementDescription("green"); 
-console.log("Status - green color");
+//console.log("Status - green color");
 }
 else {
 setStatusAndImprovementDescription("yellow"); 
-console.log("Status - Yellow color");
+//console.log("Status - Yellow color");
 }
 	
-console.log("Status" + rooms[roomID].humidity);
+//console.log("Status" + rooms[roomID].humidity);
 	
 //Set the graph bars
 for (var i = maxWeekBars; i >= 1; i--) {
 
 var myID = "Humidity-Graph-" + i;
 
-console.log(myID);
+//onsole.log(myID);
 
 if (i === 1) {
 var myHumidity = rooms[roomID].humidity * procentageScaleConverter; //Does not show up 100% accuratly
@@ -93,7 +93,8 @@ document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor(m
 	
 }
 else {
-document.getElementById(myID).style.height = getRandomNumber() + 'px';
+var randomHumidity = getRandomNumber() * procentageScaleConverter;
+document.getElementById(myID).style.height = randomHumidity + 'px';
 document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor();
 }
 }
@@ -108,7 +109,7 @@ function setStatusAndImprovementDescription (status) {
 //Humidity
 var humidityDescriptionText = "";
 	
-	console.log("The status is: ", status);
+	//console.log("The status is: ", status);
 
 // Red status
 if (status === "red") {
@@ -191,15 +192,15 @@ function setAirGtaphBarColor ()
 {
 if (randomNumber > redColorMin)
 {
-console.log('RedColor ', randomNumber);
+//console.log('RedColor ', randomNumber);
 return redColor;
 }
 else if (randomNumber > greenColorMax && randomNumber < redColorMin) {
-console.log('YellowColor ', randomNumber);
+//console.log('YellowColor ', randomNumber);
 return yellowColor;
 }
 else {
-console.log('GreenColor ', randomNumber);
+//console.log('GreenColor ', randomNumber);
 return greenColor;
 }
 }
@@ -218,10 +219,10 @@ function getParameterByName(name, url) {
 function getRoomsDataFromStorage () {
 // Retrieve the object from storage
 rooms = JSON.parse(localStorage.getItem("rooms"));
-console.log('retrievedObject: ', rooms);
+//console.log('retrievedObject: ', rooms);
 
 roomID = getParameterByName("roomid");
-console.log("Room ide is: ", roomID);
+//console.log("Room ide is: ", roomID);
 
 var roomName = document.getElementById("detail-title");
 roomName.innerHTML = rooms[roomID].name.toUpperCase();
@@ -238,11 +239,11 @@ roomIcon.src = rooms[roomID].icon;
 
 var backArrowLink = document.getElementById("back-arrow-link");
 backArrowLink.href += "?loaded=1"; 
-console.log("The new link is: ", backArrowLink.href);
+//console.log("The new link is: ", backArrowLink.href);
 
 
 var currentStatus = getRoomStatus(rooms[roomID]);
-console.log("The current room status is: ", currentStatus);
+//console.log("The current room status is: ", currentStatus);
 //If the status is 3 or above
 if (currentStatus >= 3) {
     redStatus();
@@ -358,7 +359,7 @@ setAirQualityGraphs();
 $(window).load(function() {
   
   var loadingDiv = document.getElementsByClassName("loading")[0];
-  console.log("Div is: ", loadingDiv);
+  //console.log("Div is: ", loadingDiv);
   //loadingDiv.style.display = "none"
   $(".loading").fadeOut();
 });
