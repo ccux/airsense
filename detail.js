@@ -23,7 +23,10 @@ var procentageScaleConverter = 148/100;
 
 var roomID = "";
 
-//Random number test
+//Clear the room description text
+document.getElementById("detail-status-description").innerHTML = "";
+
+//Random number
 function getRandomNumber (minNumber, maxNumber) {
 var randomNumber = Math.floor(Math.random() * (maxNumber - minNumber+1) + minNumber);
 return randomNumber;
@@ -111,8 +114,7 @@ console.log("My random color is : ", document.getElementById(myID).style.backgro
 function setStatusAndImprovementDescription (status) {
 //Humidity
 var humidityDescriptionText = "";
-	
-	//console.log("The status is: ", status);
+//console.log("The status is: ", status);
 
 // Red status
 if (status === "red") {
@@ -127,7 +129,31 @@ else if (status === "green") {
 humidityDescriptionText = "This room has a great humidity level of " + rooms[roomID].humidity + "%. Keep up the good work!";
 }
 //Set the text description on the DOM
-document.getElementById("detail-status-description").innerHTML = humidityDescriptionText;
+document.getElementById("detail-status-description").innerHTML += humidityDescriptionText;
+}
+
+//Setup the detail text - Air
+//Status ID: detail-status-description
+//Solution ID: detail-status-solution
+function setStatusAndImprovementDescriptionAir (status) {
+//Humidity
+var airQualyDescriptionText = "";
+//console.log("The status is: ", status);
+
+// Red status
+if (status === "red") {
+airQualyDescriptionText = "\nThe room has a very high CO2 level at " + rooms[roomID].airQual + "PPM. Research shows that levels above 1000 PPM has an effect on the mental performance of people that are in the rooms.";
+}
+// Yellow status
+else if (status === "yellow") {
+airQualyDescriptionText = "This room has medium/high level of CO2 at " + rooms[roomID].airQual + "PPM. Try not to exceed this level for longer periods of time.";
+}
+// Green Status
+else if (status === "green") {
+airQualyDescriptionText = "This room has a great CO2 level at " + rooms[roomID].airQual + "%. Keep up the good work!";
+}
+//Set the text description on the DOM
+document.getElementById("detail-status-description").innerHTML += airQualyDescriptionText;
 }
 
 
@@ -143,32 +169,24 @@ yellowColorMin = 60 * procentageScaleConverter;
 yellowColorMax = 89 * procentageScaleConverter;
 redColorMin = 90 * procentageScaleConverter;
 redColorMax = 200 * procentageScaleConverter;
-
-	/*
-getRandomNumber(minNumber, maxNumber)
-document.getElementById("AirQuality-Graph-1").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-1").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-2").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-2").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-3").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-3").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-4").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-4").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-5").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-5").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-6").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-6").style.backgroundColor = setAirGtaphBarColor();
-getRandomNumber()
-document.getElementById("AirQuality-Graph-7").style.height = randomNumber + 'px';
-document.getElementById("AirQuality-Graph-7").style.backgroundColor = setAirGtaphBarColor();
-	*/
 	
-	//Set the graph bars
+	
+var roomConvertedAirQual = rooms[roomID].airQual  * procentageScaleConverter;
+//Set the humidity status text
+if (roomConvertedAirQual > redColorMin) {
+setStatusAndImprovementDescriptionAir("red");
+//console.log("Status - Red color");
+}
+else if (roomConvertedAirQual > yellowColorMax && roomConvertedAirQual < redColorMin) {
+setStatusAndImprovementDescriptionAir("green"); 
+//console.log("Status - green color");
+}
+else {
+setStatusAndImprovementDescriptionAir("yellow"); 
+//console.log("Status - Yellow color");
+}	
+	
+//Set the graph bars
 for (var i = maxWeekBars; i >= 1; i--) {
 
 var myID = "AirQuality-Graph-" + i;
