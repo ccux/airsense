@@ -59,8 +59,8 @@ yellowColorMax = 40;
 redColorMin = 60;
 redColorMax = 100;
 
-var roomConvertedHumidity = rooms[roomID].humidity;
 	
+var roomConvertedHumidity = rooms[roomID].humidity;
 //Set the humidity status text
 if (roomConvertedHumidity > redColorMin) {
 setStatusAndImprovementDescription("red");
@@ -96,7 +96,7 @@ console.log("My random humidity is: ", randomHumidity);
 document.getElementById(myID).style.height = randomHumidity + 'px';
 console.log("My random graph hight is : ", document.getElementById(myID).style.height);
 document.getElementById(myID).style.backgroundColor = setHumidityGtaphBarColor();
-console.log("My random color hight is : ", document.getElementById(myID).style.backgroundColor);
+console.log("My random color is : ", document.getElementById(myID).style.backgroundColor);
 }
 }
 	
@@ -135,12 +135,12 @@ function setAirQualityGraphs () {
 var minNumber = 40;
 var maxNumber = 80;
 
-greenColorMin = 0 * procentageScaleConverter;
-greenColorMax = 59 * procentageScaleConverter;
+greenColorMin = 0;// * procentageScaleConverter;
+greenColorMax = 59;// * procentageScaleConverter;
 yellowColorMin = 60;
-yellowColorMax = 89 * procentageScaleConverter;
-redColorMin = 90 * procentageScaleConverter;
-redColorMax = 200 * procentageScaleConverter;
+yellowColorMax = 89;// * procentageScaleConverter;
+redColorMin = 90;// * procentageScaleConverter;
+redColorMax = 200;// * procentageScaleConverter;
 
 	/*
 getRandomNumber(minNumber, maxNumber)
@@ -260,7 +260,7 @@ var roomName = document.getElementById("detail-title");
 roomName.innerHTML = rooms[roomID].name.toUpperCase();
 
 
-//Set teh room icon
+//Set the room icon
 var roomIcon = document.getElementsByClassName("details-header-status-image")[0];
 roomIcon.src = rooms[roomID].icon;
 
@@ -379,12 +379,6 @@ getRoomsDataFromStorage();
 setHumidityGraphs();
 setTemperatureGraphMonth();
 setAirQualityGraphs();
-
-
-
-
-
-
 
 
 
