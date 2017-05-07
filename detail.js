@@ -58,13 +58,15 @@ yellowColorMin = 0;
 yellowColorMax = 40 * procentageScaleConverter;
 redColorMin = 60 * procentageScaleConverter;
 redColorMax = 100 * procentageScaleConverter;
+
+var roomConvertedHumidity = rooms[roomID].humidity * procentageScaleConverter;
 	
 //Set the humidity status text
-if (rooms[roomID].humidity > redColorMin) {
+if (roomConvertedHumidity > redColorMin) {
 setStatusAndImprovementDescription("red");
 console.log("Status - Red color");
 }
-else if (rooms[roomID].humidity > yellowColorMax && rooms[roomID].humidity < redColorMin) {
+else if (roomConvertedHumidity > yellowColorMax && roomConvertedHumidity < redColorMin) {
 setStatusAndImprovementDescription("green"); 
 console.log("Status - green color");
 }
