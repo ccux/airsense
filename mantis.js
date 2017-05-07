@@ -415,7 +415,8 @@ setRoomDetailsOnDom();
 
 $('document').ready(function(){
          // your code
-document.getElementsByClassName("loading")[0].style.display = "none";
+  var loadingDiv = document.getElementsByClassName("loading")[0];
+  loadingDiv.style.display = "none"
 
 //Save the RoomData locally
 // Put the object into storage
