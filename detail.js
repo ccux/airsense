@@ -176,9 +176,9 @@ var myID = "AirQuality-Graph-" + i;
 if (i === 1) {
 var myAirQual = rooms[roomID].airQual * procentageScaleConverter; //Does not show up 100% accuratly
 document.getElementById(myID).style.height = myAirQual + 'px';
-document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQual);
-	
+document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQual);	
 }
+	
 else {
 var randomAirQual = getRandomNumber(minNumber, maxNumber);// * procentageScaleConverter;
 console.log("My random air qual is: ", randomAirQual);
@@ -187,9 +187,6 @@ console.log("My random graph hight is : ", document.getElementById(myID).style.h
 document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(randomAirQual);
 console.log("My random color hight is : ", document.getElementById(myID).style.backgroundColor);
 }
-}
-	
-
 }
 }
 
