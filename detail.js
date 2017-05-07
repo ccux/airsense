@@ -347,6 +347,6 @@ $(window).load(function() {
   
   var loadingDiv = document.getElementsByClassName("loading")[0];
   console.log("Div is: ", loadingDiv);
-  loadingDiv.style.display = "none"
-  //$(".loading").fadeOut();
+  //loadingDiv.style.display = "none"
+  $(".loading").fadeOut();
 });
