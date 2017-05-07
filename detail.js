@@ -24,7 +24,8 @@ var randomNumber = 0;
 var roomID = "";
 
 function getRandomNumber () {
-randomNumber = Math.floor((Math.random() * procentageScaleConverter * maxNumber) + minNumber);
+randomNumber = Math.floor((Math.random() * maxNumber) + minNumber);
+randomNumber = randomNumber * procentageScaleConverter;
 return randomNumber;
 }
 
@@ -75,25 +76,9 @@ setStatusAndImprovementDescription("yellow");
 console.log("Status - Yellow color");
 }
 	
-console.log("Status" + rooms[roomID].humidity);	
-
-/*
-document.getElementById("Humidity-Graph-1").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-1").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-2").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-2").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-3").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-3").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-4").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-4").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-5").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-5").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-6").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-6").style.backgroundColor = setHumidityGtaphBarColor();
-document.getElementById("Humidity-Graph-7").style.height = getRandomNumber() + 'px';
-document.getElementById("Humidity-Graph-7").style.backgroundColor = setHumidityGtaphBarColor();
-*/
-
+console.log("Status" + rooms[roomID].humidity);
+	
+//Set the graph bars
 for (var i = maxWeekBars; i >= 1; i--) {
 
 var myID = "Humidity-Graph-" + i;
