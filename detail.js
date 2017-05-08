@@ -1,3 +1,8 @@
+//Set the loading indicator
+  var loading = document.getElementsByClassName("loading")[0];
+  //console.log("Div is: ", loadingDiv);
+  loading.style.display = "block"
+
 
 var rooms = [];
 var greenColorMin = 0;
