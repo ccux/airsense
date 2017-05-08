@@ -199,7 +199,9 @@ var myID = "AirQuality-Graph-" + i;
 //onsole.log(myID);
 
 if (i === 1) {
-var myAirQual = rooms[roomID].airqual * procentageScaleConverter; //Does not show up 100% accuratly
+//var myAirQual = rooms[roomID].airqual * procentageScaleConverter; //Does not show up 100% accuratly
+var myAirQual = getRandomNumber(minNumber, maxNumber);
+myAirQual = myAirQual * procentageScaleConverter;
 document.getElementById(myID).style.height = myAirQual + 'px';
 document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQual);	
 console.log("This is my airquality graph height", myAirQual, rooms[roomID].airqual);
@@ -207,7 +209,7 @@ console.log("This is my airquality graph height", myAirQual, rooms[roomID].airqu
 	
 else {
 var randomAirQual = getRandomNumber(minNumber, maxNumber);// * procentageScaleConverter;
-randomAirQual = randomAirQual * procentageScaleConverter
+randomAirQual = randomAirQual * procentageScaleConverter;
 console.log("My random air qual is: ", randomAirQual);
 document.getElementById(myID).style.height = randomAirQual + 'px';
 console.log("My random graph hight is : ", document.getElementById(myID).style.height);
