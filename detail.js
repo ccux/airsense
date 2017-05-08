@@ -1,8 +1,8 @@
-//Set the loading indicator
+/*//Set the loading indicator
   var loading = document.getElementById("loading");
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "block"
-
+*/
 
 var rooms = [];
 var greenColorMin = 0;
@@ -412,9 +412,10 @@ setAirQualityGraphs();
 
 
 $(window).load(function() {
-  
+ /* 
   var loadingDiv = document.getElementById("loading");
   //console.log("Div is: ", loadingDiv);
   loadingDiv.style.display = "none"
  // $("#loading").fadeOut();
+ */
 });
