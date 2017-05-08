@@ -1,5 +1,5 @@
 //Set the loading indicator
-  var loading = document.getElementsByClassName("loading")[0];
+  var loading = document.getElementsByClassName("loading-animation")[0];
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "block";
 
