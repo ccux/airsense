@@ -40,7 +40,7 @@ return randomNumber;
 function setTemperatureGraphMonth () {
 
 var minNumber = 60;
-var maxNumber = 70;
+var maxNumber = 80;
 
 for (var i = maxDayBars; i >= 1; i--) {
 
@@ -48,6 +48,7 @@ var myID = "Temp-Graph-Day-" + i;
 
 if (i === 1) {
 var myTemperature = rooms[roomID].temp * procentageScaleConverter; //Does not show up 100% accuratly
+console.log("Temperature is : "myTemperature);
 document.getElementById(myID).style.height = myTemperature + 'px';
 }
 else {
