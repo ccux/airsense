@@ -202,6 +202,7 @@ if (i === 1) {
 var myAirQual = rooms[roomID].airqual * procentageScaleConverter; //Does not show up 100% accuratly
 document.getElementById(myID).style.height = myAirQual + 'px';
 document.getElementById(myID).style.backgroundColor = setAirGtaphBarColor(myAirQual);	
+console.log("This is my airquality graph height", myAirQual, rooms[roomID].airqual);
 }
 	
 else {
