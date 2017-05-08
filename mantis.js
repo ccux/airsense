@@ -1,6 +1,6 @@
 //Set the loading indicator
   var loading = document.getElementsByClassName("loading-animation")[0];
-  //console.log("Div is: ", loadingDiv);
+  console.log("Div is: ", loading);
   loading.style.display = "block";
 
 var greenColor = '#4fc14e';
