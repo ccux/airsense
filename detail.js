@@ -1,5 +1,5 @@
 //Set the loading indicator
-  var loading = document.getElementsByClassName("loading-animation")[0];
+  var loading = document.getElementById("loading");
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "block"
 
@@ -413,8 +413,8 @@ setAirQualityGraphs();
 
 $(window).load(function() {
   
-  var loadingDiv = document.getElementsByClassName("loading-animation")[0];
+  var loadingDiv = document.getElementById("loading");
   //console.log("Div is: ", loadingDiv);
-  //loadingDiv.style.display = "none"
-  $(".loading").fadeOut();
+  loadingDiv.style.display = "none"
+ // $("#loading").fadeOut();
 });
