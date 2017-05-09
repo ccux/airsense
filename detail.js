@@ -47,8 +47,10 @@ for (var i = maxDayBars; i >= 1; i--) {
 var myID = "Temp-Graph-Day-" + i;
 
 if (i === 1) {
-var myTemperature = rooms[roomID].temp * procentageScaleConverter; //Does not show up 100% accuratly
-console.log("Temperature is : ", myTemperature);
+//100% is 30 degrees (145px) 1 
+var tempScale = 145/30;
+var myTemperature = rooms[roomID].temp * tempScale; //Does not show up 100% accuratly
+console.log("Temperature now is : ", rooms[roomID].temp);
 document.getElementById(myID).style.height = myTemperature + 'px';
 }
 else {
