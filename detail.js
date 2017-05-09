@@ -435,7 +435,7 @@ getRoomsDataFromStorage();
 setHumidityGraphs();
 setTemperatureGraphMonth();
 setAirQualityGraphs();
-
+buildGraphWithData(0,0,0);
 
 function buildGraphWithData (duration, dataSetArray, onObject) {
 //Experiment with graph
