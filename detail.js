@@ -305,7 +305,13 @@ rooms = JSON.parse(localStorage.getItem("rooms"));
 
 roomID = getParameterByName("roomid");
 //console.log("Room ide is: ", roomID);
-
+	
+//Redirect if no room is selected	
+if (roomID === null) {
+// similar behavior as an HTTP redirect
+window.location.replace("http://mantis-e9c0de.webflow.io/");	
+}	
+	
 var roomName = document.getElementById("detail-title");
 roomName.innerHTML = rooms[roomID].name.toUpperCase();
 
