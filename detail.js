@@ -435,7 +435,6 @@ getRoomsDataFromStorage();
 setHumidityGraphs();
 setTemperatureGraphMonth();
 setAirQualityGraphs();
-buildGraphWithData(7,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
 
 function buildGraphWithData (duration, dataSetArray, onObject) {
 //Experiment with graph
@@ -457,7 +456,9 @@ onObject.innerHTML = buildResult;
 }
 
 document.getElementsByClassName("history-graph-view-selector")[0].addEventListener("click", function(){
-    alert("Hello world");
+    
+buildGraphWithData(7,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
+
 });
 
 $(window).load(function() {
