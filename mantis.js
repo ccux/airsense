@@ -1,7 +1,7 @@
-/*//Set the loading indicator
+//Set the loading indicator
   var loading = document.getElementById("loading");
   console.log("Div is: ", loading);
-  loading.style.display = "block";*/
+  loading.style.display = "flex";
 
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
@@ -423,11 +423,11 @@ setRoomDetailsOnDom();
 
 $(window).load(function() {
   
-/*  var loadingDiv = document.getElementById("loading");
+  var loadingDiv = document.getElementById("loading");
   console.log("Div is: ", loadingDiv);
   loadingDiv.style.display = "none"
   //$(".loading").fadeOut();
-*/
+
 //Save the RoomData locally
 // Put the object into storage
 localStorage.setItem('rooms', JSON.stringify(rooms));
