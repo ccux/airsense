@@ -11,8 +11,8 @@ function scrollFunction() {
 	
     if (scrollPos < 0) {
        // document.getElementsByClassName("nav-bar")[0].style.position = "fixed";
-        document.getElementsByClassName("nav-bar")[0].style.top = "0px";
-	document.getElementsByClassName("nav-bar")[0].style.top = scrollPos;
+       // document.getElementsByClassName("nav-bar")[0].style.top = "0px";
+	//document.getElementsByClassName("nav-bar")[0].style.top = scrollPos;
     } else {
        // document.getElementsByClassName("nav-bar")[0].style.position = "relative";
     }
