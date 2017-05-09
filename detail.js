@@ -48,7 +48,7 @@ var myID = "Temp-Graph-Day-" + i;
 
 if (i === 1) {
 var myTemperature = rooms[roomID].temp * procentageScaleConverter; //Does not show up 100% accuratly
-console.log("Temperature is : "myTemperature);
+console.log("Temperature is : ", myTemperature);
 document.getElementById(myID).style.height = myTemperature + 'px';
 }
 else {
