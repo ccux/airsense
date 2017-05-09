@@ -1,7 +1,7 @@
 //Set the loading indicator
   var loading = document.getElementById("loading");
   //console.log("Div is: ", loadingDiv);
-  loading.style.display = "block"
+  loading.style.display = "flex"
 
 var rooms = [];
 var greenColorMin = 0;
