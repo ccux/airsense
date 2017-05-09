@@ -18,6 +18,10 @@ var yellowIndicator = "https://rawgithub.com/ccux/airsense/master/status-yellow.
 var blueIndicator = "https://rawgithub.com/ccux/airsense/master/status-blue.svg";
 var greenIndicator = "https://rawgithub.com/ccux/airsense/master/status-green.svg";
 
+var airQualityIndicatorGreen = "https://rawgithub.com/ccux/airsense/master/images/air-indicator-green.svg";
+var airQualityIndicatorYellow = "https://rawgithub.com/ccux/airsense/master/images/air-indicator-yellow.svg";
+var airQualityIndicatorRed = "https://rawgithub.com/ccux/airsense/master/images/air-indicator-red.svg";
+
 var status = 0;
 
 var numberOfRooms = 5;
@@ -328,13 +332,13 @@ return greenColor;
 
 function returnAirQualStatusImage (value) {
     if (value === redColor) {
-        return redIndicator;
+        return airQualityIndicatorRed;
     }
     else if (value === yellowColor) {
-        return yellowIndicator;
+        return airQualityIndicatorYellow;
     }
     else {
-        return greenIndicator;
+        return airQualityIndicatorGreen;
     }
 }
 
