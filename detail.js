@@ -7,6 +7,8 @@
 function scrollFunction() {
     var scrollPos = document.body.scrollTop;
 
+	console.log("Scrolling");
+	
     if (scrollPos < 0) {
        // document.getElementsByClassName("nav-bar")[0].style.position = "fixed";
         document.getElementsByClassName("nav-bar")[0].style.top = "0px";
