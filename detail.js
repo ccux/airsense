@@ -448,7 +448,7 @@ var buildResult = '';
 for (var i = 0; i <= duration; i++) {
 var height = dataSetArray[i];
 var timeStamp = "" + i;
-var buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + ';"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
+buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + ';"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
 }
 	
 onObject.innerHTML = buildResult;
