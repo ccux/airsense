@@ -8,10 +8,10 @@ function scrollFunction() {
     var scrollPos = document.body.scrollTop;
 
     if (scrollPos < 0) {
-        document.getElementsByClassName("nav-bar")[0].style.position = "fixed";
+       // document.getElementsByClassName("nav-bar")[0].style.position = "fixed";
         document.getElementsByClassName("nav-bar")[0].style.top = "0px";
     } else {
-        document.getElementsByClassName("nav-bar")[0].style.position = "relative";
+       // document.getElementsByClassName("nav-bar")[0].style.position = "relative";
     }
 }
 
