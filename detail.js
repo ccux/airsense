@@ -186,6 +186,8 @@ document.getElementById("detail-status-description").innerHTML += airQualyDescri
 
 function setAirQualityGraphs () {
 
+var realScale = 1600/145;	
+	
 var minNumber = 30;
 var maxNumber = 90;
 
