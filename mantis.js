@@ -41,9 +41,6 @@ var roomIcons = [
                 "https://raw.githubusercontent.com/ccux/airsense/master/Office%402x.png"];
 
 
-var sensorData;
-
-
 function greenStatus () {
 //Green status
     document.getElementById("Status-Back-Div").style.backgroundColor = greenColor;
