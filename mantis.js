@@ -344,7 +344,7 @@ function returnAirQualStatusImage (value) {
     }
 }
 
-/*
+
 function setRoomDetailsOnDom () {
 
 //Loop trough the rooms and set the corresponding values
@@ -385,9 +385,9 @@ for (var i = 0; rooms.length > i; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
-*/
 
-function setRoomDetailsOnDom () {
+
+function setRealRoomDetailsOnDom () {
 
 //Loop trough the rooms and set the corresponding values
 for (var i = sensorData.sensors.length - 1; i >= 0; i--) {
@@ -519,6 +519,7 @@ $('document').ready(function(){
 function logSensorData () {
 console.log(sensorData.sensors[0].latest_data.value);
 
+setRealRoomDetailsOnDom();
 
 
 
