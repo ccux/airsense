@@ -473,7 +473,7 @@ $('document').ready(function(){
 });
 
 
-function logSensorData {
+function logSensorData () {
 console.log(sensorData);
 }
 
