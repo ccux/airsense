@@ -436,6 +436,9 @@ roomBlockHTML += '%</h4></div></div><div class="room-block-air-quality-row room-
 
 var roomBlockDiv = document.getElementsByClassName('room-container').innerHTML = roomBlockHTML;
 
+console.log("Added the new HTML Block");
+
+
 //Set Humidity color
 /*var humidity = document.getElementsByClassName('room-block-humidity')[i];
 humidity.innerHTML = rooms[i].humidity + "%";
