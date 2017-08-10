@@ -437,5 +437,14 @@ localStorage.setItem('rooms', JSON.stringify(rooms));
 
 $('document').ready(function(){
   
+//Set the real values on the DOM
+$.ajax({
+    url: 'http://172.104.145.165/webservice/apartments/1',
+    type: 'GET',
+    success: function (data) {
+        console.log(data.sensors[0].latest_data.value);
+    }
+});
+
 
    });
