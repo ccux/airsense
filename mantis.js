@@ -467,11 +467,14 @@ $('document').ready(function(){
     console.log("We got the data!");
     console.log(data.sensors[0].latest_data.value);
     sensorData = data;
+    logSensorData();
    },
    type: 'GET'
 });
 
 
+function logSensorData {
 console.log(sensorData);
+}
 
 }); //document ready end
