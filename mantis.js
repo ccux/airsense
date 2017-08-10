@@ -444,6 +444,13 @@ for (var i = 0; rooms.length > i; i++) {
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
 }
+
+function logSensorData () {
+console.log(sensorData.sensors[0].latest_data.value);
+console.log(sensorData.sensors.length);
+setRealRoomDetailsOnDom();
+}
+
 // ################################ RUN PROGRAM ##################################################
 
 
@@ -519,7 +526,4 @@ $('document').ready(function(){
 
 }); //document ready end
 
-function logSensorData () {
-console.log(sensorData.sensors[0].latest_data.value);
-console.log(sensorData.sensors.length);
-setRealRoomDetailsOnDom();
+
