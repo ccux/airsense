@@ -419,19 +419,20 @@ var temperature = document.getElementsByClassName('temperature-number')[i];
 temperature.innerHTML = Math.round(sensorData.sensors[i].latest_data.value);//rooms[i].temp;
 
 //Set Humidity color
-var humidity = document.getElementsByClassName('room-block-humidity')[i];
+/*var humidity = document.getElementsByClassName('room-block-humidity')[i];
 humidity.innerHTML = rooms[i].humidity + "%";
 var statusColor = humidityColor(rooms[i].humidity);
 humidity.style.color = statusColor;
 console.log("Color is: ", statusColor);
+*/
 //console.log("TEST " + document.getElementsByClassName('room-block-humidity')[0]);
 
 var roomIcon = document.getElementsByClassName('room-block-icon')[i];
 roomIcon.src = rooms[i].icon;
 
-var airQualIcon = document.getElementsByClassName('room-block-airquality-status-image')[i];
+/*var airQualIcon = document.getElementsByClassName('room-block-airquality-status-image')[i];
 var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
-airQualIcon.src = airQualIconSrc;
+airQualIcon.src = airQualIconSrc;*/
 }
 
 //Set the links of the rooms to pass the romms to the Detail view
