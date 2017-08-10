@@ -439,7 +439,7 @@ var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 
 console.log("TEEEEST ", roomDetailLinks);
 
-for (var i = 0; rooms.length > i; i++) {
+for (var i = 0; sensorData.sensors.length > i; i++) {
     roomDetailLinks[i].href += "?roomid=" + i; 
 
      console.log("The new link is: ", roomDetailLinks[i].href);
