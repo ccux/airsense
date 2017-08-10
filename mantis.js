@@ -24,6 +24,8 @@ var airQualityIndicatorRed = "https://rawgithub.com/ccux/airsense/master/images/
 
 var status = 0;
 
+var sensorData = 0;
+
 var numberOfRooms = 5;
 var rooms = [];
 
@@ -464,6 +466,7 @@ $('document').ready(function(){
    success: function(data) {
     console.log("We got the data!");
     console.log(data.sensors[0].latest_data.value);
+    sensorData = data;
    },
    type: 'GET'
 });
