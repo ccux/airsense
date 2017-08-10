@@ -387,6 +387,22 @@ for (var i = 0; rooms.length > i; i++) {
 }
 
 
+
+
+
+//Link parsing function
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+/*NEW DATA METHODS */
+
 function setRealRoomDetailsOnDom () {
 
 //Loop trough the rooms and set the corresponding values
@@ -427,18 +443,6 @@ for (var i = 0; rooms.length > i; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
-}
-
-
-//Link parsing function
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 // ################################ RUN PROGRAM ##################################################
@@ -518,7 +522,7 @@ $('document').ready(function(){
 
 function logSensorData () {
 console.log(sensorData.sensors[0].latest_data.value);
-
+console.log(sensorData.sensors.length);
 setRealRoomDetailsOnDom();
 
 
