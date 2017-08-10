@@ -1,3 +1,4 @@
+/*
 //Set the loading indicator
   var loading = document.getElementById("loading");
   console.log("Div is: ", loading);
@@ -147,7 +148,7 @@ else {
     myRoom.temp = randomizeTemperature();
     myRoom.humidity = randomizeHumidity();
   
-  /*DEMO*/
+  ///EMO
   if (returnHumidityStatus(myRoom.humidity) > 2)
   {
   myRoom.humidity = randomizeHumidity();
@@ -155,7 +156,7 @@ else {
   
     myRoom.airqual = randomizeAirQual();
   
-  /*DEMO*/
+  //DEMO
   if (returnAirQualStatus(myRoom.airqual) > 2)
   {
   myRoom.airqual = randomizeAirQual();
@@ -214,7 +215,7 @@ status += midResult;
 
 console.log("Status pre /: " + status);
 
-status /= (rooms.length/* * 2*/);
+status /= (rooms.length);
 
 console.log("Total status: " + status);
 
@@ -415,7 +416,7 @@ roomTitle.innerHTML = sensorData.sensors[i].location.toUpperCase();//rooms[i].na
 
 //Set the temperature
 var temperature = document.getElementsByClassName('temperature-number')[i];
-temperature.innerHTML = sensorData.sensors[i].latest_data.value;//rooms[i].temp;
+temperature.innerHTML = Math.round(sensorData.sensors[i].latest_data.value);//rooms[i].temp;
 
 //Set Humidity color
 var humidity = document.getElementsByClassName('room-block-humidity')[i];
@@ -453,7 +454,7 @@ setRealRoomDetailsOnDom();
 
 // ################################ RUN PROGRAM ##################################################
 
-
+/*
 var hasLoaded = getParameterByName("loaded");
 
 if (hasLoaded != null) {
@@ -487,7 +488,7 @@ $(window).load(function() {
 localStorage.setItem('rooms', JSON.stringify(rooms));
   
 });
-
+*/
 
 $('document').ready(function(){
   
