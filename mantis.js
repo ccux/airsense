@@ -444,11 +444,12 @@ $('document').ready(function(){
     $.ajax({
     url: 'http://172.104.145.165/webservice/apartments/1',
     type: 'GET',
-    success: function (data) {
-        console.log(data.sensors[0].latest_data.value);
-        sensorData = data;
-    }
+    success: dataRecieved(data);
     });
 
+    function dataRecieved (data) {
 
-});
+    console.log(data.sensors[0].latest_data.value);
+} 
+
+}); //document ready end
