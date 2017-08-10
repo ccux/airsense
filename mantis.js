@@ -472,9 +472,8 @@ $('document').ready(function(){
    type: 'GET'
 });
 
+}); //document ready end
 
 function logSensorData () {
 console.log(sensorData);
 }
-
-}); //document ready end
