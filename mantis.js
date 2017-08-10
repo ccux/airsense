@@ -41,7 +41,7 @@ var roomIcons = [
                 "https://raw.githubusercontent.com/ccux/airsense/master/Office%402x.png"];
 
 
-var sensorData [];
+var sensorData;
 
 
 function greenStatus () {
