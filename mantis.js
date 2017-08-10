@@ -448,8 +448,8 @@ $('document').ready(function(){
     });
 
     function dataRecieved (data) {
-
+    console.log("We got the data!");
     console.log(data.sensors[0].latest_data.value);
-} 
+    } 
 
 }); //document ready end
