@@ -444,9 +444,9 @@ $('document').ready(function(){
     success: dataRecieved(data)
     });
 
-    function dataRecieved (data) {
+    function dataRecieved (myData) {
     console.log("We got the data!");
-    console.log(data.sensors[0].latest_data.value);
+    console.log(myData.sensors[0].latest_data.value);
     } 
 
 }); //document ready end
