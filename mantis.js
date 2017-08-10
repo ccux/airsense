@@ -468,7 +468,7 @@ airQualIcon.src = airQualIconSrc;*/
 }
 
 //Set the links of the rooms to pass the romms to the Detail view
-var roomDetailLinks = document.getElementsByClassName("room-detail-link");
+/*var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 
 console.log("TEEEEST ", roomDetailLinks);
 
@@ -477,7 +477,7 @@ for (var i = 0; sensorData.sensors.length > i; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
-}
+}*/
 
 function logSensorData () {
 console.log(sensorData.sensors[0].latest_data.value);
