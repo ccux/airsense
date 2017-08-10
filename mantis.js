@@ -434,8 +434,8 @@ roomBlockHTML += '64';
 roomBlockHTML += '%</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b307284023739b1_1-full.svg" width="21"></div></div></div></div>';
 
 
-var roomBlockDiv = document.getElementsByClassName('room-container').innerHTML = roomBlockHTML;
-var roomBlockDiv = $('#room--container').innerHTML = roomBlockHTML;
+//var roomBlockDiv = document.getElementsByClassName('room-container').innerHTML = roomBlockHTML;
+var roomBlockDiv = $("#room--container").append(roomBlockHTML);
 console.log("Added the new HTML Block");
 
 //Set Humidity color
