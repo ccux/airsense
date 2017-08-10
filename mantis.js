@@ -460,7 +460,7 @@ $('document').ready(function(){
    error: function() {
       alert("Json error");
    },
-   dataType: 'jsonp',
+   dataType: 'json',
    success: function(data) {
     console.log("We got the data!");
     console.log(data.sensors[0].latest_data.value);
