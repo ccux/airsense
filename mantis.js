@@ -441,7 +441,7 @@ $('document').ready(function(){
     $.ajax({
     url: 'http://172.104.145.165/webservice/apartments/1',
     type: 'GET',
-    success: dataRecieved(data);
+    success: dataRecieved(data)
     });
 
     function dataRecieved (data) {
