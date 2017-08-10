@@ -465,7 +465,6 @@ roomIcon.src = rooms[i].icon;*/
 /*var airQualIcon = document.getElementsByClassName('room-block-airquality-status-image')[i];
 var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
 airQualIcon.src = airQualIconSrc;*/
-}
 
 //Set the links of the rooms to pass the romms to the Detail view
 /*var roomDetailLinks = document.getElementsByClassName("room-detail-link");
@@ -478,6 +477,7 @@ for (var i = 0; sensorData.sensors.length > i; i++) {
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
 }*/
+}
 
 function logSensorData () {
 console.log(sensorData.sensors[0].latest_data.value);
