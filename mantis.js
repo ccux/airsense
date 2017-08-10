@@ -413,13 +413,13 @@ $("#room--container").empty();
 for (var i = sensorData.sensors.length - 1; i >= 0; i--) {
 
 //Set the name
-var roomTitle = document.getElementsByClassName('room-block-title')[i];
+//var roomTitle = document.getElementsByClassName('room-block-title')[i];
 //console.log(roomTitle);
-roomTitle.innerHTML = sensorData.sensors[i].location.toUpperCase();//rooms[i].name.toUpperCase();
+//roomTitle.innerHTML = sensorData.sensors[i].location.toUpperCase();//rooms[i].name.toUpperCase();
 
 //Set the temperature
-var temperature = document.getElementsByClassName('temperature-number')[i];
-temperature.innerHTML = Math.round(sensorData.sensors[i].latest_data.value);//rooms[i].temp;
+//var temperature = document.getElementsByClassName('temperature-number')[i];
+//temperature.innerHTML = Math.round(sensorData.sensors[i].latest_data.value);//rooms[i].temp;
 
 
 //HTML ROOM BLOCK
