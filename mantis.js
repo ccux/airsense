@@ -427,8 +427,8 @@ console.log("Color is: ", statusColor);
 */
 //console.log("TEST " + document.getElementsByClassName('room-block-humidity')[0]);
 
-var roomIcon = document.getElementsByClassName('room-block-icon')[i];
-roomIcon.src = rooms[i].icon;
+/*var roomIcon = document.getElementsByClassName('room-block-icon')[i];
+roomIcon.src = rooms[i].icon;*/
 
 /*var airQualIcon = document.getElementsByClassName('room-block-airquality-status-image')[i];
 var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
