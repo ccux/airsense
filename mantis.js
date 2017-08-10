@@ -385,7 +385,7 @@ for (var i = 0; rooms.length > i; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
-
+}
 
 
 
@@ -444,7 +444,6 @@ for (var i = 0; rooms.length > i; i++) {
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
 }
-
 // ################################ RUN PROGRAM ##################################################
 
 
@@ -524,8 +523,3 @@ function logSensorData () {
 console.log(sensorData.sensors[0].latest_data.value);
 console.log(sensorData.sensors.length);
 setRealRoomDetailsOnDom();
-
-
-
-
-}
