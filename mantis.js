@@ -471,4 +471,7 @@ $('document').ready(function(){
    type: 'GET'
 });
 
+
+console.log(sensorData);
+
 }); //document ready end
