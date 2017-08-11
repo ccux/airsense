@@ -1,9 +1,9 @@
-/*
+
 //Set the loading indicator
   var loading = document.getElementById("loading");
   console.log("Div is: ", loading);
   loading.style.display = "flex";
-
+/*
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
 var yellowColor = '#FFAA54';
@@ -484,6 +484,11 @@ for (var i = 0; sensorData.sensors.length > i; i++) {
 
      console.log("The new link is: ", roomDetailLinks[i].href);
 }*/
+//Remove the loading animation
+var loadingDiv = document.getElementById("loading");
+  console.log("Div is: ", loadingDiv);
+  loadingDiv.style.display = "none"
+  //$(".loading").fadeOut();
 }
 
 function logSensorData () {
@@ -518,10 +523,7 @@ setRoomDetailsOnDom();
 
 $(window).load(function() {
   
-  var loadingDiv = document.getElementById("loading");
-  console.log("Div is: ", loadingDiv);
-  loadingDiv.style.display = "none"
-  //$(".loading").fadeOut();
+  
 
 //Save the RoomData locally
 // Put the object into storage
