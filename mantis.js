@@ -445,10 +445,8 @@ roomBlockHTML += '%</h4></div></div><div class="room-block-air-quality-row room-
 roomBlockHTML += 'http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b307284023739b1_1-full.svg'; //Airquality image
 roomBlockHTML += '" width="21"></div></div></div></div>';
 
-if (i === sensorData.sensors.length -1) {
-
-}
-
+$("#room--container").append(roomBlockHTML);
+console.log("Added the HTML Block");
 //var roomBlockDiv = document.getElementsByClassName('room-container').innerHTML = roomBlockHTML;
 
 
@@ -469,10 +467,10 @@ var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
 airQualIcon.src = airQualIconSrc;*/
 }
 
-roomBlockHTML += '<div class="room-block-spacing"></div>';
+var roomBlockEndSpacingkHTML += '<div class="room-block-spacing"></div>';
 
-var roomBlockDiv = $("#room--container").append(roomBlockHTML);
-console.log("Added the new HTML Block");
+$("#room--container").append(roomBlockEndSpacingkHTML);
+console.log("Added the end HTML Block spacing");
 //Set the links of the rooms to pass the romms to the Detail view
 /*var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 
