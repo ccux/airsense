@@ -538,8 +538,9 @@ var newTime = dateFromString.getHours();
 var newDataObject = {
   value: newValue,
   time: newTime
-  console.log(time)
 };
+
+console.log(newDataObject.time);
 
 averageDataSet.push(newDataObject);
 }
