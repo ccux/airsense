@@ -427,6 +427,7 @@ var roomBlockHTML = '<div class="room-block';
 
 if (i === sensorData.sensors.length -1) {
 roomBlockHTML += ' room-block-end';
+console.log("Added the block padding");
 }
 
 roomBlockHTML += '"><a class="room-detail-link w-inline-block" ';
