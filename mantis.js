@@ -266,29 +266,7 @@ return 2;
 
 }
 
-function returnAirQualStatus (value) {
 
-var greenColorMin = 0;
-var greenColorMax = 999;
-var yellowColorMin = 1000;
-var yellowColorMax = 1299;
-var redColorMin = 1300;
-var redColorMax = 1600;
-    
-if (value > redColorMin)
-{
-//console.log('RedColor ', value);
-return 3;
-}
-else if (value > greenColorMax && value < redColorMin) {
-//console.log('YellowColor ', value);
-return 2;
-}
-else {
-//console.log('GreenColor ', value);
-return 0;
-}
-}
 
 function humidityColor (value) {
 var colorStatus = returnHumidityStatus(value);
@@ -310,6 +288,30 @@ return yellowColor;
 }
 else {
 return greenColor;
+}
+}
+
+function returnAirQualStatus (value) {
+
+var greenColorMin = 0;
+var greenColorMax = 999;
+var yellowColorMin = 1000;
+var yellowColorMax = 1299;
+var redColorMin = 1300;
+var redColorMax = 1600;
+    
+if (value > redColorMin)
+{
+//console.log('RedColor ', value);
+return 3;
+}
+else if (value > greenColorMax && value < redColorMin) {
+//console.log('YellowColor ', value);
+return 2;
+}
+else {
+//console.log('GreenColor ', value);
+return 0;
 }
 }
 
@@ -425,7 +427,7 @@ for (var i = sensorData.sensors.length - 1; i >= 0; i--) {
 //HTML ROOM BLOCK
 roomBlockHTML = '<div class="room-block';
 
-if (i === sensorData.sensors.length -1) {
+if (i === 0) {
 roomBlockHTML += ' room-block-end';
 console.log("Added the block padding");
 }
@@ -440,8 +442,9 @@ roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b
 roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-number">';
 roomBlockHTML += Math.round(sensorData.sensors[i].latest_data.value);
 roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 class="room-block-humidity">';
-roomBlockHTML += 'N/A'; //Set humidity
-roomBlockHTML += '%</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
+roomBlockHTML += 'N/A'; //Set humidity value
+roomBlockHTML += ''; //Humidity unit
+roomBlockHTML += '</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
 roomBlockHTML += 'http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b307284023739b1_1-full.svg'; //Airquality image
 roomBlockHTML += '" width="21"></div></div></div></div>';
 
