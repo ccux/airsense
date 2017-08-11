@@ -3,7 +3,7 @@
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "flex"
 
-
+/*
 function scrollFunction() {
     var scrollPos = document.body.scrollTop;
 
@@ -348,7 +348,12 @@ else  {
 }
 }
 
+
+*/
+
+
 /*WARNING !!! THE FOLLOWING 4 METHODS ARE DIRECT DUBLICATES FROM MAIN.js - THEY SHOULD BE SEPERATED INTO SEPERATE JS FUNCTIONS --- */
+/*
 function getRoomStatus (room) {
 
     var midResult = 0;
@@ -432,6 +437,8 @@ function redStatus () {
    // document.getElementById("Status-Heading").style.color = redColor;
    // document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
+*/
+
 
 /*THE OLD APPLICATION*/
 //getRoomsDataFromStorage();
@@ -439,6 +446,7 @@ function redStatus () {
 //setTemperatureGraphMonth();
 //setAirQualityGraphs();
 
+/*
 function buildGraphWithData (duration, dataSetArray, onObject) {
 //Experiment with graph
 //Graph-Week-Colum-Bar-Container - (is where the garp bars are)
@@ -466,7 +474,7 @@ document.getElementsByClassName("history-graph-view-selector")[0].addEventListen
 buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
 
 });
-
+*/
 $(window).load(function() {
  
   var loadingDiv = document.getElementById("loading");
@@ -558,4 +566,7 @@ buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10
   
 onObject.innerHTML = buildResult;
   */
+
+
+  
 }
