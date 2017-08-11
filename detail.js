@@ -535,7 +535,7 @@ var newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 
 var newDataObject = {
   value: newValue,
-  time: dataSetArray[i].date.getHours();
+  time: dataSetArray[i].date.getHours()
 };
 
 averageDataSet.push(newDataObject);
