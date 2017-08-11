@@ -474,3 +474,25 @@ $(window).load(function() {
  // $("#loading").fadeOut();
 
 });
+
+$('document').ready(function(){
+  
+  //Get Temperature 24hours JSON data
+    $.ajax({
+   url: 'http://172.104.145.165/webservice/apartments/1/sensors/1/history?period=day',
+   data: {
+      format: 'json'
+   },
+   error: function() {
+      alert("Json error");
+   },
+   dataType: 'json',
+   success: function(data) {
+    console.log("JSON temperature apartment data revieced - day!");
+    console.log(data.length);
+    //logSensorData();
+   },
+   type: 'GET'
+});
+
+}); //document ready end
