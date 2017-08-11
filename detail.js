@@ -529,9 +529,10 @@ function buildTemperatureGraphWithData (duration, dataSetArray, onObject) {
 //var graph = document.getElementsByClassName("graph-week-colum-bar-container")[0];
 
 var averageDataSet = [];
+
 for (var i = 0; i < dataSetArray.length; i+2) {
 var newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
-var originalTime = 
+
 var newDataObject = {
   value: newValue,
   time: dataSetArray[i].date.getHours();
@@ -545,8 +546,8 @@ console.log(averageDataSet);
 var buildResult = ''; 
   
 for (var i = 0; i < duration; i++) {
-var height = dataSetArray[i];
-var timeStamp = "" + i;
+var height = dataSetArray[i]; //NEEDS TO ADD THE VALUE
+var timeStamp = averageDataSet[i].time;
 buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + ';"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
 }
   
