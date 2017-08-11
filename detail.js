@@ -504,9 +504,11 @@ for (var i = 0; i < data.length; i++)
   }
 }
 
-console.log("Min temp is:" + minTemp);
-console.log("Max temp is:" + maxTemp);
+console.log("Min temp is:" + Math.round(minTemp);
+console.log("Max temp is:" + Math.round(maxTemp);
 
+
+buildTemperatureGraphWithData(data.length, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
 
     //logSensorData();
    },
@@ -514,3 +516,44 @@ console.log("Max temp is:" + maxTemp);
 });
 
 }); //document ready end
+
+
+function buildTemperatureGraphWithData (duration, dataSetArray, onObject) {
+//Experiment with graph
+
+//buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
+
+//Graph-Week-Colum-Bar-Container - (is where the garp bars are)
+
+//HTML for day graph
+//var graph = document.getElementsByClassName("graph-week-colum-bar-container")[0];
+
+var averageDataSet = [];
+for (var i = 0; i < dataSetArray.length; i+2) {
+var newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
+averageDataSet.push(newValue);
+}
+
+console.log(averageDataSet);
+
+var buildResult = ''; 
+  
+for (var i = 0; i < duration; i++) {
+var height = dataSetArray[i];
+var timeStamp = "" + i;
+buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + ';"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
+}
+  
+onObject.innerHTML = buildResult;
+  //graph.innerHTML = '<div class="graph-week-colum-bar-container w-col w-col-10"><div class="div-block-2"><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-12" style="height: 116px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">18</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10">';
+  //'<div class="graph-week-colum-bar-container w-col w-col-10"><div class="div-block-2"><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-12" style="height: 116px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">18</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-11" style="height: 125.66666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">20</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-10" style="height: 125.66666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">22</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: 125.66666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">00</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-8" style="height: 96.66666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">02</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-7" style="height: 87px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">04</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-6" style="height: 111.16666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">06</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-5" style="height: 87px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">08</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-4" style="height: 96.66666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">10</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-3" style="height: 116px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">12</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-2" style="height: 125.66666666666666px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">14</div></div></div><div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-1" style="height: 91.83333333333333px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">Now</div></div></div></div></div>';
+
+//$("#box").animate({height: "300px"});
+  
+}
+
+//document.getElementsByClassName("history-graph-view-selector")[0].addEventListener("click", function(){
+    
+//buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
+
+});
