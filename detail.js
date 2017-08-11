@@ -504,8 +504,8 @@ for (var i = 0; i < data.length; i++)
   }
 }
 
-console.log("Min temp is:" + Math.round(minTemp);
-console.log("Max temp is:" + Math.round(maxTemp);
+console.log("Min temp is:" + Math.round(minTemp));
+console.log("Max temp is:" + Math.round(maxTemp));
 
 
 buildTemperatureGraphWithData(data.length, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
