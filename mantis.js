@@ -467,7 +467,7 @@ var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
 airQualIcon.src = airQualIconSrc;*/
 }
 
-var roomBlockEndSpacingkHTML += '<div class="room-block-spacing"></div>';
+var roomBlockEndSpacingkHTML = '<div class="room-block-spacing"></div>';
 
 $("#room--container").append(roomBlockEndSpacingkHTML);
 console.log("Added the end HTML Block spacing");
