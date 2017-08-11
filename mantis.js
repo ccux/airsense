@@ -5,7 +5,7 @@
   loading.style.display = "flex";
 
 //Remove the facts section
-$('#fact-section').display.hide();
+$('#fact-section').hide();
 
 /*
 var greenColor = '#4fc14e';
