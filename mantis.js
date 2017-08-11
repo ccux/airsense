@@ -3,6 +3,10 @@
   var loading = document.getElementById("loading");
   console.log("Div is: ", loading);
   loading.style.display = "flex";
+
+//Remove the facts section
+$('#fact-section').display.hide();
+
 /*
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
