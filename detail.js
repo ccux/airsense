@@ -535,12 +535,12 @@ var newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 var dateFromString = new Date(dataSetArray[i].date);
 var newTime = dateFromString.getHours();
 
+console.log(newTime);
+
 var newDataObject = {
   value: newValue,
   time: newTime
 };
-
-console.log(newDataObject.time);
 
 averageDataSet.push(newDataObject);
 }
@@ -548,7 +548,7 @@ averageDataSet.push(newDataObject);
 console.log(averageDataSet);
 
 var buildResult = ''; 
-  
+  /*
 for (var i = 0; i < duration; i++) {
 var height = dataSetArray[i]; //NEEDS TO ADD THE VALUE
 var timeStamp = averageDataSet[i].time;
@@ -556,5 +556,5 @@ buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10
 }
   
 onObject.innerHTML = buildResult;
-  
+  */
 }
