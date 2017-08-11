@@ -544,7 +544,7 @@ var newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 var dateFromString = new Date(dataSetArray[i].date);
 var newTime = dateFromString.getHours();
 
-console.log(newTime);
+console.log(newTime + ' Count:  ' + i);
 
 var newDataObject = {
   value: newValue,
@@ -568,5 +568,5 @@ onObject.innerHTML = buildResult;
   */
 
 
-  
+
 }
