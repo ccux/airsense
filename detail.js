@@ -433,10 +433,11 @@ function redStatus () {
    // document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
 
-getRoomsDataFromStorage();
-setHumidityGraphs();
-setTemperatureGraphMonth();
-setAirQualityGraphs();
+/*THE OLD APPLICATION*/
+//getRoomsDataFromStorage();
+//setHumidityGraphs();
+//setTemperatureGraphMonth();
+//setAirQualityGraphs();
 
 function buildGraphWithData (duration, dataSetArray, onObject) {
 //Experiment with graph
