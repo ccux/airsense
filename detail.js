@@ -600,7 +600,7 @@ $('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) + "</p>");
 $('#temperature-indicator-4').html("<p>" + Math.round((maxTemp / 5) * 4) +"</p>");
 $('#temperature-indicator-3').html("<p>" + Math.round((maxTemp / 5) * 3) +"</p>");
 $('#temperature-indicator-2').html("<p>" + Math.round((maxTemp / 5) * 2) +"</p>");
-$('#temperature-indicator-1').html("<p>" + Math.round(maxTemp / 5) +"</p>");
+$('#temperature-indicator-1').html(Math.round(maxTemp / 5));
 $('#temperature-indicator-0').html("<p>" + 0 + "</p>");
 
 $(".graph-week-colum-bar-container").eq(1).html(buildResult);
