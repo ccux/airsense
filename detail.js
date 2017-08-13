@@ -589,6 +589,6 @@ buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10
   
 /*onObject*/document.getElementsByClassName("graph-week-colum-bar-container")[1].innerHTML = buildResult;
 
-$('.date-label').eq(0).value(maxTemp);
+//$('.date-label').eq(0).value(maxTemp);
 
 }
