@@ -583,6 +583,10 @@ console.log("Max temp is:" + Math.round(maxTemp));
 
 var graphBarScale = 145 / maxTemp;
 
+//Reverse data array
+averageDataSet.reverse();
+
+
 for (var i = 0; i < averageDataSet.length; i++) {
 console.log('Count the bars created:' + ' ' + i);
 var height = averageDataSet[i].value * graphBarScale;
