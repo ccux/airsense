@@ -586,8 +586,10 @@ var timeStamp = averageDataSet[i].time;
 buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + ';"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
 }
   
-/*onObject*/document.getElementsByClassName("graph-week-colum-bar-container")[1].innerHTML = buildResult;
+/*onObject*///document.getElementsByClassName("graph-week-colum-bar-container")[1].innerHTML = 
 
-$('#temperature-indicator-5').html("<p>" + maxTemp + "</p>");
+$(".history-section").eq(1).html(buildResult);
+
+$('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) + "</p>");
 
 }
