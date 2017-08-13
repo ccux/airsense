@@ -517,23 +517,6 @@ $('document').ready(function(){
     }
   }
 
-var minTemp = data[0].data_0;
-var maxTemp = data[0].data_0;
-
-for (var i = 0; i < data.length; i++)
-{
-  if (data[i].data_0 > maxTemp) {
-    maxTemp = data[i].data_0;
-  }
-  if (data[i].data_0 < minTemp) {
-    minTemp = data[i].data_0;
-  }
-};
-
-console.log("Min temp is:" + Math.round(minTemp));
-console.log("Max temp is:" + Math.round(maxTemp));
-
-
 buildTemperatureGraphWithData(data.length, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
 
     //logSensorData();
@@ -574,6 +557,22 @@ averageDataSet.push(newDataObject);
 console.log(averageDataSet);
 
 var buildResult = ''; 
+
+var minTemp = data[0].data_0;
+var maxTemp = data[0].data_0;
+
+for (var i = 0; i < data.length; i++)
+{
+  if (data[i].data_0 > maxTemp) {
+    maxTemp = data[i].data_0;
+  }
+  if (data[i].data_0 < minTemp) {
+    minTemp = data[i].data_0;
+  }
+};
+
+console.log("Min temp is:" + Math.round(minTemp));
+console.log("Max temp is:" + Math.round(maxTemp));
 
 //Show the correstonding graph
 $(".history-section").eq(1).show();
