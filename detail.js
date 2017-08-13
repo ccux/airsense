@@ -579,7 +579,7 @@ $(".history-section").eq(1).show();
 
 var graphBarScale = 145 / maxTemp;
 
-for (var i = 0; i <= duration; i++) {
+for (var i = 0; i < averageDataSet; i++) {
 console.log('Count the bars created:' + ' ' + i);
 var height = averageDataSet[i].value * graphBarScale;
 var timeStamp = averageDataSet[i].time;
