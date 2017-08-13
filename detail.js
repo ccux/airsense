@@ -3,9 +3,9 @@
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "flex"
 
-$(".graph-week-colum-bar-container")[0].hide();
-$(".graph-week-colum-bar-container")[1].hide();
-$(".graph-week-colum-bar-container")[2].hide();
+//$('.graph-week-colum-bar-container')[0].hide();
+//$('.graph-week-colum-bar-container')[1].hide();
+//$('.graph-week-colum-bar-container')[2].hide();
 
 
 /*
@@ -576,7 +576,7 @@ console.log(averageDataSet);
 var buildResult = ''; 
 
 //Show the correstonding graph
-$(".graph-week-colum-bar-container")[0].show();
+//$(".graph-week-colum-bar-container")[0].show();
 
 
   /*
