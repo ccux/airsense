@@ -591,7 +591,7 @@ console.log("Max temp is:" + Math.round(maxTemp));
 //Show the correstonding graph
 
 
-var graphBarScale = 145 / Math.ceil((Math.round(maxTemp)+1)/10)*10;
+var graphBarScale = 145 / (Math.ceil((Math.round(maxTemp)+1)/10)*10);
 
 //Reverse data array
 averageDataSet.reverse();
