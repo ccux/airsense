@@ -580,6 +580,7 @@ $(".history-section").eq(1).show();
 var graphBarScale = 145 / maxTemp;
 
 for (var i = 0; i <= duration; i++) {
+console.log('Count the bars created:' + ' ' + i);
 var height = averageDataSet[i].value * graphBarScale;
 var timeStamp = averageDataSet[i].time;
 buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + ';"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
