@@ -3,9 +3,9 @@
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "flex"
 
-$('.graph-week-colum-bar-container').eq(0).hide();
-$('.graph-week-colum-bar-container').eq(1).hide();
-$('.graph-week-colum-bar-container').eq(2).hide();
+$('.history-section').eq(0).hide();
+$('.history-section').eq(1).hide();
+$('.history-section').eq(2).hide();
 
 
 /*
@@ -556,7 +556,7 @@ function buildTemperatureGraphWithData (duration, dataSetArray, onObject) {
 
 var averageDataSet = [];
 
-for (var i = 0; i < dataSetArray.length; i++) {
+for (var i = 0; i < dataSetArray.length -1; i++) {
 var newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 var dateFromString = new Date(dataSetArray[i].date);
 var newTime = dateFromString.getHours();
@@ -576,7 +576,7 @@ console.log(averageDataSet);
 var buildResult = ''; 
 
 //Show the correstonding graph
-$(".graph-week-colum-bar-container").eq(0).show();
+$(".history-section").eq(0).show();
 
 
   /*
