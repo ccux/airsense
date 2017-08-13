@@ -558,16 +558,16 @@ console.log(averageDataSet);
 
 var buildResult = ''; 
 
-var minTemp = data[0].data_0;
-var maxTemp = data[0].data_0;
+var minTemp = averageDataSet[0].value;
+var maxTemp = averageDataSet[0].value;
 
-for (var i = 0; i < data.length; i++)
+for (var i = 0; i < averageDataSet.length; i++)
 {
-  if (data[i].data_0 > maxTemp) {
-    maxTemp = data[i].data_0;
+  if (averageDataSet[i].value > maxTemp) {
+    maxTemp = averageDataSet[i].value;
   }
-  if (data[i].data_0 < minTemp) {
-    minTemp = data[i].data_0;
+  if (averageDataSet[i].value < minTemp) {
+    minTemp = averageDataSet[i].value;
   }
 };
 
