@@ -505,6 +505,16 @@ $('document').ready(function(){
     console.log("JSON temperature apartment data revieced - day!");
     console.log(data.length);
 
+    if (data.length === 0) {
+      //No data exits - buld a test database with objects
+      for (var i = 24 - 1; i >= 0; i--) {
+      var test = {
+        date: new Date(),
+        data_0: 20 + i
+      }
+      data.push(test);
+    }
+
 var minTemp = data[0].data_0;
 var maxTemp = data[0].data_0;
 
