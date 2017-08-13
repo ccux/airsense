@@ -591,5 +591,11 @@ buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10
 $(".history-section").eq(1).html(buildResult);
 
 $('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) + "</p>");
+$('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) / 5 + Math.round(maxTemp) / 5 + Math.round(maxTemp) / 5 + Math.round(maxTemp) / 5 +"</p>");
+$('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) / 5 + Math.round(maxTemp) / 5 + Math.round(maxTemp) / 5 +"</p>");
+$('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) / 5 + Math.round(maxTemp) / 5 +"</p>");
+$('#temperature-indicator-5').html("<p>" + Math.round(maxTemp) / 5 +"</p>");
+$('#temperature-indicator-5').html("<p>" + 0 + "</p>");
+
 
 }
