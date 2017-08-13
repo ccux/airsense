@@ -502,6 +502,7 @@ $('document').ready(function(){
    },
    dataType: 'json',
    success: function(data) {
+
     console.log("JSON temperature apartment data revieced - day!");
     console.log(data.length);
 
@@ -514,6 +515,7 @@ $('document').ready(function(){
       }
       data.push(test);
     }
+  }
 
 var minTemp = data[0].data_0;
 var maxTemp = data[0].data_0;
@@ -526,7 +528,7 @@ for (var i = 0; i < data.length; i++)
   if (data[i].data_0 < minTemp) {
     minTemp = data[i].data_0;
   }
-}
+};
 
 console.log("Min temp is:" + Math.round(minTemp));
 console.log("Max temp is:" + Math.round(maxTemp));
