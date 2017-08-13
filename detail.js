@@ -3,6 +3,11 @@
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "flex"
 
+$(".graph-week-colum-bar-container")[0].hide();
+$(".graph-week-colum-bar-container")[1].hide();
+$(".graph-week-colum-bar-container")[2].hide();
+
+
 /*
 function scrollFunction() {
     var scrollPos = document.body.scrollTop;
@@ -557,6 +562,11 @@ averageDataSet.push(newDataObject);
 console.log(averageDataSet);
 
 var buildResult = ''; 
+
+//Show the correstonding graph
+$(".graph-week-colum-bar-container")[0].show();
+
+
   /*
 for (var i = 0; i < duration; i++) {
 var height = dataSetArray[i]; //NEEDS TO ADD THE VALUE
