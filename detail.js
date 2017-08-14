@@ -524,7 +524,7 @@ function loadTemperatureData (type) {
         data_0: 20 + i
       }
       data.push(test);
-      console.log('The date is - before: ' + data[i].date);
+      console.log('The date is - before: ' + test.date);
     }
     }
     else {
@@ -534,7 +534,7 @@ function loadTemperatureData (type) {
         data_0: 20 + i
       }
       data.push(test);
-      console.log('The date is - before: ' + data[i].date);
+      console.log('The date is - before: ' + test.date);
     }
     }
   }
