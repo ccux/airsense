@@ -610,9 +610,9 @@ newValue = dataSetArray[i].data_0;
 }
 
 newTime = dataSetArray[i].date;
-console.log('TIME: ' + newTime);
+console.log('TIME: 1/2 ' + newTime);
 newTime.setDate(dataSetArray[i].date - i);
-console.log('TIME: 2 ' + newTime);
+console.log('TIME: 2/2 ' + newTime);
 //newTime = dateFromString.getDate();
 
 dateFromString = newTime.getDate()  + "/" + (newTime.getMonth()+1);
