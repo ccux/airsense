@@ -515,6 +515,7 @@ function loadTemperatureData (type) {
     var test = true;
 
     if (data.length === 0 || test === true) {
+      data = [];
       //No data exits - buld a test database with objects
       if (type === "day") {
       for (var i = 24 - 1; i >= 0; i--) {
@@ -525,7 +526,7 @@ function loadTemperatureData (type) {
       data.push(test);
     }
     }
-    else if (test === true) {
+    else {
     for (var i = 7 - 1; i >= 0; i--) {
       var test = {
         date: new Date(),
