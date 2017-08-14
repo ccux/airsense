@@ -687,6 +687,6 @@ $('#temperature-indicator-0').html(0);
 
 $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 
-$(".history-section").eq(1).show(500);
+$(".history-section").eq(1).fadeIn(500);
 
 }
