@@ -679,20 +679,14 @@ $('#temperature-indicator-1').html(Math.round(maxTemp / 5));
 $('#temperature-indicator-0').html(0);*/
 
 $('#temperature-indicator-5').html(roundedMaxValue);
-//$('#temperature-indicator-4').html(Math.ceil((Math.round((maxTemp / 5) * 4)+1)/10)*10);
-//$('#temperature-indicator-3').html(Math.ceil((Math.round((maxTemp / 5) * 3)+1)/10)*10);
-//$('#temperature-indicator-2').html(Math.ceil((Math.round((maxTemp / 5) * 2)+1)/10)*10);
-//$('#temperature-indicator-1').html(Math.ceil((Math.round((maxTemp / 5) * 1)+1)/10)*10);
-$('#temperature-indicator-0').html(0);
-
 $('#temperature-indicator-4').html(Math.round((roundedMaxValue / 5) * 4));
 $('#temperature-indicator-3').html(Math.round((roundedMaxValue / 5) * 3));
 $('#temperature-indicator-2').html(Math.round((roundedMaxValue / 5) * 2));
 $('#temperature-indicator-1').html(Math.round((roundedMaxValue / 5) * 1));
-
+$('#temperature-indicator-0').html(0);
 
 $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 
-$(".history-section").eq(1).show();
+$(".history-section").eq(1).show(500);
 
 }
