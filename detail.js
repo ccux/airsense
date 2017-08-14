@@ -603,15 +603,17 @@ newValue = dataSetArray[i].data_0;
 }
 
 dateFromString = new Date(dataSetArray[i].date);
-dateFromString.setDate(dataSetArray[i].date.getDay() - i);
+dateFromString.setDate(dataSetArray[i].date.getDate() - i);
 
-newTime = dateFromString.getDay();
+newTime = dateFromString.getDate();
+
+datestring = newTime.getDate()  + "/" + (newTime.getMonth()+1);
 
 console.log(newTime + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
-  time: newTime
+  time: datestring
 };
 
 averageDataSet.push(newDataObject);
