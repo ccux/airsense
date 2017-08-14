@@ -575,6 +575,8 @@ else {
 newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
+console.log('The date is: ' + dataSetArray[i].date);
+
 dateFromString = new Date(dataSetArray[i].date);
 dateFromString.setHours(dataSetArray[i].date.getHours() - i);
 
