@@ -491,7 +491,7 @@ $(window).load(function() {
 
 $('document').ready(function(){
   
-  loadTemperatureData (day);
+  loadTemperatureData ("day");
 
 }); //document ready end
 
