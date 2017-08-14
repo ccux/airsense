@@ -512,7 +512,9 @@ function loadTemperatureData (type) {
     console.log("JSON temperature apartment data revieced - day!");
     console.log(data.length);
 
-    if (data.length === 0) {
+    var test = true;
+
+    if (data.length === 0 || test === true) {
       //No data exits - buld a test database with objects
       if (type === "day") {
       for (var i = 24 - 1; i >= 0; i--) {
@@ -523,7 +525,7 @@ function loadTemperatureData (type) {
       data.push(test);
     }
     }
-    else {
+    else if (test === true) {
     for (var i = 7 - 1; i >= 0; i--) {
       var test = {
         date: new Date(),
