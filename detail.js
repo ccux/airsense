@@ -572,11 +572,11 @@ newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
 dateFromString = new Date(dataSetArray[i].date);
-newTime = dateFromString.setHours(dataSetArray[i].date.getHours() - i);
+dateFromString.setHours(dataSetArray[i].date.getHours() - i);
 
-dateFromString = newTime.getHours();
+newTime = dateFromString.getHours();
 
-console.log(newTime +' ' + dateFromString);
+console.log(newTime + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
