@@ -3,9 +3,9 @@
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "flex"
 
-$('.history-section').eq(0).hide();
-$('.history-section').eq(1).hide();
-$('.history-section').eq(2).hide();
+//$('.history-section').eq(0).hide();
+//$('.history-section').eq(1).hide();
+//$('.history-section').eq(2).hide();
 
 
 /*
