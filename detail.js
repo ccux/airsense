@@ -491,9 +491,15 @@ $(window).load(function() {
 
 $('document').ready(function(){
   
+  loadTemperatureData (day);
+
+}); //document ready end
+
+
+function loadTemperatureData (type) {
   //Get Temperature 24hours JSON data
     $.ajax({
-   url: 'http://172.104.145.165/webservice/apartments/1/sensors/1/history?period=day',
+   url: 'http://172.104.145.165/webservice/apartments/1/sensors/1/history?period='+ type,
    data: {
       format: 'json'
    },
@@ -524,8 +530,7 @@ buildTemperatureGraphWithData(data.length, data, document.getElementsByClassName
    type: 'GET'
 });
 
-}); //document ready end
-
+}
 
 function buildTemperatureGraphWithData (duration, dataSetArray, onObject) {
 //Experiment with graph
