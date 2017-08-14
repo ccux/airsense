@@ -616,7 +616,7 @@ newTime.setDate(dataSetArray[i].date - i);
 
 dateFromString = newTime.getDate()  + "/" + (newTime.getMonth()+1);
 
-console.log(newTime + ' ' + dateFromString);
+console.log('TIME: ' + newTime + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
