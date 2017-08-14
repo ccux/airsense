@@ -610,13 +610,14 @@ newValue = dataSetArray[i].data_0;
 }
 
 newTime = dataSetArray[i].date;
+console.log('TIME: ' + newTime);
 newTime.setDate(dataSetArray[i].date - i);
-
+console.log('TIME: 2 ' + newTime);
 //newTime = dateFromString.getDate();
 
 dateFromString = newTime.getDate()  + "/" + (newTime.getMonth()+1);
 
-console.log('TIME: ' + newTime + ' ' + dateFromString);
+console.log('TIME: ' + newTime);// + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
