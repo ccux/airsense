@@ -701,6 +701,14 @@ $('.history-graph-view-selector').eq(1).on('click',function(){
   $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
 });
 
+
+var mvar = "";
+$(".history-graph-view-selector").each(function() {
+    console.log($(this).html());
+    mvar += $(this).html();
+});
+console.log(mvar);
+
 //});
 
 }
