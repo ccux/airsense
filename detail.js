@@ -603,7 +603,7 @@ newValue = dataSetArray[i].data_0;
 }
 
 dateFromString = new Date(dataSetArray[i].date);
-dateFromString.setDate(dataSetArray[i].date.getDate() - i);
+dateFromString.setDate(dataSetArray[i].date - i);
 
 newTime = dateFromString.getDate();
 
