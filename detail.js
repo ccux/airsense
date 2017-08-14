@@ -491,7 +491,7 @@ $(window).load(function() {
 
 $('document').ready(function(){
   
-  loadTemperatureData ("day");
+  loadTemperatureData ("week");
 
 }); //document ready end
 
@@ -557,6 +557,7 @@ var averageDataSet = [];
 
 for (var i = 0; i < dataSetArray.length -1; i++) {
 
+if (type === "day") {
 if (i % 2 === 0) {
 
 var newValue;
@@ -585,6 +586,37 @@ var newDataObject = {
 
 averageDataSet.push(newDataObject);
   }
+}
+//Type week
+else {
+
+var newValue;
+var dateFromString;
+var newTime;
+
+//If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
+if (dataSetArray[i].data_0 === 0) {
+newValue = 0;
+}
+else {
+newValue = dataSetArray[i].data_0;
+}
+
+dateFromString = new Date(dataSetArray[i].date);
+dateFromString.setDate(dataSetArray[i].date.getDay() - i);
+
+newTime = dateFromString.getDay();
+
+console.log(newTime + ' ' + dateFromString);
+
+var newDataObject = {
+  value: newValue,
+  time: newTime
+};
+
+averageDataSet.push(newDataObject);
+
+}
 };
 
 console.log(averageDataSet);
