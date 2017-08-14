@@ -556,7 +556,7 @@ newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
 dateFromString = new Date(dataSetArray[i].date);
-newTime = dateFromString.setHours(d.getHours() - i);
+newTime = dateFromString.setHours(dataSetArray[i].date.getHours() - i);
 
 console.log(newTime + ' Count:  ' + i);
 
