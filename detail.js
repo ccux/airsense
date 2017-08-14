@@ -562,7 +562,7 @@ var averageDataSet = [];
 
 for (var i = 0; i < dataSetArray.length -1; i++) {
 
-console.log('The date is: ' + dataSetArray[i].date);
+console.log('The date is now: ' + dataSetArray[i].date);
 
 if (type === "day") {
 if (i % 2 === 0) {
@@ -579,18 +579,16 @@ else {
 newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
+newTime = dataSetArray[i].date;
+newTime.setHours(dataSetArray[i].date.getHours() - i);
 
-
-dateFromString = new Date(dataSetArray[i].date);
-dateFromString.setHours(dataSetArray[i].date.getHours() - i);
-
-newTime = dateFromString.getHours();
+dateFromString = newTime.getHours();
 
 console.log(newTime + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
-  time: newTime
+  time: dateFromString
 };
 
 averageDataSet.push(newDataObject);
@@ -611,8 +609,8 @@ else {
 newValue = dataSetArray[i].data_0;
 }
 
-dateFromString = new Date(dataSetArray[i].date);
-dateFromString.setDate(dataSetArray[i].date - i);
+newTime = dataSetArray[i].date;
+newTime.setDate(dataSetArray[i].date - i);
 
 //newTime = dateFromString.getDate();
 
