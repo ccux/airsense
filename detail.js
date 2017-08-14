@@ -689,18 +689,18 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 
 $(".history-section").eq(1).fadeIn(500);
 
-document.getElementsByClassName("history-graph-view-selector")[0].addEventListener("click", function(){
+//document.getElementsByClassName("history-graph-view-selector")[0].addEventListener("click", function(){
     
 $('.history-graph-view-selector').eq(0).on('click',function(){
   $('.history-graph-view-selector').eq(1).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(0).addClass('history-graph-view-selector-selected');
 });
 
-('.history-graph-view-selector').eq(1).on('click',function(){
+$('.history-graph-view-selector').eq(1).on('click',function(){
   $('.history-graph-view-selector').eq(0).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
 });
 
-});
+//});
 
 }
