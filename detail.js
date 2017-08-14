@@ -560,6 +560,8 @@ var averageDataSet = [];
 
 for (var i = 0; i < dataSetArray.length -1; i++) {
 
+console.log('The date is: ' + dataSetArray[i].date);
+
 if (type === "day") {
 if (i % 2 === 0) {
 
@@ -575,7 +577,7 @@ else {
 newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
-console.log('The date is: ' + dataSetArray[i].date);
+
 
 dateFromString = new Date(dataSetArray[i].date);
 dateFromString.setHours(dataSetArray[i].date.getHours() - i);
