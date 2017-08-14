@@ -614,13 +614,13 @@ newTime.setDate(dataSetArray[i].date - i);
 
 //newTime = dateFromString.getDate();
 
-newTime = dateFromString.getDate()  + "/" + (dateFromString.getMonth()+1);
+dateFromString = newTime.getDate()  + "/" + (newTime.getMonth()+1);
 
 console.log(newTime + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
-  time: newTime
+  time: dateFromString
 };
 
 averageDataSet.push(newDataObject);
