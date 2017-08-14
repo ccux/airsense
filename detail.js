@@ -547,13 +547,11 @@ var newValue;
 var dateFromString;
 var newTime;
 
+//If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
 if (dataSetArray[i].data_0 === 0 || dataSetArray[i + 1].data_0 === 0) {
 newValue = 0;
 dateFromString = new Date(dataSetArray[i].date);
 newTime = dateFromString.setHours(d.getHours() - i);
-
-
-
 }
 else {
 newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
