@@ -691,23 +691,27 @@ $(".history-section").eq(1).fadeIn(500);
 
 //document.getElementsByClassName("history-graph-view-selector")[0].addEventListener("click", function(){
     
-$('.history-graph-view-selector').eq(0).on('click',function(){
-  $('.history-graph-view-selector').eq(1).removeClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(0).addClass('history-graph-view-selector-selected');
+$('.history-graph-view-selector').eq(2).on('click',function(){
+  $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
+
+  loadTemperatureData ("day");
+
 });
 
-$('.history-graph-view-selector').eq(1).on('click',function(){
-  $('.history-graph-view-selector').eq(0).removeClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
+$('.history-graph-view-selector').eq(3).on('click',function(){
+  $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
+
+  loadTemperatureData ("week");
 });
 
 
 var mvar = "";
 $(".history-graph-view-selector").each(function() {
     console.log($(this).html());
-    mvar += $(this).html();
+    //mvar += $(this).html();
 });
-console.log(mvar);
 
 //});
 
