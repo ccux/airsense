@@ -514,6 +514,7 @@ function loadTemperatureData (type) {
 
     if (data.length === 0) {
       //No data exits - buld a test database with objects
+      if (type === "day") {
       for (var i = 24 - 1; i >= 0; i--) {
       var test = {
         date: new Date(),
@@ -521,9 +522,19 @@ function loadTemperatureData (type) {
       }
       data.push(test);
     }
+    }
+    else {
+    for (var i = 7 - 1; i >= 0; i--) {
+      var test = {
+        date: new Date(),
+        data_0: 20 + i
+      }
+      data.push(test);
+    }
+    }
   }
 
-buildTemperatureGraphWithData(data.length, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
+buildTemperatureGraphWithData(type, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
 
     //logSensorData();
    },
@@ -532,7 +543,7 @@ buildTemperatureGraphWithData(data.length, data, document.getElementsByClassName
 
 }
 
-function buildTemperatureGraphWithData (duration, dataSetArray, onObject) {
+function buildTemperatureGraphWithData (type, dataSetArray, onObject) {
 //Experiment with graph
 
 //buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
