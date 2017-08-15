@@ -528,11 +528,11 @@ console.log(sensorMACAdress);
    success: function(data) {
 
     console.log("JSON temperature apartment data revieced - day!");
-    console.log("Sensor capability count " + data.type.capabilities.length);
+    console.log("Sensor capability count " + data[0].type.capabilities.length);
 
-    console.log('The capabilities are: ' + data.type.capabilities);
+    console.log('The capabilities are: ' + data[0].type.capabilities);
 
-    sensorCapabilitiesArray.push(data.type.capabilities);
+    sensorCapabilitiesArray.push(data[0].type.capabilities);
 
     getSensorDataFromServer (getParameterByName("roomid"));
 
