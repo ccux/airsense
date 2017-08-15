@@ -3,6 +3,8 @@
  $('#loading').hide();
  $('.loading-adnimation').hide();
 
+document.getElementById("loading").style.display = "none";
+
 //Hide the graph sections
 $('.history-section').eq(0).hide(); //Humidity
 $('.history-section').eq(1).hide(); //Temperature
