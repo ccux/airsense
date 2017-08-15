@@ -1,11 +1,27 @@
-//Set the loading indicator
+//Display the loading indicator
   var loading = document.getElementById("loading");
   //console.log("Div is: ", loadingDiv);
   loading.style.display = "flex"
 
-//$('.history-section').eq(0).hide();
-//$('.history-section').eq(1).hide();
-//$('.history-section').eq(2).hide();
+//Hide the graph sections
+$('.history-section').eq(0).hide(); //Humidity
+$('.history-section').eq(1).hide(); //Temperature
+$('.history-section').eq(2).hide(); //Airquality
+
+//Set temperature button states
+$('.history-graph-view-selector').eq(2).on('click',function(){
+	$(".graph-row-week").eq(1).hide();
+  $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
+  loadTemperatureData ("day");
+});
+//Set temperature button states
+$('.history-graph-view-selector').eq(3).on('click',function(){
+	$(".graph-row-week").eq(1).hide();
+  $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
+  loadTemperatureData ("week");
+});
 
 
 /*
@@ -687,32 +703,8 @@ $('#temperature-indicator-0').html(0);
 
 $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 
+//Display the temperature data
 $(".history-section").eq(1).fadeIn(500);
-
-//document.getElementsByClassName("history-graph-view-selector")[0].addEventListener("click", function(){
-    
-$('.history-graph-view-selector').eq(2).on('click',function(){
-  $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
-
-  loadTemperatureData ("day");
-
-});
-
-$('.history-graph-view-selector').eq(3).on('click',function(){
-  $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
-
-  loadTemperatureData ("week");
-});
-
-
-var mvar = "";
-$(".history-graph-view-selector").each(function() {
-    console.log($(this).html());
-    //mvar += $(this).html();
-});
-
-//});
+$(".graph-row-week").eq(1).fadeIn(500);
 
 }
