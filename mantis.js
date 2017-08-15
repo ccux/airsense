@@ -7,7 +7,7 @@
 //Remove the facts section
 $('#fact-section').hide();
 
-/*
+
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
 var yellowColor = '#FFAA54';
@@ -27,19 +27,6 @@ var airQualityIndicatorGreen = "https://rawgithub.com/ccux/airsense/master/image
 var airQualityIndicatorYellow = "https://rawgithub.com/ccux/airsense/master/images/air-indicator-yellow.svg";
 var airQualityIndicatorRed = "https://rawgithub.com/ccux/airsense/master/images/air-indicator-red.svg";
 
-var status = 0;
-
-var sensorData = 0;
-
-var numberOfRooms = 5;
-var rooms = [];
-
-var roomNames = ["Living Room",
-                "Kitchen",
-                "Bedroom",
-                "Kids Room",
-                "Room"];
-
 var roomIcons = [
                 "https://raw.githubusercontent.com/ccux/airsense/master/Living%20room%402x.png",
                 "https://raw.githubusercontent.com/ccux/airsense/master/Kitchen%402x.png",
@@ -47,6 +34,11 @@ var roomIcons = [
                 "https://raw.githubusercontent.com/ccux/airsense/master/Children%20Room%402x.png",
                 "https://raw.githubusercontent.com/ccux/airsense/master/Office%402x.png"];
 
+
+//var status = 0;
+
+//var sensorData = 0;
+/* ################################# STATUS CALCULATIONS - START ############################## */
 
 function greenStatus () {
 //Green status
@@ -81,115 +73,12 @@ function redStatus () {
     document.getElementById("Status-Heading-Text").innerHTML = "Your home needs ventilation in your " + rooms[0].name + ", and in " + rooms[1].name + ".";
 }
 
-//Create a new Room object
-function Room() {
-    this.name = "";
-    this.sensorID = "";
-    this.icon = "";
-    this.temp = "";
-    this.humidity = "";
-    this.airqual = "";
-    this.sensorDetected = false;
-    //Create Room
-    //var room = new Room;
-}
-
-//Create a random number between 2 parameter values
-function randomize (min, max) {
-    var result = (Math.floor((Math.random() * (max-min+1) + min)));
-    return result;
-}
-
-//Create a random temperature between 2 values
-function randomizeTemperature () {
-    var min = 18;
-    var max = 26;
-    return (randomize(min, max));
-}
-
-//Create a random humidity between 2 values
-function randomizeHumidity () {
-    var min = 30;
-    var max = 80;
-    return (randomize(min, max));
-}
-
-//Create a random AirQuality between 2 values
-function randomizeAirQual () {
-    var min = 400;
-    var max = 1600;
-    return (randomize(min, max));
-}
-
-//Create a random Sensor ID
-function sensorID()
-{
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for( var i=0; i < 12; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
-
-//Create the rooms and add the to the rooms array
-function createRooms () {
-for (var i = 0; i < numberOfRooms; i++) {
-var myRoom = new Room;
-
-if (i <= 3) {
-    myRoom.icon = roomIcons[i];
-    myRoom.name = roomNames[i];
-        
-}
-else {
-    myRoom.icon = roomIcons[4];
-    myRoom.name = "" + roomNames[4] + " " + (i - 3);
-}
-
-    myRoom.sensorID = sensorID();
-    myRoom.temp = randomizeTemperature();
-    myRoom.humidity = randomizeHumidity();
-  
-  ///EMO
-  if (returnHumidityStatus(myRoom.humidity) > 2)
-  {
-  myRoom.humidity = randomizeHumidity();
-  }
-  
-    myRoom.airqual = randomizeAirQual();
-  
-  //DEMO
-  if (returnAirQualStatus(myRoom.airqual) > 2)
-  {
-  myRoom.airqual = randomizeAirQual();
-  }
-  
-    myRoom.sensorDetected = true;
-
-//Add the room to the rooms array
-rooms.push(myRoom);
-//console.log(rooms);
-}
-//Sort room array based on 
-rooms.sort(function(a, b){return getRoomStatus(b)-getRoomStatus(a)});
-
-//Print array
-console.log("1 " + getRoomStatus(rooms[0]));
-console.log("2 " + getRoomStatus(rooms[1]));
-console.log("3 " + getRoomStatus(rooms[2]));
-console.log("4 " + getRoomStatus(rooms[3]));
-console.log("5 " + getRoomStatus(rooms[4]));
-}
-
-
 function getRoomStatus (room) {
 
     var midResult = 0;
     var hum = returnHumidityStatus(room.humidity);
     var air = returnAirQualStatus(room.airqual)
-    midResult += hum + air;
+    midResult = hum + air;
 
     return midResult;
 }
@@ -270,7 +159,30 @@ return 2;
 
 }
 
+function returnHumidityLabelClass (value) {
 
+var greenColorMin = 41;
+var greenColorMax = 59;
+var yellowColorMin = 0;
+var yellowColorMax = 40;
+var redColorMin = 60;
+var redColorMax = 100;
+
+if (value > redColorMin)
+{
+//console.log('RedColor ', value);
+return '';
+}
+else if (value > yellowColorMax && value < redColorMin) {
+//console.log('GreenColor ', value);
+return ' humidity-status-green';
+}
+else {
+//console.log('YellowColor ', value);
+return ' humidity-status-yellow';
+}
+
+}
 
 function humidityColor (value) {
 var colorStatus = returnHumidityStatus(value);
@@ -351,6 +263,7 @@ function returnAirQualStatusImage (value) {
     }
 }
 
+/* ################################# STATUS CALCULATIONS - END ############################## */
 
 function setRoomDetailsOnDom () {
 
@@ -447,6 +360,8 @@ for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
   }
 }
 
+var humidityClass = returnHumidityLabelClass(humidity);
+
 
 //var humidity = Math.round(sensorData.sensors[i].latest_data.data.)
 //var airQuality =
@@ -462,7 +377,9 @@ roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';
 roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b2a7d646468737e8_Room_Square_Block_Icon.png"';
 roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-number">';
 roomBlockHTML += temperature;
-roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 class="room-block-humidity">';
+roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 '
+roomBlockHTML += 'class="room-block-humidity'//Humidity class
+roomBlockHTML += '' + humidityClass + '">'; //Humidity class - Extra
 roomBlockHTML += humidity; //Set humidity value
 roomBlockHTML += '%'; //Humidity unit
 roomBlockHTML += '</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
@@ -470,7 +387,18 @@ roomBlockHTML += 'http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b
 roomBlockHTML += '" width="21"></div></div></div></div>';
 
 $("#room--container").append(roomBlockHTML);
+
 console.log("Added the HTML Block");
+
+$
+
+
+// CSS - humidity-status-green (GREEN) humidity-status (RED)  humidity-status-yellow (YELLOW)
+
+
+
+
+
 //var roomBlockDiv = document.getElementsByClassName('room-container').innerHTML = roomBlockHTML;
 
 
@@ -495,6 +423,7 @@ var roomBlockEndSpacingkHTML = '<div class="room-block-spacing"></div>';
 
 $("#room--container").append(roomBlockEndSpacingkHTML);
 console.log("Added the end HTML Block spacing");
+
 //Set the links of the rooms to pass the romms to the Detail view
 /*var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 
