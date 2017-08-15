@@ -313,16 +313,7 @@ return greenColor;
 }
 }
 
-//Link parsing function
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+
 
 function getRoomsDataFromStorage () {
 // Retrieve the object from storage
@@ -505,18 +496,52 @@ $(window).load(function() {
 
 $('document').ready(function(){
   
-$('#loading').hide();
+  $('#loading').hide();
 
-
+  loadSensorCapabilities();
 
   loadTemperatureData ("day");
 
 }); //document ready end
 
-function loadSensorCapabilities (sensor) {
+function loadSensorCapabilities () {
+
+var sensorMACAdress = getParameterByName("sensorid");
+console.log(sensorMACAdress);
+
+//Get Sensor capabilities by MAC adress
+    $.ajax({
+   url: 'http://http://172.104.145.165/core/sensors/'+ sensorMACAdress,
+   data: {
+      format: 'json'
+   },
+   error: function() {
+      alert("Json error");
+   },
+   dataType: 'json',
+   success: function(data) {
+
+    console.log("JSON temperature apartment data revieced - day!");
+    console.log("Sensor capability count " + data.length);
+
+    console.log('The data is: ' + data);
+
+   },
+   type: 'GET'
+});
 
 }
 
+//Link parsing function
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 function loadTemperatureData (type) {
   //Get Temperature 24hours JSON data
