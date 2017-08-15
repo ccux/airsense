@@ -527,7 +527,8 @@ function loadTemperatureData (type) {
     console.log("JSON temperature apartment data revieced - day!");
     console.log(data.length);
 
-    var test = true;
+    //Development BOOL
+    var test = false;
 
     if (data.length === 0 || test === true) {
       data = [];
