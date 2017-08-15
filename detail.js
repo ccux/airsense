@@ -499,16 +499,13 @@ buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px"
 */
 $(window).load(function() {
  
-  var loadingDiv = document.getElementById("loading");
-  console.log("Removing loading div: ", loadingDiv);
-  loadingDiv.style.display = "none"
- // $("#loading").fadeOut();
-
-});
+}); //Window ready end
 
 $('document').ready(function(){
   
-  loadTemperatureData ("week");
+  $('loading').hide();
+
+  loadTemperatureData ("day");
 
 }); //document ready end
 
