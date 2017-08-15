@@ -1,8 +1,6 @@
 //Display the loading indicator
- // var loading = document.getElementById("loading");
-  $('#loading').show();
-  //console.log("Div is: ", loadingDiv);
-  //loading.style.display = "flex"
+
+ // $('#loading').show();
 
 //Hide the graph sections
 $('.history-section').eq(0).hide(); //Humidity
@@ -504,7 +502,7 @@ $(window).load(function() {
 
 $('document').ready(function(){
   
-  $('#loading').hide();
+$('#loading').hide();
 
   loadTemperatureData ("day");
 
