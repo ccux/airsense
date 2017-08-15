@@ -1,6 +1,7 @@
 //Display the loading indicator
 
- // $('#loading').show();
+ $('#loading').hide();
+ $('.loading-adnimation').hide();
 
 //Hide the graph sections
 $('.history-section').eq(0).hide(); //Humidity
@@ -504,11 +505,15 @@ $('document').ready(function(){
   
 $('#loading').hide();
 
+
+
   loadTemperatureData ("day");
 
 }); //document ready end
 
+function loadSensorCapabilities (sensor) {
 
+}
 
 
 function loadTemperatureData (type) {
