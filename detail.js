@@ -625,6 +625,8 @@ function buildTemperatureGraphWithData (type, dataSetArray, onObject) {
 //HTML for day graph
 //var graph = document.getElementsByClassName("graph-week-colum-bar-container")[0];
 
+console.log('The type is = ' + type);
+
 var averageDataSet = [];
 var temperatureDataID = 0;
 //Get the Temperature Data ID
@@ -635,8 +637,6 @@ for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
 }
 
 for (var i = 0; i < dataSetArray.length; i++) {
-
-console.log('The date is now: ' + dataSetArray[i].date);
 
 if (type === "day") {
 if (i % 2 === 0) {
@@ -654,6 +654,8 @@ newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperature
 }
 
 newTime = new Date(dataSetArray[i].date);
+
+console.log('The date is' + newTime + ' And the value is ' + newValue);
 
 //If Development
 //console.log('The date is 1: ' + newTime);
