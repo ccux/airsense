@@ -604,7 +604,7 @@ function loadTemperatureData (sensorID, type) {
     }
   }*/
 
-console.log('The data is: ' + data;
+console.log('The data is: ' + data);
 
 buildTemperatureGraphWithData(type, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
 
