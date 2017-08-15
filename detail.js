@@ -495,10 +495,9 @@ buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px"
 
 });
 */
-$(window).load(function() {
- 
-}); //Window ready end
 
+
+// ################################ RUN PROGRAM ##################################################
 $('document').ready(function(){
   
   $('#loading').hide();
@@ -507,6 +506,10 @@ $('document').ready(function(){
 
 }); //document ready end
 
+$(window).load(function() {
+ 
+}); //Window load end
+
 function loadSensorCapabilities () {
 
 var sensorMACAdress = getParameterByName("sensorid");
@@ -514,7 +517,7 @@ console.log(sensorMACAdress);
 
 //Get Sensor capabilities by MAC adress
     $.ajax({
-   url: 'http://http://172.104.145.165/core/sensors/'+ sensorMACAdress +'/',
+   url: 'http://172.104.145.165/core/sensors/'+ sensorMACAdress +'/',
    data: {
       format: 'json'
    },
@@ -553,7 +556,8 @@ function getParameterByName(name, url) {
 function getSensorDataFromServer (sensorID) {
 
   loadTemperatureData (sensorID, "day");
-
+  //loadHumidityData (sensorID, "day");
+  //loadAirQualityData (sensorID, "day");
 }
 
 function loadTemperatureData (sensorID, type) {
