@@ -514,7 +514,7 @@ $('document').ready(function(){
 function loadTemperatureData (type) {
   //Get Temperature 24hours JSON data
     $.ajax({
-   url: 'http://172.104.145.165/webservice/apartments/1/sensors/1/history?period='+ type,
+   url: 'http://172.104.145.165/webservice/apartments/1/sensors/3/history?period='+ type,
    data: {
       format: 'json'
    },
