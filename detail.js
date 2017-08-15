@@ -505,6 +505,12 @@ $('document').ready(function(){
   //Set the ROOM ID
   roomID = getParameterByName("roomid");
 
+  //Set the Room Title label
+  var roomName = getParameterByName("title");
+  unescape(roomName);
+  roomName.toUpperCase();
+  document.getElementById("detail-title").innerHTML = roomName;
+
   loadSensorCapabilities();
 
 }); //document ready end
