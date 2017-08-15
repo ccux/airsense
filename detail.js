@@ -640,7 +640,7 @@ for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
 
 sensorCapabilitiesArray[0].forEach( function (arrayItem)
 {
-    if (arrayItem.name === 'temperature') {}
+    if (arrayItem.name === 'temperature') {
     temperatureDataID = 'data_' + i;
 }
 });
