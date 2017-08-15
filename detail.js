@@ -525,6 +525,7 @@ function loadTemperatureData (type) {
     console.log("JSON temperature apartment data revieced - day!");
     console.log(data.length);
 
+/*
     //Development BOOL
     var test = false;
 
@@ -551,7 +552,7 @@ function loadTemperatureData (type) {
       console.log('The date is - before: ' + test.date);
     }
     }
-  }
+  }*/
 
 console.log('The data is: ' + data);
 
@@ -596,8 +597,9 @@ newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
 newTime = dataSetArray[i].date;
+console.log('The date is 1: ' + newTime);
 newTime.setHours(dataSetArray[i].date.getHours() - i);
-
+console.log('The date is 2: ' + newTime);
 dateFromString = newTime.getHours();
 
 console.log(newTime + ' ' + dateFromString);
