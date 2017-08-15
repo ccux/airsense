@@ -647,11 +647,11 @@ var dateFromString;
 var newTime;
 
 //If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
-if (dataSetArray[i].[temperatureDataID] === 0 || dataSetArray[i + 1].[temperatureDataID] === 0) {
+if (dataSetArray[i][temperatureDataID] === 0 || dataSetArray[i + 1][temperatureDataID] === 0) {
 newValue = 0;
 }
 else {
-newValue = (dataSetArray[i].[temperatureDataID] + dataSetArray[i + 1].[temperatureDataID]) / 2;
+newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperatureDataID]) / 2;
 }
 
 newTime = new Date(dataSetArray[i].date);
@@ -681,11 +681,11 @@ var dateFromString;
 var newTime;
 
 //If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
-if (dataSetArray[i].[temperatureDataID] === 0) {
+if (dataSetArray[i][temperatureDataID] === 0) {
 newValue = 0;
 }
 else {
-newValue = dataSetArray[i].[temperatureDataID];
+newValue = dataSetArray[i][temperatureDataID];
 }
 
 newTime = new Date(dataSetArray[i].date);
