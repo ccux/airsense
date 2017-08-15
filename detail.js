@@ -574,7 +574,6 @@ function loadTemperatureData (sensorID, type) {
    success: function(data) {
 
     console.log("JSON temperature apartment data revieced - day!");
-    console.log(data.length);
 
 /*
     //Development BOOL
