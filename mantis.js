@@ -436,16 +436,27 @@ roomBlockHTML += ' room-block-end';
 console.log("Added the block padding");
 }
 
+var temperature = 0;
+
+for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
+  if (sensorData.sensors[i].latest_data.data[p] === 'temperature') {
+    temperature = Math.round(sensorData.sensors[i].latest_data.data[p].value);
+  }
+}
+
+//var humidity = Math.round(sensorData.sensors[i].latest_data.data.)
+//var airQuality =
+
 roomBlockHTML += '"><a class="room-detail-link w-inline-block" ';
 roomBlockHTML += 'href="http://mantis-e9c0de.webflow.io/detail?roomid=';
 roomBlockHTML += sensorData.sensors[i].id; // Sensor ID count number
 roomBlockHTML += '?sensorid=' + sensorData.sensors[i].mac_address; // Room sensor MAC adress
 roomBlockHTML += '" id="Room-1-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
-roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature
+roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature  Title Label
 roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';
 roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b2a7d646468737e8_Room_Square_Block_Icon.png"';
 roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-number">';
-roomBlockHTML += Math.round(sensorData.sensors[i].latest_data.value);
+roomBlockHTML += temperature;
 roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 class="room-block-humidity">';
 roomBlockHTML += 'N/A'; //Set humidity value
 roomBlockHTML += ''; //Humidity unit
@@ -537,6 +548,8 @@ localStorage.setItem('rooms', JSON.stringify(rooms));
 });
 */
 
+
+// ################################ RUN PROGRAM ##################################################
 $('document').ready(function(){
   
     $.ajax({
