@@ -534,7 +534,9 @@ console.log(sensorMACAdress);
 
     sensorCapabilitiesArray.push(data[0].type.capabilities);
 
-    getSensorDataFromServer (getParameterByName("roomid"));
+    var type = 'day';
+    var sensorID = getParameterByName("roomid");
+    getSensorDataFromServer (sensorID, type);
 
    },
    type: 'GET'
@@ -553,9 +555,9 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function getSensorDataFromServer (sensorID) {
+function getSensorDataFromServer (sensorID, type) {
 
-  loadTemperatureData (sensorID, "day");
+  loadTemperatureData (sensorID, type);
   //loadHumidityData (sensorID, "day");
   //loadAirQualityData (sensorID, "day");
 }
@@ -712,7 +714,7 @@ averageDataSet.push(newDataObject);
 }
 };
 
-console.log(averageDataSet);
+console.log(averageDataSet.length);
 
 var buildResult = ''; 
 
