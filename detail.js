@@ -509,6 +509,8 @@ $('#loading').hide();
 }); //document ready end
 
 
+
+
 function loadTemperatureData (type) {
   //Get Temperature 24hours JSON data
     $.ajax({
@@ -596,10 +598,13 @@ else {
 newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
 }
 
-newTime = dataSetArray[i].date;
+newTime = new Date(dataSetArray[i].date);
+
+//If Development
 //console.log('The date is 1: ' + newTime);
 //newTime.setHours(dataSetArray[i].date.getHours() - i);
 //console.log('The date is 2: ' + newTime);
+
 dateFromString = newTime.getHours();
 
 console.log(newTime + ' ' + dateFromString);
@@ -627,7 +632,9 @@ else {
 newValue = dataSetArray[i].data_0;
 }
 
-newTime = dataSetArray[i].date;
+newTime = new Date(dataSetArray[i].date);
+
+//If Development
 //console.log('TIME: 1/2 ' + newTime);
 //newTime.setDate(dataSetArray[i].date.getDate() - i);
 //console.log('TIME: 2/2 ' + newTime);
