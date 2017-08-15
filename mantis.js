@@ -436,7 +436,7 @@ roomBlockHTML += ' room-block-end';
 console.log("Added the block padding");
 }
 
-var temperature = 0;
+var temperature = 'N/A';
 
 for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
   if (sensorData.sensors[i].latest_data.data[p].name === 'temperature') {
