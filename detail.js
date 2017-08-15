@@ -678,20 +678,11 @@ var height = averageDataSet[i].value * graphBarScale;
 
 console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
-
 var timeStamp = averageDataSet[i].time;
 buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
 }
-  
-/*onObject*///document.getElementsByClassName("graph-week-colum-bar-container")[1].innerHTML = 
 
-/*$('#temperature-indicator-5').html(Math.round(maxTemp));
-$('#temperature-indicator-4').html(Math.round((maxTemp / 5) * 4));
-$('#temperature-indicator-3').html(Math.round((maxTemp / 5) * 3));
-$('#temperature-indicator-2').html(Math.round((maxTemp / 5) * 2));
-$('#temperature-indicator-1').html(Math.round(maxTemp / 5));
-$('#temperature-indicator-0').html(0);*/
-
+//Set the values of the Y-Axis
 $('#temperature-indicator-5').html(roundedMaxValue);
 $('#temperature-indicator-4').html(Math.round((roundedMaxValue / 5) * 4));
 $('#temperature-indicator-3').html(Math.round((roundedMaxValue / 5) * 3));
@@ -699,6 +690,7 @@ $('#temperature-indicator-2').html(Math.round((roundedMaxValue / 5) * 2));
 $('#temperature-indicator-1').html(Math.round((roundedMaxValue / 5) * 1));
 $('#temperature-indicator-0').html(0);
 
+//Add the build results to the DOM
 $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 
 //Display the temperature data
