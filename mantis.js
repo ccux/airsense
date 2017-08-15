@@ -455,7 +455,7 @@ roomBlockHTML += '"><a class="room-detail-link w-inline-block" ';
 roomBlockHTML += 'href="http://mantis-e9c0de.webflow.io/detail?roomid=';
 roomBlockHTML += sensorData.sensors[i].id; // Sensor ID count number
 roomBlockHTML += '&sensorid=' + sensorData.sensors[i].mac_address; // Room sensor MAC adress
-roomBlockHTML += '&title=' + escape(sensorData.sensors[i].location); //Set the Room Title
+roomBlockHTML += '&title=' + encodeURIComponent(sensorData.sensors[i].location); //Set the Room Title
 roomBlockHTML += '" id="Room-1-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
 roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature  Title Label
 roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';

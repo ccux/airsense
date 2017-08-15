@@ -507,7 +507,7 @@ $('document').ready(function(){
 
   //Set the Room Title label
   var roomName = getParameterByName("title");
-  unescape(roomName);
+  decodeURIComponent(roomName);
   roomName.toUpperCase();
   document.getElementById("detail-title").innerHTML = roomName;
 
