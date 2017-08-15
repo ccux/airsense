@@ -639,6 +639,7 @@ for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
 for (var i = 0; i < dataSetArray.length; i++) {
 
 if (type === "day") {
+  console.log('DAY');
 if (i % 2 === 0) {
 
 var newValue;
@@ -676,7 +677,7 @@ averageDataSet.push(newDataObject);
 }
 //Type week
 else {
-
+console.log('WEEK');
 var newValue;
 var dateFromString;
 var newTime;
