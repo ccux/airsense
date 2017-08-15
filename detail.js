@@ -511,7 +511,7 @@ console.log(sensorMACAdress);
 
 //Get Sensor capabilities by MAC adress
     $.ajax({
-   url: 'http://http://172.104.145.165/core/sensors/'+ sensorMACAdress,
+   url: 'http://http://172.104.145.165/core/sensors/'+ sensorMACAdress +'/',
    data: {
       format: 'json'
    },
