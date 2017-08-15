@@ -628,7 +628,7 @@ function buildTemperatureGraphWithData (type, dataSetArray, onObject) {
 
 var averageDataSet = [];
 
-for (var i = 0; i < dataSetArray.length -1; i++) {
+for (var i = 0; i < dataSetArray.length; i++) {
 
 console.log('The date is now: ' + dataSetArray[i].date);
 
