@@ -528,7 +528,7 @@ console.log(sensorMACAdress);
    success: function(data) {
 
     console.log("JSON temperature apartment data revieced - day!");
-    console.log("Sensor capability count " + data.length);
+    console.log("Sensor capability count " + data.type.capabilities.length);
 
     console.log('The capabilities are: ' + data.type.capabilities);
 

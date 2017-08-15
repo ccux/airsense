@@ -437,12 +437,16 @@ console.log("Added the block padding");
 }
 
 var temperature = 'N/A';
-
+var humidity = 'N/A';
 for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
   if (sensorData.sensors[i].latest_data.data[p].name === 'temperature') {
     temperature = Math.round(sensorData.sensors[i].latest_data.data[p].value);
   }
+  else if (sensorData.sensors[i].latest_data.data[p].name === 'relative humidity') {
+     humidity = Math.round(sensorData.sensors[i].latest_data.data[p].value);
+  }
 }
+
 
 //var humidity = Math.round(sensorData.sensors[i].latest_data.data.)
 //var airQuality =
@@ -458,8 +462,8 @@ roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b
 roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-number">';
 roomBlockHTML += temperature;
 roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 class="room-block-humidity">';
-roomBlockHTML += 'N/A'; //Set humidity value
-roomBlockHTML += ''; //Humidity unit
+roomBlockHTML += humidity; //Set humidity value
+roomBlockHTML += '%'; //Humidity unit
 roomBlockHTML += '</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
 roomBlockHTML += 'http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b307284023739b1_1-full.svg'; //Airquality image
 roomBlockHTML += '" width="21"></div></div></div></div>';
