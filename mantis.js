@@ -420,7 +420,7 @@ for (var i = sensorData.sensors.length - 1; i >= 0; i--) {
 
 //Set the name
 //var roomTitle = document.getElementsByClassName('room-block-title')[i];
-console.log(roomTitle);
+//console.log(roomTitle);
 //roomTitle.innerHTML = sensorData.sensors[i].location.toUpperCase();//rooms[i].name.toUpperCase();
 
 //Set the temperature
