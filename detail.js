@@ -535,8 +535,8 @@ console.log(sensorMACAdress);
     sensorCapabilitiesArray.push(data[0].type.capabilities);
 
     var type = 'day';
-    var sensorID = getParameterByName("roomid");
-    getSensorDataFromServer (sensorID, type);
+    var roomID = getParameterByName("roomid");
+    getSensorDataFromServer (roomID, type);
 
    },
    type: 'GET'
@@ -555,17 +555,17 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function getSensorDataFromServer (sensorID, type) {
+function getSensorDataFromServer (roomID, type) {
 
-  loadTemperatureData (sensorID, type);
+  loadTemperatureData (roomID, type);
   //loadHumidityData (sensorID, "day");
   //loadAirQualityData (sensorID, "day");
 }
 
-function loadTemperatureData (sensorID, type) {
+function loadTemperatureData (roomID, type) {
   //Get Temperature 24hours JSON data
     $.ajax({
-   url: 'http://172.104.145.165/webservice/apartments/1/sensors/' + sensorID +'/history?period='+ type,
+   url: 'http://172.104.145.165/webservice/apartments/1/sensors/' + roomID +'/history?period='+ type,
    data: {
       format: 'json'
    },
