@@ -633,7 +633,7 @@ var averageDataSet = [];
 var temperatureDataID = 0;
 //Get the Temperature Data ID
 for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
-  if (sensorCapabilitiesArray.name === 'temperature') {
+  if (sensorCapabilitiesArray[i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
   }
 }
