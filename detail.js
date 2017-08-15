@@ -1,3 +1,8 @@
+
+/* AIRSENSE V.0.1 */
+
+var sensorCapabilitiesArray = [];
+
 //Display the loading indicator
 
  $('#loading').hide();
@@ -500,8 +505,6 @@ $('document').ready(function(){
 
   loadSensorCapabilities();
 
-  loadTemperatureData ("day");
-
 }); //document ready end
 
 function loadSensorCapabilities () {
@@ -526,6 +529,10 @@ console.log(sensorMACAdress);
 
     console.log('The data is: ' + data);
 
+    sensorCapabilitiesArray.push(data.type.capabilities);
+
+    getSensorDataFromServer (getParameterByName("roomid"));
+
    },
    type: 'GET'
 });
@@ -543,10 +550,16 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function loadTemperatureData (type) {
+function getSensorDataFromServer (sensorID) {
+
+  loadTemperatureData (sensorID, "day");
+
+}
+
+function loadTemperatureData (sensorID, type) {
   //Get Temperature 24hours JSON data
     $.ajax({
-   url: 'http://172.104.145.165/webservice/apartments/1/sensors/3/history?period='+ type,
+   url: 'http://172.104.145.165/webservice/apartments/1/sensors/' + sensorID +'/history?period='+ type,
    data: {
       format: 'json'
    },
