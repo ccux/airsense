@@ -632,8 +632,8 @@ console.log('The type is = ' + type);
 var averageDataSet = [];
 var temperatureDataID = 0;
 //Get the Temperature Data ID
-for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
-  if (sensorCapabilitiesArray[i].name === 'temperature') {
+for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
+  if (sensorCapabilitiesArray[0][i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
   }
 }
