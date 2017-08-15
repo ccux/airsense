@@ -2,7 +2,7 @@
 /* AIRSENSE V.0.1 */
 
 var sensorCapabilitiesArray = [];
-
+var roomID = 0;
 //Display the loading indicator
 
  $('#loading').hide();
@@ -21,14 +21,14 @@ $('.history-graph-view-selector').eq(2).on('click',function(){
 	$(".graph-row-week").eq(1).hide();
   $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
-  loadTemperatureData ("day");
+  loadTemperatureData (roomID, "day");
 });
 //Set temperature button states
 $('.history-graph-view-selector').eq(3).on('click',function(){
 	$(".graph-row-week").eq(1).hide();
   $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
-  loadTemperatureData ("week");
+  loadTemperatureData (roomID, "week");
 });
 
 
@@ -502,6 +502,9 @@ $('document').ready(function(){
   
   $('#loading').hide();
 
+  //Set the ROOM ID
+  roomID = getParameterByName("roomid");
+
   loadSensorCapabilities();
 
 }); //document ready end
@@ -535,7 +538,6 @@ console.log(sensorMACAdress);
     sensorCapabilitiesArray.push(data[0].type.capabilities);
 
     var type = 'day';
-    var roomID = getParameterByName("roomid");
     getSensorDataFromServer (roomID, type);
 
    },
