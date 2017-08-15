@@ -545,7 +545,7 @@ $('document').ready(function(){
       format: 'json'
    },
    error: function() {
-      alert("Json error");
+      alert("Der er sket en fejl. Prøv venligst igen om lidt. Fortsætter fejlen så kontakt Xtel Wireless");
    },
    dataType: 'json',
    success: function(data) {
