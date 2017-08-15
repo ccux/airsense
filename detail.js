@@ -627,6 +627,13 @@ function buildTemperatureGraphWithData (type, dataSetArray, onObject) {
 //var graph = document.getElementsByClassName("graph-week-colum-bar-container")[0];
 
 var averageDataSet = [];
+var temperatureDataID = 0;
+//Get the Temperature Data ID
+for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
+  if (sensorCapabilitiesArray.name === 'temperature') {
+    temperatureDataID = 'data_' + i;
+  }
+}
 
 for (var i = 0; i < dataSetArray.length; i++) {
 
@@ -640,11 +647,11 @@ var dateFromString;
 var newTime;
 
 //If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
-if (dataSetArray[i].data_0 === 0 || dataSetArray[i + 1].data_0 === 0) {
+if (dataSetArray[i].[temperatureDataID] === 0 || dataSetArray[i + 1].[temperatureDataID] === 0) {
 newValue = 0;
 }
 else {
-newValue = (dataSetArray[i].data_0 + dataSetArray[i + 1].data_0) / 2;
+newValue = (dataSetArray[i].[temperatureDataID] + dataSetArray[i + 1].[temperatureDataID]) / 2;
 }
 
 newTime = new Date(dataSetArray[i].date);
@@ -674,11 +681,11 @@ var dateFromString;
 var newTime;
 
 //If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
-if (dataSetArray[i].data_0 === 0) {
+if (dataSetArray[i].[temperatureDataID] === 0) {
 newValue = 0;
 }
 else {
-newValue = dataSetArray[i].data_0;
+newValue = dataSetArray[i].[temperatureDataID];
 }
 
 newTime = new Date(dataSetArray[i].date);
