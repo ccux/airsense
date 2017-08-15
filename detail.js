@@ -6,6 +6,7 @@
 //Hide the graph sections
 $('.history-section').eq(0).hide(); //Humidity
 $('.history-section').eq(1).hide(); //Temperature
+$(".graph-row-week").eq(1).hide();	//Temperature
 $('.history-section').eq(2).hide(); //Airquality
 
 //Set temperature button states
