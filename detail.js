@@ -661,11 +661,13 @@ for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   else if (sensorCapabilitiesArray[i].name === 'relative humidity') {
     humidityDataID = 'data_' + i;
   }
+
+}
+  
   */
 
   //Get Air Quality Data ID
   //NAME STILL UNKNOWN
-}
 
 sensorCapabilitiesArray.forEach( function (arrayItem)
 {
