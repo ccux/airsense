@@ -12,20 +12,21 @@ document.getElementById("loading").style.display = "none";
 
 //Hide the graph sections
 $('.history-section').eq(0).hide(); //Humidity
+$('.graph-row-week').eq(0).hide();  //Humidity
 $('.history-section').eq(1).hide(); //Temperature
-$(".graph-row-week").eq(1).hide();	//Temperature
+$('.graph-row-week').eq(1).hide();	//Temperature
 $('.history-section').eq(2).hide(); //Airquality
 
 //Set temperature button states
 $('.history-graph-view-selector').eq(2).on('click',function(){
-	$(".graph-row-week").eq(1).hide();
+	$('.graph-row-week').eq(1).hide();
   $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
   loadTemperatureData (roomID, "day");
 });
 //Set temperature button states
 $('.history-graph-view-selector').eq(3).on('click',function(){
-	$(".graph-row-week").eq(1).hide();
+	$('.graph-row-week').eq(1).hide();
   $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
   loadTemperatureData (roomID, "week");
@@ -615,7 +616,7 @@ function loadTemperatureData (roomID, type) {
 
 console.log('The data is: ' + data);
 
-buildTemperatureGraphWithData(type, data, document.getElementsByClassName("graph-week-colum-bar-container")[1]);
+buildGraphWithData(type, data);
 
     //logSensorData();
    },
@@ -624,7 +625,7 @@ buildTemperatureGraphWithData(type, data, document.getElementsByClassName("graph
 
 }
 
-function buildTemperatureGraphWithData (type, dataSetArray, onObject) {
+function buildGraphWithData (type, dataSetArray) {
 //Experiment with graph
 
 //buildGraphWithData(12,["120px", "110px", "100px", "90px", "80px", "70px", "60px", "50px", "40px", "20px", "10px" ,"0px"], document.getElementsByClassName("graph-week-colum-bar-container")[0]);
@@ -637,33 +638,46 @@ function buildTemperatureGraphWithData (type, dataSetArray, onObject) {
 console.log('The type is = ' + type);
 
 var averageDataSet = [];
+var humidityAverageDataSet = [];
 var temperatureDataID = 0;
+var humidityDataID = 0;
+var airQualityDataID = 0;
 //Get the Temperature Data ID
 for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
   if (sensorCapabilitiesArray[0][i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
   }
+  //Get Humidity Data ID
+  else if (sensorCapabilitiesArray[0][i].name === 'relative humidity') {
+    humidityDataID = 'data_' + i;
+  }
+  //Get Air Quality Data ID
+  //NAME STILL UNKNOWN
 }
 
 sensorCapabilitiesArray[0].forEach( function (arrayItem)
 {
     if (arrayItem.name === 'temperature') {
     temperatureDataID = 'data_' + i;
-}
+    }
+    else if (arrayItem.name === 'relative humidity') {
+    humidityDataID = 'data_' + i;  
+    }
 });
 
 
 for (var i = 0; i < dataSetArray.length; i++) {
 
+var newValue;
+var dateFromString;
+var newTime;
+var humValue;
+
 if (type === "day") {
   console.log('DAY');
 if (i % 2 === 0) {
 
-var newValue;
-var dateFromString;
-var newTime;
-
-//If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
+//TEMPERATURE
 if (dataSetArray[i][temperatureDataID] === 0 || dataSetArray[i + 1][temperatureDataID] === 0) {
 newValue = 0;
 }
@@ -671,9 +685,18 @@ else {
 newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperatureDataID]) / 2;
 }
 
+//console.log('The date is' + newTime + ' And the value is ' + newValue);
+
+//HUMIDITY
+if (dataSetArray[i][humidityDataID] === 0 || dataSetArray[i + 1][humidityDataID] === 0) {
+humValue = 0;
+}
+else {
+humValue = (dataSetArray[i][humidityDataID] + dataSetArray[i + 1][humidityDataID]) / 2;
+}
+
 newTime = new Date(dataSetArray[i].date);
 
-console.log('The date is' + newTime + ' And the value is ' + newValue);
 
 //If Development
 //console.log('The date is 1: ' + newTime);
@@ -689,15 +712,22 @@ var newDataObject = {
   time: dateFromString
 };
 
+var newHumObject = {
+  value: humValue,
+  time: dateFromString
+};
+//Add the objects to the array //If the value is valid
+if (newDataObject.value > 0) {
 averageDataSet.push(newDataObject);
+}
+if (newHumObject.value > 0) {
+humidityAverageDataSet.push(newHumObject);
+}
   }
 }
 //Type week
 else {
 console.log('WEEK');
-var newValue;
-var dateFromString;
-var newTime;
 
 //If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
 if (dataSetArray[i][temperatureDataID] === 0) {
@@ -706,6 +736,14 @@ newValue = 0;
 else {
 newValue = dataSetArray[i][temperatureDataID];
 }
+
+if (dataSetArray[i][humidityDataID] === 0) {
+humValue = 0;
+}
+else {
+humValue = dataSetArray[i][humidityDataID];
+}
+
 
 newTime = new Date(dataSetArray[i].date);
 
@@ -724,7 +762,18 @@ var newDataObject = {
   time: dateFromString
 };
 
+var newHumObject = {
+  value: humValue,
+  time: dateFromString
+};
+
+//Add the objects to the array //If the value is valid
+if (newDataObject.value > 0) {
 averageDataSet.push(newDataObject);
+}
+if (newHumObject.value > 0) {
+humidityAverageDataSet.push(newHumObject);
+}
 
 }
 };
@@ -732,6 +781,8 @@ averageDataSet.push(newDataObject);
 console.log(averageDataSet.length);
 
 var buildResult = ''; 
+
+//BUILD THE TEMPERATURE GRAPH
 
 var minTemp = averageDataSet[0].value;
 var maxTemp = averageDataSet[0].value;
@@ -782,5 +833,9 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 //Display the temperature data
 $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
+
+//Display the Humidity sectiom
+$(".history-section").eq(0).fadeIn(500);
+$(".graph-row-week").eq(0).fadeIn(500);
 
 }
