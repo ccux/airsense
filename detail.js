@@ -1,7 +1,7 @@
 
 /* AIRSENSE V.0.1 */
 
-var sensorCapabilitiesArray;
+var sensorCapabilitiesArray = [];
 var roomID = 0;
 //Display the loading indicator
 
@@ -541,7 +541,7 @@ console.log(sensorMACAdress);
 
     console.log('The capabilities are: ' + data[0].type.capabilities);
 
-    sensorCapabilitiesArray.push(data[0].type.capabilities);
+    sensorCapabilitiesArray = data[0].type.capabilities;//.push(data[0].type.capabilities);
 
     var type = 'day';
     getSensorDataFromServer (roomID, type);
