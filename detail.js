@@ -643,24 +643,24 @@ var temperatureDataID = 0;
 var humidityDataID = 0;
 var airQualityDataID = 0;
 
-console.log('Sensor length: ' + sensorCapabilitiesArray[0].lenght);
+console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 
 //Get the Temperature Data ID
-for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
-  if (sensorCapabilitiesArray[0][i].name === 'temperature') {
+for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
+  if (sensorCapabilitiesArray[i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
   }
   //Get Humidity Data ID
-  else if (sensorCapabilitiesArray[0][i].name === 'relative humidity') {
+  else if (sensorCapabilitiesArray[i].name === 'relative humidity') {
     humidityDataID = 'data_' + i;
   }
   //Get Air Quality Data ID
   //NAME STILL UNKNOWN
 }
 
-sensorCapabilitiesArray[0].forEach( function (arrayItem)
+sensorCapabilitiesArray.forEach( function (arrayItem)
 {
     if (arrayItem.name === 'temperature') {
     temperatureDataID = 'data_' + i;
