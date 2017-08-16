@@ -540,8 +540,9 @@ console.log(sensorMACAdress);
     console.log("Sensor capability count " + data[0].type.capabilities.length);
 
     console.log('The capabilities are: ' + data[0].type.capabilities);
+     console.log('The capabilities are - sample name: ' + data[0].type.capabilities[2].name);
 
-    sensorCapabilitiesArray.push(data[0].type.capabilities[0]);
+    sensorCapabilitiesArray.push(data[0].type.capabilities);
 
     var type = 'day';
     getSensorDataFromServer (roomID, type);
