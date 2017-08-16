@@ -642,9 +642,11 @@ var humidityAverageDataSet = [];
 var temperatureDataID = 0;
 var humidityDataID = 0;
 var airQualityDataID = 0;
+
+console.log('Sensor length: ' + sensorCapabilitiesArray[0].lenght);
+
 //Get the Temperature Data ID
 for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
-  console.log('Sensor ID name: ' + sensorCapabilitiesArray[0][i].name + ' at ' + i);
   if (sensorCapabilitiesArray[0][i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
   }
