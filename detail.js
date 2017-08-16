@@ -543,6 +543,8 @@ console.log(sensorMACAdress);
 
    // sensorCapabilitiesArray = data[0].type.capabilities;//.push(data[0].type.capabilities);
 
+	console.log('The object length is: 'sensorCapabilitiesArray.keys(data).length);
+
     for (var i = 0; i < data[0].type.capabilities.length; i++) {
       sensorCapabilitiesArray.push(data[0].type.capabilities[i]);
     }
@@ -652,7 +654,7 @@ console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 
 //Get the Temperature Data ID
-/*
+
 for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   if (sensorCapabilitiesArray[i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
@@ -663,24 +665,6 @@ for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   }
 
 }
-  
-  */
-
-  //Get Air Quality Data ID
-  //NAME STILL UNKNOWN
-
-sensorCapabilitiesArray.forEach( function (arrayItem)
-{
-    if (arrayItem.name === 'temperature') {
-    temperatureDataID = 'data_' + arrayItem.id - 1;
-    console.log('Temperature id: ' + temperatureDataID);
-    }
-    else if (arrayItem.name === 'relative humidity') {
-    humidityDataID = 'data_' + arrayItem.id - 1;  
-    console.log('Humidity id: ' + humidityDataID);
-    }
-});
-
 
 for (var i = 0; i < dataSetArray.length; i++) {
 
