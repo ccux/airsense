@@ -782,7 +782,17 @@ console.log(averageDataSet.length);
 
 var buildResult = ''; 
 
-//BUILD THE TEMPERATURE GRAPH
+buildTemperatureGraph(averageDataSet);
+
+//Display the Humidity sectiom
+$(".history-section").eq(0).fadeIn(500);
+$(".graph-row-week").eq(0).fadeIn(500);
+
+}
+
+function buildTemperatureGraph (averageDataSet) {
+
+  //BUILD THE TEMPERATURE GRAPH
 
 var minTemp = averageDataSet[0].value;
 var maxTemp = averageDataSet[0].value;
@@ -833,9 +843,5 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 //Display the temperature data
 $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
-
-//Display the Humidity sectiom
-$(".history-section").eq(0).fadeIn(500);
-$(".graph-row-week").eq(0).fadeIn(500);
 
 }
