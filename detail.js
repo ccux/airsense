@@ -541,7 +541,11 @@ console.log(sensorMACAdress);
 
     console.log('The capabilities are: ' + data[0].type.capabilities);
 
-    sensorCapabilitiesArray = data[0].type.capabilities;//.push(data[0].type.capabilities);
+   // sensorCapabilitiesArray = data[0].type.capabilities;//.push(data[0].type.capabilities);
+
+    for (var i = 0; data[0].type.capabilities.length; i++) {
+      sensorCapabilitiesArray.push(data[0].type.capabilities[i]);
+    }
 
     var type = 'day';
     getSensorDataFromServer (roomID, type);
@@ -648,6 +652,7 @@ console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 
 //Get the Temperature Data ID
+
 for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   if (sensorCapabilitiesArray[i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
@@ -656,6 +661,8 @@ for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   else if (sensorCapabilitiesArray[i].name === 'relative humidity') {
     humidityDataID = 'data_' + i;
   }
+  
+
   //Get Air Quality Data ID
   //NAME STILL UNKNOWN
 }
