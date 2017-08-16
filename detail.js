@@ -543,7 +543,7 @@ console.log(sensorMACAdress);
 
    // sensorCapabilitiesArray = data[0].type.capabilities;//.push(data[0].type.capabilities);
 
-	console.log('The object length is: 'sensorCapabilitiesArray.keys(data).length);
+	console.log('The object length is: ' + sensorCapabilitiesArray.keys(data).length);
 
     for (var i = 0; i < data[0].type.capabilities.length; i++) {
       sensorCapabilitiesArray.push(data[0].type.capabilities[i]);
