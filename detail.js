@@ -540,7 +540,6 @@ console.log(sensorMACAdress);
     console.log("Sensor capability count " + data[0].type.capabilities.length);
 
     console.log('The capabilities are: ' + data[0].type.capabilities);
-     console.log('The capabilities are - sample name: ' + data[0].type.capabilities[2].name);
 
     sensorCapabilitiesArray.push(data[0].type.capabilities);
 
@@ -646,6 +645,7 @@ var airQualityDataID = 0;
 
 console.log('Sensor length: ' + sensorCapabilitiesArray[0].lenght);
 console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
+
 
 //Get the Temperature Data ID
 for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
