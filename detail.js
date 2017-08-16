@@ -780,19 +780,19 @@ humidityAverageDataSet.push(newHumObject);
 
 console.log(averageDataSet.length);
 
-var buildResult = ''; 
 
+//Add the temperature Graph to the DOM - with the corresponding Array
 buildTemperatureGraph(averageDataSet);
 
-//Display the Humidity sectiom
-$(".history-section").eq(0).fadeIn(500);
-$(".graph-row-week").eq(0).fadeIn(500);
-
+//Add the humidity Graph to the DOM - with the corresponding Array
+buildHumidityGraph(humidityAverageDataSet);
 }
 
 function buildTemperatureGraph (averageDataSet) {
 
   //BUILD THE TEMPERATURE GRAPH
+
+var buildResult = ''; 
 
 var minTemp = averageDataSet[0].value;
 var maxTemp = averageDataSet[0].value;
@@ -843,5 +843,64 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 //Display the temperature data
 $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
+
+}
+
+
+function buildHumidityGraph (averageDataSet) {
+
+  //BUILD THE HUMIDITY GRAPH
+
+var buildResult = ''; 
+
+var minTemp = averageDataSet[0].value;
+var maxTemp = averageDataSet[0].value;
+
+for (var i = 0; i < averageDataSet.length; i++)
+{
+  if (averageDataSet[i].value > maxTemp) {
+    maxTemp = averageDataSet[i].value;
+  }
+  if (averageDataSet[i].value < minTemp) {
+    minTemp = averageDataSet[i].value;
+  }
+};
+
+console.log("Min temp is:" + Math.round(minTemp));
+console.log("Max temp is:" + Math.round(maxTemp));
+
+//Show the correstonding graph
+
+var roundedMaxValue = (Math.ceil((Math.round(maxTemp)+1)/10)*10);
+var graphBarScale = 145 / roundedMaxValue;
+
+//Reverse data array
+averageDataSet.reverse();
+
+
+for (var i = 0; i < averageDataSet.length; i++) {
+console.log('Count the bars created:' + ' ' + i);
+var height = averageDataSet[i].value * graphBarScale;
+
+console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
+
+var timeStamp = averageDataSet[i].time;
+buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">' + timeStamp + '</div></div></div>'; 
+}
+
+//Set the values of the Y-Axis
+$('#humidity-indicator-5').html(roundedMaxValue);
+$('#humidity-indicator-4').html(Math.round((roundedMaxValue / 5) * 4));
+$('#humidity-indicator-3').html(Math.round((roundedMaxValue / 5) * 3));
+$('#humidity-indicator-2').html(Math.round((roundedMaxValue / 5) * 2));
+$('#humidity-indicator-1').html(Math.round((roundedMaxValue / 5) * 1));
+$('#humidity-indicator-0').html(0);
+
+//Add the build results to the DOM
+$(".graph-week-colum-bar-container").eq(0).html(buildResult);
+
+//Display the temperature data
+$(".history-section").eq(0).fadeIn(500);
+$(".graph-row-week").eq(0).fadeIn(500);
 
 }
