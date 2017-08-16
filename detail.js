@@ -644,6 +644,7 @@ var humidityDataID = 0;
 var airQualityDataID = 0;
 
 console.log('Sensor length: ' + sensorCapabilitiesArray[0].lenght);
+console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 //Get the Temperature Data ID
 for (var i = 0; i < sensorCapabilitiesArray[0].lenght; i++) {
