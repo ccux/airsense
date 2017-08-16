@@ -659,9 +659,11 @@ sensorCapabilitiesArray[0].forEach( function (arrayItem)
 {
     if (arrayItem.name === 'temperature') {
     temperatureDataID = 'data_' + i;
+    console.log('Temperature id: ' + temperatureDataID);
     }
     else if (arrayItem.name === 'relative humidity') {
     humidityDataID = 'data_' + i;  
+    console.log('Humidity id: ' + humidityDataID);
     }
 });
 
