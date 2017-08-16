@@ -778,9 +778,6 @@ humidityAverageDataSet.push(newHumObject);
 }
 };
 
-console.log(averageDataSet.length);
-
-
 //Add the temperature Graph to the DOM - with the corresponding Array
 buildTemperatureGraph(averageDataSet);
 
@@ -866,8 +863,8 @@ for (var i = 0; i < averageDataSet.length; i++)
   }
 };
 
-console.log("Min temp is:" + Math.round(minTemp));
-console.log("Max temp is:" + Math.round(maxTemp));
+console.log("Min hum is:" + Math.round(minTemp));
+console.log("Max hum is:" + Math.round(maxTemp));
 
 //Show the correstonding graph
 
