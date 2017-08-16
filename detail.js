@@ -543,7 +543,7 @@ console.log(sensorMACAdress);
 
    // sensorCapabilitiesArray = data[0].type.capabilities;//.push(data[0].type.capabilities);
 
-    for (var i = 0; data[0].type.capabilities.length; i++) {
+    for (var i = 0; i < data[0].type.capabilities.length; i++) {
       sensorCapabilitiesArray.push(data[0].type.capabilities[i]);
     }
 
