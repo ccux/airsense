@@ -763,10 +763,10 @@ var newHumObject = {
   time: dateFromString
 };
 //Add the objects to the array //If the value is valid
-if (!!newDataObject.value) {
+if (!!newDataObject.time) {
 averageDataSet.push(newDataObject);
 }
-if (!!newHumObject.value) {
+if (!!newHumObject.time) {
 humidityAverageDataSet.push(newHumObject);
 }
   }
@@ -817,7 +817,7 @@ var newHumObject = {
 if (!!newDataObject.time) {
 averageDataSet.push(newDataObject);
 }
-if (!!newHumObject.value) {
+if (!!newHumObject.time) {
 humidityAverageDataSet.push(newHumObject);
 }
 
