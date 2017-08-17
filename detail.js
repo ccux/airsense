@@ -26,18 +26,7 @@ $('.history-graph-view-selector').eq(2).on('click',function(){
 $('.history-graph-view-selector').eq(3).on('click',function(){
 	
 });*/
-//Humidity - Day
-$('.history-graph-view-selector').eq(0).on('click', historyDayViewClick);
-//Temperature - Day
-$('.history-graph-view-selector').eq(2).on('click', historyDayViewClick);
-//Air quality - Day
-$('.history-graph-view-selector').eq(4).on('click', historyDayViewClick);
-//Humidity- Week
-$('.history-graph-view-selector').eq(1).on('click', historyWeekViewClick);
-//Temperature - Week
-$('.history-graph-view-selector').eq(3).on('click', historyWeekViewClick);
-//Air quality - Week
-$('.history-graph-view-selector').eq(5).on('click', historyWeekViewClick);
+
 
 var historyDayViewClick = function(btn) {
   $('.graph-row-week').eq(0).hide();
@@ -552,6 +541,20 @@ $('document').ready(function(){
   document.getElementById("detail-title").innerHTML = roomName.toUpperCase();
 
   loadSensorCapabilities();
+
+  //Setup the DOM buttons for History view selection
+  //Humidity - Day
+$('.history-graph-view-selector').eq(0).on('click', historyDayViewClick);
+//Temperature - Day
+$('.history-graph-view-selector').eq(2).on('click', historyDayViewClick);
+//Air quality - Day
+$('.history-graph-view-selector').eq(4).on('click', historyDayViewClick);
+//Humidity- Week
+$('.history-graph-view-selector').eq(1).on('click', historyWeekViewClick);
+//Temperature - Week
+$('.history-graph-view-selector').eq(3).on('click', historyWeekViewClick);
+//Air quality - Week
+$('.history-graph-view-selector').eq(5).on('click', historyWeekViewClick);
 
 }); //document ready end
 
