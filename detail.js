@@ -659,7 +659,7 @@ var airQualityDataID = 0;
 console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 for (var i in sensorCapabilitiesArray) {
-    console.log('Final sensor: ' + i ' log' + sensorCapabilitiesArray[i]) 
+    console.log('Final sensor: ' + i + ' log' + sensorCapabilitiesArray[i]); 
     }
 
 //Get the Temperature Data ID
