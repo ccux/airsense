@@ -1,7 +1,7 @@
 
 /* AIRSENSE V.0.1 */
 
-var sensorCapabilitiesArray = [];
+var sensorCapabilitiesArray;
 var roomID = 0;
 //Display the loading indicator
 
@@ -15,6 +15,7 @@ $('.history-section').eq(0).hide(); //Humidity
 $('.graph-row-week').eq(0).hide();  //Humidity
 $('.history-section').eq(1).hide(); //Temperature
 $('.graph-row-week').eq(1).hide();	//Temperature
+
 $('.history-section').eq(2).hide(); //Airquality
 
 //Set temperature button states
@@ -652,9 +653,12 @@ var airQualityDataID = 0;
 console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
+sensorCapabilitiesArray.keys(obj).forEach(function(key) {
+    console.log(key, obj[key]);
+});
+
 
 //Get the Temperature Data ID
-
 for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   if (sensorCapabilitiesArray[i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
@@ -663,7 +667,6 @@ for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
   else if (sensorCapabilitiesArray[i].name === 'relative humidity') {
     humidityDataID = 'data_' + i;
   }
-
 }
 
 for (var i = 0; i < dataSetArray.length; i++) {
