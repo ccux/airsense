@@ -724,7 +724,7 @@ if (type === "day") {
 if (i % 2 === 0) {
 
 //TEMPERATURE
-if (dataSetArray[i][temperatureDataID] === 0 || dataSetArray[i + 1][temperatureDataID] === 0) {
+if (dataSetArray[i][temperatureDataID] === null || dataSetArray[i + 1][temperatureDataID] === null) {
 newValue = 0;
 }
 else {
@@ -734,7 +734,7 @@ newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperature
 //console.log('The date is' + newTime + ' And the value is ' + newValue);
 
 //HUMIDITY
-if (dataSetArray[i][humidityDataID] === 0 || dataSetArray[i + 1][humidityDataID] === 0) {
+if (dataSetArray[i][humidityDataID] === null || dataSetArray[i + 1][humidityDataID] === null) {
 humValue = 0;
 }
 else {
@@ -863,9 +863,7 @@ averageDataSet.reverse();
 
 
 for (var i = 0; i < averageDataSet.length; i++) {
-console.log('Count the bars created:' + ' ' + i);
 var height = averageDataSet[i].value * graphBarScale;
-
 console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
 var timeStamp = averageDataSet[i].time;
@@ -922,9 +920,7 @@ averageDataSet.reverse();
 
 
 for (var i = 0; i < averageDataSet.length; i++) {
-console.log('Count the bars created:' + ' ' + i);
 var height = averageDataSet[i].value * graphBarScale;
-
 console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
 var timeStamp = averageDataSet[i].time;
@@ -941,6 +937,8 @@ $('#humidity-indicator-0').html(0);
 
 //Add the build results to the DOM
 $(".graph-week-colum-bar-container").eq(0).html(buildResult);
+
+$(".humidity-graph-red-bar").css({ bottom: '191px' }, { top: '0px' });
 
 //Display the temperature data
 $(".history-section").eq(0).fadeIn(500);
