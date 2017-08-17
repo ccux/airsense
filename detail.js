@@ -659,7 +659,7 @@ var airQualityDataID = 0;
 console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 for (var i in sensorCapabilitiesArray) {
-    console.log('Final sensor log' + sensorCapabilitiesArray[i]) 
+    console.log('Final sensor: ' + i ' log' + sensorCapabilitiesArray[i]) 
     }
 
 //Get the Temperature Data ID
@@ -681,7 +681,6 @@ var newTime;
 var humValue;
 
 if (type === "day") {
-  console.log('DAY');
 if (i % 2 === 0) {
 
 //TEMPERATURE
@@ -712,7 +711,7 @@ newTime = new Date(dataSetArray[i].date);
 
 dateFromString = newTime.getHours();
 
-console.log(newTime + ' ' + dateFromString);
+//console.log(newTime + ' ' + dateFromString);
 
 var newDataObject = {
   value: newValue,
