@@ -660,17 +660,15 @@ console.log('Sensor length: ' + sensorCapabilitiesArray.lenght);
 
 for (var i in sensorCapabilitiesArray) {
     console.log('Final sensor: ' + i + ' log' + sensorCapabilitiesArray[i]); 
-    }
 
-//Get the Temperature Data ID
-for (var i = 0; i < sensorCapabilitiesArray.lenght; i++) {
-  if (sensorCapabilitiesArray[i].name === 'temperature') {
+    if (sensorCapabilitiesArray[i].name === 'temperature') {
     temperatureDataID = 'data_' + i;
   }
   //Get Humidity Data ID
   else if (sensorCapabilitiesArray[i].name === 'relative humidity') {
     humidityDataID = 'data_' + i;
   }
+
 }
 
 for (var i = 0; i < dataSetArray.length; i++) {
