@@ -859,7 +859,7 @@ var roundedMaxValue = (Math.ceil((Math.round(maxTemp)+1)/10)*10);
 var graphBarScale = 145 / roundedMaxValue;
 
 //Reverse data array
-//averageDataSet.reverse();
+averageDataSet.reverse();
 
 
 for (var i = 0; i < averageDataSet.length; i++) {
@@ -918,7 +918,7 @@ var roundedMaxValue = (Math.ceil((Math.round(maxTemp)+1)/10)*10);
 var graphBarScale = 145 / roundedMaxValue;
 
 //Reverse data array
-//averageDataSet.reverse();
+averageDataSet.reverse();
 
 
 for (var i = 0; i < averageDataSet.length; i++) {
