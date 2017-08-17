@@ -1,7 +1,7 @@
 
 /* AIRSENSE V.0.1 */
 
-var sensorCapabilitiesArray;
+var sensorCapabilitiesArray = [];
 var roomID = 0;
 //Display the loading indicator
 
