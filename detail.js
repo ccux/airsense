@@ -763,10 +763,10 @@ var newHumObject = {
   time: dateFromString
 };
 //Add the objects to the array //If the value is valid
-if (newDataObject.value > 0) {
+if (!!newDataObject.value) {
 averageDataSet.push(newDataObject);
 }
-if (newHumObject.value > 0) {
+if (!!newHumObject.value) {
 humidityAverageDataSet.push(newHumObject);
 }
   }
@@ -776,14 +776,14 @@ else {
 console.log('WEEK');
 
 //If there is no data we create a test setup - ONLY FOR DEVELOPMENT //TODO
-if (dataSetArray[i][temperatureDataID] === 0) {
+if (dataSetArray[i][temperatureDataID] === null) {
 newValue = 0;
 }
 else {
 newValue = dataSetArray[i][temperatureDataID];
 }
 
-if (dataSetArray[i][humidityDataID] === 0) {
+if (dataSetArray[i][humidityDataID] === null) {
 humValue = 0;
 }
 else {
@@ -814,10 +814,10 @@ var newHumObject = {
 };
 
 //Add the objects to the array //If the value is valid
-if (newDataObject.value > 0) {
+if (!!newDataObject.time) {
 averageDataSet.push(newDataObject);
 }
-if (newHumObject.value > 0) {
+if (!!newHumObject.value) {
 humidityAverageDataSet.push(newHumObject);
 }
 
