@@ -20,14 +20,22 @@ $('.history-section').eq(2).hide(); //Airquality
 
 //Set temperature button states
 $('.history-graph-view-selector').eq(2).on('click',function(){
+  $('.graph-row-week').eq(0).hide();
 	$('.graph-row-week').eq(1).hide();
+
+   $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
   loadTemperatureData (roomID, "day");
 });
 //Set temperature button states
 $('.history-graph-view-selector').eq(3).on('click',function(){
-	$('.graph-row-week').eq(1).hide();
+	$('.graph-row-week').eq(0).hide();
+  $('.graph-row-week').eq(1).hide();
+
+  $('.history-graph-view-selector').eq(1).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
   loadTemperatureData (roomID, "week");
