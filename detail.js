@@ -938,8 +938,8 @@ $('#humidity-indicator-0').html(0);
 //Add the build results to the DOM
 $(".graph-week-colum-bar-container").eq(0).html(buildResult);
 
-var criticalValueBarPlacement -= (141 / maxTemp) * 60 + 50;
-$(".humidity-graph-red-bar").css({ top: criticalValueBarPlacement + 'px' });
+var criticalValueBarPlacement = (141 / maxTemp) * 60 + 50;
+$(".humidity-graph-red-bar").css({ top: -criticalValueBarPlacement + 'px' });
 $(".humidity-graph-red-bar").css({ bottom: '0px' });
 
 //Display the temperature data
