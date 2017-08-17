@@ -940,7 +940,6 @@ buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10
   }
   buildResult += '</div></div></div>'; 
 }
-}
 
 //Set the values of the Y-Axis
 $('#humidity-indicator-5').html(roundedMaxValue);
