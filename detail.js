@@ -18,29 +18,60 @@ $('.graph-row-week').eq(1).hide();	//Temperature
 
 $('.history-section').eq(2).hide(); //Airquality
 
-//Set temperature button states
+/*//Set temperature button states
 $('.history-graph-view-selector').eq(2).on('click',function(){
-  $('.graph-row-week').eq(0).hide();
-	$('.graph-row-week').eq(1).hide();
-
-   $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
-  $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
-  loadTemperatureData (roomID, "day");
+ 
 });
 //Set temperature button states
 $('.history-graph-view-selector').eq(3).on('click',function(){
-	$('.graph-row-week').eq(0).hide();
+	
+});*/
+//Humidity - Day
+$('.history-graph-view-selector').eq(0).on('click', historyDayViewClick);
+//Temperature - Day
+$('.history-graph-view-selector').eq(2).on('click', historyDayViewClick);
+//Air quality - Day
+$('.history-graph-view-selector').eq(4).on('click', historyDayViewClick);
+//Humidity- Week
+$('.history-graph-view-selector').eq(1).on('click', historyWeekViewClick);
+//Temperature - Week
+$('.history-graph-view-selector').eq(3).on('click', historyWeekViewClick);
+//Air quality - Week
+$('.history-graph-view-selector').eq(5).on('click', historyWeekViewClick);
+
+var historyDayViewClick = function(btn) {
+  $('.graph-row-week').eq(0).hide();
   $('.graph-row-week').eq(1).hide();
+  $('.graph-row-week').eq(2).hide();
 
   $('.history-graph-view-selector').eq(1).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(0).addClass('history-graph-view-selector-selected');
+
+  $('.history-graph-view-selector').eq(3).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(2).addClass('history-graph-view-selector-selected');
+
+  $('.history-graph-view-selector').eq(5).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(4).addClass('history-graph-view-selector-selected');
+
+  loadTemperatureData (roomID, "day");
+}
+
+var historyWeekViewClick = function(btn) {
+  $('.graph-row-week').eq(0).hide();
+  $('.graph-row-week').eq(1).hide();
+  $('.graph-row-week').eq(2).hide();
+
+  $('.history-graph-view-selector').eq(0).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
+
   $('.history-graph-view-selector').eq(2).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(3).addClass('history-graph-view-selector-selected');
-  loadTemperatureData (roomID, "week");
-});
 
+  $('.history-graph-view-selector').eq(4).removeClass('history-graph-view-selector-selected');
+  $('.history-graph-view-selector').eq(5).addClass('history-graph-view-selector-selected');
+
+  loadTemperatureData (roomID, "week");
+}
 
 /*
 function scrollFunction() {
