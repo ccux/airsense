@@ -1,5 +1,5 @@
 
-/* AIRSENSE V.0.1 */
+/* AIRSENSE V.0.1 - ROOM DETAIL PAGE*/
 
 var sensorCapabilitiesArray = [];
 var roomID = 0;
@@ -825,14 +825,31 @@ for (var i = 0; i < averageDataSet.length; i++) {
    console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
     var timeStamp = averageDataSet[i].time;
-    buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
-  if (i === averageDataSet.length -1) {
-    buildResult += 'NU'; 
+  // buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar temperature-bar" id="Temp-Graph-Day-9" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
+  //if (i === averageDataSet.length -1) {
+  //  buildResult += 'NU'; 
+  //}
+  //else {
+  //  buildResult += timeStamp; 
+  //}
+  //buildResult += '</div></div></div>'; 
+
+  var timeStamp = averageDataSet[i].time;
+
+  if (i === averageDataSet.length -1) { //Set the last graph to the current value!
+  	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
+	buildResult += returnHumidityBarColorClass(getParameterByName("temperature"));
+	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + getParameterByName("temperature") * graphBarScale + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
+    buildResult += 'NU'; //Set the current Temp og Humidity and not the daily calculation
   }
   else {
+  	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
+	buildResult += returnHumidityBarColorClass(averageDataSet[i].value);
+	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
     buildResult += timeStamp; 
   }
   buildResult += '</div></div></div>'; 
+}
 }
 
 //Set the values of the Y-Axis
@@ -889,11 +906,19 @@ var height = averageDataSet[i].value * graphBarScale;
 console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
 var timeStamp = averageDataSet[i].time;
-buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar '+ returnHumidityBarColorClass(averageDataSet[i].value) + '" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
-  if (i === averageDataSet.length -1) {
+//uildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
+//buildResult += returnHumidityBarColorClass(averageDataSet[i].value);
+//buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
+  if (i === averageDataSet.length -1) { //Set the last graph to the current value!
+  	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
+	buildResult += returnHumidityBarColorClass(getParameterByName("humidity"));
+	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + getParameterByName("humidity") * graphBarScale + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
     buildResult += 'NU'; //Set the current Temp og Humidity and not the daily calculation
   }
   else {
+  	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
+	buildResult += returnHumidityBarColorClass(averageDataSet[i].value);
+	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
     buildResult += timeStamp; 
   }
   buildResult += '</div></div></div>'; 
