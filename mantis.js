@@ -553,10 +553,8 @@ function webSocket () {
 
 function updateWithData (data) {
 
-for (var i = 0; i < data.length; i++) {
-  var foundIt = $('.room-detail-link').find(`[sensorid='${data[data.length-1].mac_address}']`);
+  var foundIt = $('.room-detail-link').find(`[sensorid='${data.data[data.data.length-1].mac_address}']`);
   console.log(foundIt);
-}
 
 }
 
