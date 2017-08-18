@@ -375,7 +375,8 @@ roomBlockHTML += '&sensorid=' + sensorData.sensors[i].mac_address; // Room senso
 roomBlockHTML += '&title=' + encodeURIComponent(sensorData.sensors[i].location); //Set the Room Title
 roomBlockHTML += '&temperature=' + temperature; // Room temperature to link
 roomBlockHTML += '&humidity=' + humidity; // Room temperature to link
-roomBlockHTML += '" id="Room-' + sensorData.sensors[i].id + '-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
+//roomBlockHTML += '" id="Room-' + sensorData.sensors[i].id + '-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
+roomBlockHTML += '" id="' + sensorData.sensors[i].mac_address + '"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
 roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature  Title Label
 roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';
 roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b2a7d646468737e8_Room_Square_Block_Icon.png"';
@@ -553,7 +554,8 @@ function webSocket () {
 
 function updateWithData (data) {
   var parsedData = JSON.parse(data);
-  var foundIt = $('.room-detail-link').find(`[sensorid='${parsedData.mac_address}']`);
+  //var foundIt = $('.room-detail-link').find(`[sensorid='${parsedData.mac_address}']`);
+  var foundIt = $('#${parsedData.mac_address}');
   console.log(foundIt);
 
 }
