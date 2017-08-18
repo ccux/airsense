@@ -522,10 +522,6 @@ else {
 function webSocket () {
 
       //The user has WebSockets
-
-      connect();
-
-      function connect(){
           var socket;
           var host = "ws://172.104.145.165/ws/1?subscribe-broadcast";
 
@@ -580,8 +576,6 @@ function webSocket () {
           $('#disconnect').click(function(){
              socket.close();
           });
-
-      }//End connect
 
  /* 
    var socket = new WebSocket("ws://172.104.145.165/ws/1?subscribe-broadcast");
