@@ -849,7 +849,6 @@ for (var i = 0; i < averageDataSet.length; i++) {
   }
   buildResult += '</div></div></div>'; 
 }
-}
 
 //Set the values of the Y-Axis
 $('#temperature-indicator-5').html(roundedMaxValue);
