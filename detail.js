@@ -878,7 +878,7 @@ var height = averageDataSet[i].value * graphBarScale;
 console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
 var timeStamp = averageDataSet[i].time;
-buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3 '+ returnHumidityBarColorClass(averageDataSet[i].value) +'">';
+buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar '+ returnHumidityBarColorClass(averageDataSet[i].value) + '" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
   if (i === averageDataSet.length -1) {
     buildResult += 'NU'; //Set the current Temp og Humidity and not the daily calculation
   }
