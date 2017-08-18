@@ -864,7 +864,7 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 //Display the temperature data
 $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
-
+}
 
 function buildHumidityGraph (averageDataSet) {
 
@@ -936,7 +936,7 @@ var minCriticalValueBarPlacement = (40 * graphBarScale) + 48; //((141 + 52 / max
 $(".humidity-graph-red-bar").css({ top: -criticalValueBarPlacement + 'px' });
 $(".humidity-graph-red-bar.yellow-bar").css({ top: -minCriticalValueBarPlacement + 'px' });
 
-//Display the temperature data
+//Display the humidity data
 $(".history-section").eq(0).fadeIn(500);
 $(".graph-row-week").eq(0).fadeIn(500);
 $(".humidity-graph-red-bar").fadeIn(500);
@@ -965,4 +965,4 @@ else {
 //console.log('YellowColor ', value);
 return "bar-week-1 yellow-state";
 }
-}
+};
