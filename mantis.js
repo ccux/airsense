@@ -528,55 +528,51 @@ function webSocket () {
           try{
               var socket = new WebSocket(host);
 
-              message('<p class="event">Socket Status: '+socket.readyState);
+              console.log('Socket Status: '+socket.readyState);
 
               socket.onopen = function(){
-               message('<p class="event">Socket Status: '+socket.readyState+' (open)');
+               console.log('Socket Status: '+socket.readyState+' (open)');
               }
 
               socket.onmessage = function(msg){
-               message('<p class="message">Received: '+msg.data);
+               console.log('Received: '+msg.data);
               }
 
               socket.onclose = function(){
-                message('<p class="event">Socket Status: '+socket.readyState+' (Closed)');
+                console.log('Socket Status: '+socket.readyState+' (Closed)');
               }     
 
           } catch(exception){
-             message('<p>Error'+exception);
+             console.log('Error '+exception);
           }
 
-          function send(){
+         /* function send(){
               var text = $('#text').val();
 
               if(text==""){
-                  message('<p class="warning">Please enter a message');
+                  console.log('Empty socket return');
                   return ;
               }
               try{
                   socket.send(text);
-                  message('<p class="event">Sent: '+text)
+                  console.log('Sent: '+text)
 
               } catch(exception){
-                 message('<p class="warning">');
+                 console.log('Socket - warning');
               }
               $('#text').val("");
-          }
+          }*/
 
+/*
           function message(msg){
-            $('#chatLog').append(msg+'</p>');
+            console.log(msg);
           }
 
-          $('#text').keypress(function(event) {
-              if (event.keyCode == '13') {
-                send();
-              }
-          }); 
 
-          $('#disconnect').click(function(){
+           function disconnect () {
              socket.close();
-          });
-
+          };
+          */
  /* 
    var socket = new WebSocket("ws://172.104.145.165/ws/1?subscribe-broadcast");
   socket.onopen = function(){
