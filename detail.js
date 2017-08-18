@@ -671,6 +671,10 @@ if (type === "day") {
 if (i % 2 === 0) {
 
 //TEMPERATURE
+if (dataSetArray[i] === undefined) {
+	return;
+}
+
 if (dataSetArray[i][temperatureDataID] !== undefined && dataSetArray[i + 1][temperatureDataID] !== undefined) {
 newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperatureDataID]) / 2;
 }
