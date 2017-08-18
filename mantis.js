@@ -562,8 +562,8 @@ function updateWithData (data) {
 }
 
 window.onbeforeunload = function() {
-    websocket.onclose = function () {}; // disable onclose handler first
-    websocket.close()
-    console.log("Websocket closed on page exit!");
+ //   websocket.onclose = function () {}; // disable onclose handler first
+ ////   websocket.close()
+   // console.log("Websocket closed on page exit!");
 };
 
