@@ -671,21 +671,21 @@ if (type === "day") {
 if (i % 2 === 0) {
 
 //TEMPERATURE
-if (dataSetArray[i][temperatureDataID] === null || dataSetArray[i + 1][temperatureDataID] === null) {
-newValue = 0;
+if (dataSetArray[i][temperatureDataID] && dataSetArray[i + 1][temperatureDataID]) {
+newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperatureDataID]) / 2;
 }
 else {
-newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperatureDataID]) / 2;
+newValue = 0;
 }
 
 //console.log('The date is' + newTime + ' And the value is ' + newValue);
 
 //HUMIDITY
-if (dataSetArray[i][humidityDataID] === null || dataSetArray[i + 1][humidityDataID] === null) {
-humValue = 0;
+if (dataSetArray[i][humidityDataID] && dataSetArray[i + 1][humidityDataID]) {
+humValue = (dataSetArray[i][humidityDataID] + dataSetArray[i + 1][humidityDataID]) / 2;
 }
 else {
-humValue = (dataSetArray[i][humidityDataID] + dataSetArray[i + 1][humidityDataID]) / 2;
+humValue = 0;
 }
 
 newTime = new Date(dataSetArray[i].date);
