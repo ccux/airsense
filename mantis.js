@@ -559,6 +559,8 @@ function updateWithData (data) {
  $('#' + parsedData.mac_address).css( "border", "3px solid red" );
   console.log($('#' + parsedData.mac_address));
 
+document.getElementById('#' + parsedData.mac_address).hide();
+
 }
 
 window.onbeforeunload = function() {
