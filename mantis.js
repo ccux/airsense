@@ -556,6 +556,7 @@ function updateWithData (data) {
   var parsedData = JSON.parse(data);
   //var foundIt = $('.room-detail-link').find(`[sensorid='${parsedData.mac_address}']`);
   var foundIt = $('#' + parsedData.mac_address);
+  foundIt.hide(2000);
   console.log(foundIt);
 
 }
