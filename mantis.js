@@ -539,6 +539,7 @@ function webSocket () {
 
               socket.onmessage = function(msg){
                console.log('Received: '+msg.data);
+               updateWithData (msg.data);
               }
 
               socket.onclose = function(){
@@ -548,6 +549,15 @@ function webSocket () {
           } catch(exception){
              console.log('Error '+exception);
           }
+}
+
+function updateWithData (data) {
+
+for (var i = 0; i < data.data.length; i++) {
+  var foundIt = $('.room-detail-link').find(`[sensorid='${data.data.mac_address}']`);
+  console.log(foundIt);
+}
+
 }
 
 window.onbeforeunload = function() {
