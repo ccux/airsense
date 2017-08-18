@@ -1,3 +1,4 @@
+/* AIRSENSE V.0.1  - FRONT PAGE*/
 
 //Set the loading indicator
   var loading = document.getElementById("loading");
@@ -265,6 +266,7 @@ function returnAirQualStatusImage (value) {
 
 /* ################################# STATUS CALCULATIONS - END ############################## */
 
+/*
 function setRoomDetailsOnDom () {
 
 //Loop trough the rooms and set the corresponding values
@@ -306,7 +308,7 @@ for (var i = 0; rooms.length > i; i++) {
      console.log("The new link is: ", roomDetailLinks[i].href);
 }
 }
-
+*/
 
 
 
@@ -371,7 +373,9 @@ roomBlockHTML += 'href="http://mantis-e9c0de.webflow.io/detail?roomid=';
 roomBlockHTML += sensorData.sensors[i].id; // Sensor ID count number
 roomBlockHTML += '&sensorid=' + sensorData.sensors[i].mac_address; // Room sensor MAC adress
 roomBlockHTML += '&title=' + encodeURIComponent(sensorData.sensors[i].location); //Set the Room Title
-roomBlockHTML += '" id="Room-1-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
+roomBlockHTML += '&temperature=' + temperature; // Room temperature to link
+roomBlockHTML += '&humidity=' + humidity; // Room temperature to link
+roomBlockHTML += '" id="Room-' + sensorData.sensors[i].id + '-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
 roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature  Title Label
 roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';
 roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b2a7d646468737e8_Room_Square_Block_Icon.png"';
@@ -389,8 +393,6 @@ roomBlockHTML += '" width="21"></div></div></div></div>';
 $("#room--container").append(roomBlockHTML);
 
 console.log("Added the HTML Block");
-
-$
 
 
 // CSS - humidity-status-green (GREEN) humidity-status (RED)  humidity-status-yellow (YELLOW)
@@ -504,6 +506,101 @@ $('document').ready(function(){
    type: 'GET'
 });
 
+
+//Setup websocket listner
+webSocket();
+
+
 }); //document ready end
 
+
+function webSocket {
+
+    var BaseWebSocket = function(options) {
+        var self = this;
+        var heartbeat = '--heartbeat--';
+        var heartbeater = null;
+        var heartbeats_missed = 0;
+        var heartbeat_interval = 45000;
+        var timer, retries = 1, give_up = 3;
+        var loc = window.location;
+        var base = 'ws' + loc.protocol.substr(4) + '//' + loc.host;
+        //var channel_url = base + '/ws/'+ options.channel + '?subscribe-broadcast';
+        var channel_url = "ws://172.104.145.165/ws/1?subscribe-broadcast";
+
+        _.defaults(options, {
+            url: channel_url,
+            caller: options.this || this,
+            onmessage: function(msg) { console.log(msg); },
+        });
+
+        this.ws = connect(channel_url);
+        function connect(url) {
+            timer = null;
+            try {
+                var ws = new WebSocket(url);
+                ws.onmessage = function(msg) {
+                    if (msg.data === heartbeat) {
+                        heartbeats_missed = 0;
+                    } else {
+                        options.onmessage.call(options.caller, JSON.parse(msg.data), options);
+                    }
+                };
+                ws.onerror = function(error) {
+                    showToast('Cloud connection failed. Reconnect?',
+                            'error', 'infinite', function() {
+                                app.reconnect_websockets();
+                                hideToast();
+                            });
+                };
+                ws.onopen = function(sock) {
+                    retries = 1;
+                    console.log('WebSocket opened');
+                    // console.log('WebSocket opened ('+sock.currentTarget.url+')');
+                    clearInterval(heartbeater);
+                    heartbeater = setInterval(function() {
+                        try {
+                            // Note: If server was sending heartbeats
+                            // if (heartbeats_missed++ > 3)
+                            //     throw new Error('Missed too many heartbeats');
+                            if (ws.readyState == 1)
+                                ws.send(heartbeat);
+                        } catch(e) {
+                            heartbeater = clearInterval(heartbeater);
+                        }
+                    }, heartbeat_interval);
+                };
+                ws.onclose = function(sock) {
+                    // Reconnect in random [3-30]s
+                    if (retries == 1)
+                        console.log('WebSocket closed');
+                        // console.log('WebSocket closed ('+sock.currentTarget.url+')');
+                    else if (retries > give_up)
+                        return;
+
+                    if (!timer) {
+                        var wait = randomInc(retries++, 3, 10);
+                        timer = setTimeout(function() {
+                            self.ws = connect(channel_url);
+
+                            // Check again in 5s
+                            setTimeout(function () {
+                                if (self.connected())
+                                    // hideToast();
+                                    showToast('Cloud connection re-established');
+                            }, 5000);
+                        }, wait);
+                    }
+                };
+                return ws;
+            } catch(e) {
+                console.log('WebSocket', e);
+            }
+        }
+    };
+    BaseWebSocket.prototype.connected = function() {
+        return this.ws.readyState == 1;
+    }
+
+}
 
