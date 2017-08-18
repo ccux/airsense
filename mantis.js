@@ -555,7 +555,7 @@ function webSocket () {
 function updateWithData (data) {
   var parsedData = JSON.parse(data);
   //var foundIt = $('.room-detail-link').find(`[sensorid='${parsedData.mac_address}']`);
-  var foundIt = $('#${parsedData.mac_address}');
+  var foundIt = $('#' + parsedData.mac_address);
   console.log(foundIt);
 
 }
