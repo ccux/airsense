@@ -934,7 +934,7 @@ var redColorMax = 100;
 if (value > redColorMin)
 {
 //console.log('RedColor ', value);
-return "red-state";
+return "bar-week-5 red-state";
 }
 else if (value > yellowColorMax && value < redColorMin) {
 //console.log('GreenColor ', value);
@@ -942,6 +942,6 @@ return "";
 }
 else {
 //console.log('YellowColor ', value);
-return "yellow-state";
+return "bar-week-1 yellow-state";
 }
 }
