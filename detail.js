@@ -572,8 +572,15 @@ function getParameterByName(name, url) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
+    if (!results) {
+    	alert("Data error - please try again");
+    	return null;
+    }
+    if (!results[2]) 
+    	{
+    		alert("Data error - please try again");
+    		return '';
+    	}
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
@@ -794,8 +801,8 @@ function buildTemperatureGraph (averageDataSet) {
 
 var buildResult = ''; 
 
-var minTemp = averageDataSet[0].value;
-var maxTemp = averageDataSet[0].value;
+var minTemp = getParameterByName("temperature");
+var maxTemp = getParameterByName("temperature");
 
 for (var i = 0; i < averageDataSet.length; i++)
 {
@@ -837,14 +844,14 @@ for (var i = 0; i < averageDataSet.length; i++) {
 
   if (i === averageDataSet.length -1) { //Set the last graph to the current value!
   	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
-	buildResult += returnHumidityBarColorClass(getParameterByName("temperature"));
+	buildResult += 'temperature-bar';
 	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + getParameterByName("temperature") * graphBarScale + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
     buildResult += 'NU'; //Set the current Temp og Humidity and not the daily calculation
   }
   else {
   	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
-	buildResult += returnHumidityBarColorClass(averageDataSet[i].value);
-	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
+	buildResult += 'temperature-bar';
+	buildResult += '" id="Temp-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
     buildResult += timeStamp; 
   }
   buildResult += '</div></div></div>'; 
@@ -872,8 +879,8 @@ function buildHumidityGraph (averageDataSet) {
 
 var buildResult = ''; 
 
-var minTemp = averageDataSet[0].value;
-var maxTemp = averageDataSet[0].value;
+var minTemp = getParameterByName("humidity");
+var maxTemp = getParameterByName("humidity");
 
 for (var i = 0; i < averageDataSet.length; i++)
 {
