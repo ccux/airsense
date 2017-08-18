@@ -514,7 +514,7 @@ webSocket();
 }); //document ready end
 
 
-function webSocket {
+function webSocket () {
 
     var BaseWebSocket = function(options) {
         var self = this;
