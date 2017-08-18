@@ -952,8 +952,8 @@ $('#humidity-indicator-0').html(0);
 //Add the build results to the DOM
 $(".graph-week-colum-bar-container").eq(0).html(buildResult);
 
-var criticalValueBarPlacement = ((141 + 52 / maxTemp) * 60);
-var minCriticalValueBarPlacement = ((141 + 52 / maxTemp) * 40);
+var criticalValueBarPlacement = (60 *graphBarScale) + 52;//((141 + 52 / maxTemp) * 60);
+var minCriticalValueBarPlacement = (40 * graphBarScale) + 52; //((141 + 52 / maxTemp) * 40);
 $(".humidity-graph-red-bar").css({ top: -criticalValueBarPlacement + 'px' });
 $(".humidity-graph-red-bar.yellow-bar").css({ top: -minCriticalValueBarPlacement + 'px' });
 
