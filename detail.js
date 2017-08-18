@@ -34,7 +34,7 @@ var historyDayViewClick = function(btn) {
   $('.history-graph-view-selector').eq(5).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(4).addClass('history-graph-view-selector-selected');
 
-  loadTemperatureData (roomID, "day");
+  getSensorDataFromServer (roomID, "day");
 }
 
 var historyWeekViewClick = function(btn) {
@@ -51,7 +51,7 @@ var historyWeekViewClick = function(btn) {
   $('.history-graph-view-selector').eq(4).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(5).addClass('history-graph-view-selector-selected');
 
-  loadTemperatureData (roomID, "week");
+  getSensorDataFromServer (roomID, "week");
 }
 
 //Experimental top bar app placement
