@@ -557,7 +557,7 @@ function updateWithData (data) {
   //var foundIt = $('.room-detail-link').find(`[sensorid='${parsedData.mac_address}']`);
 
  $('#' + parsedData.mac_address).css( "border", "3px solid red" );
-  console.log('#' + parsedData.mac_address);
+  console.log($('#' + parsedData.mac_address));
 
 }
 
