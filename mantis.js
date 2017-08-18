@@ -508,7 +508,12 @@ $('document').ready(function(){
 
 
 //Setup websocket listner
-webSocket();
+if(!("WebSocket" in window)){
+  alert("Din browser er ikke understøttet. Anvend Safari eller Chrome");
+}
+else {
+  webSocket();
+}
 
 
 }); //document ready end
@@ -516,6 +521,18 @@ webSocket();
 
 function webSocket () {
 
+  var socket = new WebSocket("ws://172.104.145.165/ws/1?subscribe-broadcast");
+
+  socket.onopen = function(){
+  console.log("Socket has been opened!");
+  }
+
+  socket.onmessage = function(msg){
+  console.log(msg); //Awesome!
+  }
+
+
+/*
     var BaseWebSocket = function(options) {
         var self = this;
         var heartbeat = '--heartbeat--';
@@ -601,6 +618,6 @@ function webSocket () {
     BaseWebSocket.prototype.connected = function() {
         return this.ws.readyState == 1;
     }
-
+*/
 }
 
