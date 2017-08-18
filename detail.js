@@ -25,6 +25,9 @@ var historyDayViewClick = function(btn) {
   $('.graph-row-week').eq(1).hide();
   $('.graph-row-week').eq(2).hide();
 
+  $(".humidity-graph-red-bar").hide();
+  $(".humidity-graph-red-bar.yellow-bar").hide();
+
   $('.history-graph-view-selector').eq(1).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(0).addClass('history-graph-view-selector-selected');
 
@@ -41,6 +44,9 @@ var historyWeekViewClick = function(btn) {
   $('.graph-row-week').eq(0).hide();
   $('.graph-row-week').eq(1).hide();
   $('.graph-row-week').eq(2).hide();
+
+  $(".humidity-graph-red-bar").hide();
+  $(".humidity-graph-red-bar.yellow-bar").hide();
 
   $('.history-graph-view-selector').eq(0).removeClass('history-graph-view-selector-selected');
   $('.history-graph-view-selector').eq(1).addClass('history-graph-view-selector-selected');
@@ -912,7 +918,8 @@ $(".humidity-graph-red-bar.yellow-bar").css({ top: -minCriticalValueBarPlacement
 //Display the temperature data
 $(".history-section").eq(0).fadeIn(500);
 $(".graph-row-week").eq(0).fadeIn(500);
-
+$(".humidity-graph-red-bar").fadeIn(500);
+$(".humidity-graph-red-bar.yellow-bar").fadeIn(500);
 }
 
 function returnHumidityBarColorClass (value) {
@@ -927,7 +934,7 @@ var redColorMax = 100;
 if (value > redColorMin)
 {
 //console.log('RedColor ', value);
-return "yellow-state";
+return "red-state";
 }
 else if (value > yellowColorMax && value < redColorMin) {
 //console.log('GreenColor ', value);
@@ -935,6 +942,6 @@ return "";
 }
 else {
 //console.log('YellowColor ', value);
-return "red-state";
+return "yellow-state";
 }
 }
