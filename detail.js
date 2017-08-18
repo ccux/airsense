@@ -558,8 +558,7 @@ console.log(sensorMACAdress);
       sensorCapabilitiesArray.push(data[0].type.capabilities[i]);
     }
 
-    var type = 'day';
-    getSensorDataFromServer (roomID, type);
+    getSensorDataFromServer (roomID, 'day');
 
    },
    type: 'GET'

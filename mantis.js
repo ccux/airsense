@@ -502,18 +502,21 @@ $('document').ready(function(){
     console.log(data.sensors[0].latest_data.value);
     sensorData = data;
     logSensorData();
+
+    //Setup websocket listner
+    if(!("WebSocket" in window)){
+     alert("Din browser er ikke understøttet. Anvend Safari eller Chrome");
+    }
+    else {
+      webSocket();
+    }
+
    },
    type: 'GET'
 });
 
 
-//Setup websocket listner
-if(!("WebSocket" in window)){
-  alert("Din browser er ikke understøttet. Anvend Safari eller Chrome");
-}
-else {
-  webSocket();
-}
+
 
 
 }); //document ready end
@@ -545,131 +548,11 @@ function webSocket () {
           } catch(exception){
              console.log('Error '+exception);
           }
-
-         /* function send(){
-              var text = $('#text').val();
-
-              if(text==""){
-                  console.log('Empty socket return');
-                  return ;
-              }
-              try{
-                  socket.send(text);
-                  console.log('Sent: '+text)
-
-              } catch(exception){
-                 console.log('Socket - warning');
-              }
-              $('#text').val("");
-          }*/
-
-/*
-          function message(msg){
-            console.log(msg);
-          }
-
-
-           function disconnect () {
-             socket.close();
-          };
-          */
- /* 
-   var socket = new WebSocket("ws://172.104.145.165/ws/1?subscribe-broadcast");
-  socket.onopen = function(){
-  console.log("Socket has been opened!");
-  }
-
-  socket.onmessage = function(msg){
-  console.log(msg); //Awesome!
-  }*/
-
-
-/*
-    var BaseWebSocket = function(options) {
-        var self = this;
-        var heartbeat = '--heartbeat--';
-        var heartbeater = null;
-        var heartbeats_missed = 0;
-        var heartbeat_interval = 45000;
-        var timer, retries = 1, give_up = 3;
-        var loc = window.location;
-        var base = 'ws' + loc.protocol.substr(4) + '//' + loc.host;
-        //var channel_url = base + '/ws/'+ options.channel + '?subscribe-broadcast';
-        var channel_url = "ws://172.104.145.165/ws/1?subscribe-broadcast";
-
-        _.defaults(options, {
-            url: channel_url,
-            caller: options.this || this,
-            onmessage: function(msg) { console.log(msg); },
-        });
-
-        this.ws = connect(channel_url);
-        function connect(url) {
-            timer = null;
-            try {
-                var ws = new WebSocket(url);
-                ws.onmessage = function(msg) {
-                    if (msg.data === heartbeat) {
-                        heartbeats_missed = 0;
-                    } else {
-                        options.onmessage.call(options.caller, JSON.parse(msg.data), options);
-                    }
-                };
-                ws.onerror = function(error) {
-                    showToast('Cloud connection failed. Reconnect?',
-                            'error', 'infinite', function() {
-                                app.reconnect_websockets();
-                                hideToast();
-                            });
-                };
-                ws.onopen = function(sock) {
-                    retries = 1;
-                    console.log('WebSocket opened');
-                    // console.log('WebSocket opened ('+sock.currentTarget.url+')');
-                    clearInterval(heartbeater);
-                    heartbeater = setInterval(function() {
-                        try {
-                            // Note: If server was sending heartbeats
-                            // if (heartbeats_missed++ > 3)
-                            //     throw new Error('Missed too many heartbeats');
-                            if (ws.readyState == 1)
-                                ws.send(heartbeat);
-                        } catch(e) {
-                            heartbeater = clearInterval(heartbeater);
-                        }
-                    }, heartbeat_interval);
-                };
-                ws.onclose = function(sock) {
-                    // Reconnect in random [3-30]s
-                    if (retries == 1)
-                        console.log('WebSocket closed');
-                        // console.log('WebSocket closed ('+sock.currentTarget.url+')');
-                    else if (retries > give_up)
-                        return;
-
-                    if (!timer) {
-                        var wait = randomInc(retries++, 3, 10);
-                        timer = setTimeout(function() {
-                            self.ws = connect(channel_url);
-
-                            // Check again in 5s
-                            setTimeout(function () {
-                                if (self.connected())
-                                    // hideToast();
-                                    showToast('Cloud connection re-established');
-                            }, 5000);
-                        }, wait);
-                    }
-                };
-                return ws;
-            } catch(e) {
-                console.log('WebSocket', e);
-            }
-        }
-    };
-    BaseWebSocket.prototype.connected = function() {
-        return this.ws.readyState == 1;
-    }
-*/
 }
+
+window.onbeforeunload = function() {
+    websocket.onclose = function () {}; // disable onclose handler first
+    websocket.close()
+    console.log("Websocket closed on page exit!");
+};
 
