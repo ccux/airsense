@@ -18,16 +18,8 @@ $('.graph-row-week').eq(1).hide();	//Temperature
 
 $('.history-section').eq(2).hide(); //Airquality
 
-/*//Set temperature button states
-$('.history-graph-view-selector').eq(2).on('click',function(){
- 
-});
-//Set temperature button states
-$('.history-graph-view-selector').eq(3).on('click',function(){
-	
-});*/
 
-
+//Set HISTORY - button action functions
 var historyDayViewClick = function(btn) {
   $('.graph-row-week').eq(0).hide();
   $('.graph-row-week').eq(1).hide();
@@ -62,6 +54,7 @@ var historyWeekViewClick = function(btn) {
   loadTemperatureData (roomID, "week");
 }
 
+//Experimental top bar app placement
 /*
 function scrollFunction() {
     var scrollPos = document.body.scrollTop;
@@ -78,7 +71,14 @@ function scrollFunction() {
 }
 
 window.onscroll = scrollFunction;
+*/
 
+//Status colors
+var greenColor = '#4fc14e';
+var redColor = '#FF5454'; //.graph-bar.bar-week-2.red-state
+var yellowColor = '#FFAA54'; //.graph-bar.bar-week-1.yellow-state
+
+/*
 var rooms = [];
 var greenColorMin = 0;
 var greenColorMax = 0;
@@ -93,9 +93,7 @@ var maxWeekBars = 7;
 //var minNumber = 1;
 //var maxNumber = 100;
 
-var greenColor = '#4fc14e';
-var redColor = '#FF5454';
-var yellowColor = '#FFAA54';
+
 
 var procentageScaleConverter = 148/100;
 
@@ -302,28 +300,7 @@ console.log("My random color hight is : ", document.getElementById(myID).style.b
 }
 
 
-function setHumidityGtaphBarColor (value)
-{
 
-if (!value) {
-console.log("Error - The random number is not here!");
-return;
-}
-
-if (value > redColorMin)
-{
-//console.log('RedColor ', randomNumber);
-return redColor;
-}
-else if (value > yellowColorMax && value < redColorMin) {
-//console.log('GreenColor ', randomNumber);
-return greenColor;
-}
-else {
-//console.log('YellowColor ', randomNumber);
-return yellowColor;
-}
-}
 
 function setAirGtaphBarColor (value)
 {
@@ -414,30 +391,7 @@ function getRoomStatus (room) {
     return midResult;
 }
 
-function returnHumidityStatus (value) {
 
-var greenColorMin = 41;
-var greenColorMax = 59;
-var yellowColorMin = 0;
-var yellowColorMax = 40;
-var redColorMin = 60;
-var redColorMax = 100;
-
-if (value > redColorMin)
-{
-//console.log('RedColor ', value);
-return 3;
-}
-else if (value > yellowColorMax && value < redColorMin) {
-//console.log('GreenColor ', value);
-return 0;
-}
-else {
-//console.log('YellowColor ', value);
-return 2;
-}
-
-}
 
 function returnAirQualStatus (value) {
 
@@ -619,13 +573,6 @@ function getParameterByName(name, url) {
 }
 
 function getSensorDataFromServer (roomID, type) {
-
-  loadTemperatureData (roomID, type);
-  //loadHumidityData (sensorID, "day");
-  //loadAirQualityData (sensorID, "day");
-}
-
-function loadTemperatureData (roomID, type) {
   //Get Temperature 24hours JSON data
     $.ajax({
    url: 'http://172.104.145.165/webservice/apartments/1/sensors/' + roomID +'/history?period='+ type,
@@ -931,9 +878,9 @@ var height = averageDataSet[i].value * graphBarScale;
 console.log('Count the bars created:' + ' ' + i + ' and Height' + height);
 
 var timeStamp = averageDataSet[i].time;
-buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
+buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar" id="Hum-Graph-' + i + '" style="height: ' + height + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3 '+ returnHumidityBarColorClass(averageDataSet[i].value) +'">';
   if (i === averageDataSet.length -1) {
-    buildResult += 'NU'; 
+    buildResult += 'NU'; //Set the current Temp og Humidity and not the daily calculation
   }
   else {
     buildResult += timeStamp; 
@@ -961,4 +908,28 @@ $(".humidity-graph-red-bar.yellow-bar").css({ top: -minCriticalValueBarPlacement
 $(".history-section").eq(0).fadeIn(500);
 $(".graph-row-week").eq(0).fadeIn(500);
 
+}
+
+function returnHumidityBarColorClass (value) {
+
+var greenColorMin = 41;
+var greenColorMax = 59;
+var yellowColorMin = 0;
+var yellowColorMax = 40;
+var redColorMin = 60;
+var redColorMax = 100;
+
+if (value > redColorMin)
+{
+//console.log('RedColor ', value);
+return "yellow-state";
+}
+else if (value > yellowColorMax && value < redColorMin) {
+//console.log('GreenColor ', value);
+return "";
+}
+else {
+//console.log('YellowColor ', value);
+return "red-state";
+}
 }
