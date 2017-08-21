@@ -572,7 +572,7 @@ function updateWithData (data) {
 	//Update DOM temperature
 	var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address));
 	var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
-	roomTemperature.text(parsedData.data[2].value);
+	roomTemperature.text(Math.round(parsedData.data[2].value));
 	
 	//Update the DOM humidity
 
