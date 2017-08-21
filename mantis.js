@@ -387,7 +387,7 @@ roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-numb
 roomBlockHTML += temperature;
 roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 '
 roomBlockHTML += 'class="room-block-humidity'//Humidity class
-roomBlockHTML += '' + humidityClass + '">'; //Humidity class - Extra
+roomBlockHTML += '' + humidityClass + '" id="room-humidity-' + createSensorID(sensorData.sensors[i].mac_address) +'">'; //Humidity class - Extra
 roomBlockHTML += humidity; //Set humidity value
 roomBlockHTML += '%'; //Humidity unit
 roomBlockHTML += '</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
@@ -570,13 +570,18 @@ function updateWithData (data) {
 	var roomLinkElement = $('#' + createSensorID(parsedData.mac_address));
 
 	//Update DOM temperature
-	var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address));
 	var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
-	roomTemperature.text(Math.round(parsedData.data[2].value));
+	roomTemperature.text(Math.round(parsedData.data[2].value)).fadeIn(200);
 	
 	//Update the DOM humidity
+	var roomHumidity = $('#room-humidity-' + createSensorID(parsedData.mac_address));
+	roomHumidity.text(Math.round(parsedData.data[1].value)).fadeIn(200);
 
-	//Update the DOM Air Quality
+	//Update the Humidity class
+	var humidityClass = returnHumidityLabelClass(parsedData.data[1].value);
+	roomHumidity.toggleClass(humidityClass);
+
+	//Update the DOM Air Quality //TODO
 
 
 }
