@@ -550,13 +550,13 @@ function updateWithData (data) {
 	});
 	//Update the DOM humidity
 	var roomHumidity = $('#room-humidity-' + createSensorID(parsedData.mac_address));
-	roomHumidity.text(Math.round(parsedData.data[1].value) + '%').fadeIn(500);
 
-	//Update the Humidity class
+	roomHumidity.text(Math.round(parsedData.data[1].value) + '%').fadeIn(500);
+	roomHumidity.fadeOut(function() {
 	var humidityClass = returnHumidityLabelClass(parsedData.data[1].value);
 	roomHumidity.removeClass("humidity-status-green humidity-status-yellow");
 	roomHumidity.addClass(humidityClass);
-
+	});
 	
 
 	//Update the DOM Air Quality //TODO
