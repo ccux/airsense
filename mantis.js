@@ -546,7 +546,7 @@ function webSocket () {
               }
 
               socket.onmessage = function(msg){
-              // console.log('Received: '+msg.data);
+               console.log('Received: '+msg.data);
                updateWithData (msg.data);
               }
 
@@ -570,6 +570,11 @@ var roomLinkElement = $('#' + createSensorID(parsedData.mac_address));
 //var	roomContainer = roomLinkElement.nextSibling();
 //console.log(roomContainer.length);
 //console.log(roomContainer);
+
+var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address);
+var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address);
+//roomTemperature.text(parsedData.);
+
 
 }
 
