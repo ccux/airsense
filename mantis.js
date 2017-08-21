@@ -336,16 +336,6 @@ var roomBlockHTML;
 //Loop trough the rooms and set the corresponding values
 for (var i = sensorData.sensors.length - 1; i >= 0; i--) {
 
-//Set the name
-//var roomTitle = document.getElementsByClassName('room-block-title')[i];
-//console.log(roomTitle);
-//roomTitle.innerHTML = sensorData.sensors[i].location.toUpperCase();//rooms[i].name.toUpperCase();
-
-//Set the temperature
-//var temperature = document.getElementsByClassName('temperature-number')[i];
-//temperature.innerHTML = Math.round(sensorData.sensors[i].latest_data.value);//rooms[i].temp;
-
-
 //HTML ROOM BLOCK
 roomBlockHTML = '<div class="room-block';
 
@@ -403,16 +393,7 @@ var roomBlockEndSpacingkHTML = '<div class="room-block-spacing"></div>';
 $("#room--container").append(roomBlockEndSpacingkHTML);
 console.log("Added the end HTML Block spacing");
 
-//Set the links of the rooms to pass the romms to the Detail view
-/*var roomDetailLinks = document.getElementsByClassName("room-detail-link");
 
-console.log("TEEEEST ", roomDetailLinks);
-
-for (var i = 0; sensorData.sensors.length > i; i++) {
-    roomDetailLinks[i].href += "?roomid=" + i; 
-
-     console.log("The new link is: ", roomDetailLinks[i].href);
-}*/
 //Remove the loading animation
 var loadingDiv = document.getElementById("loading");
   console.log("Div is: ", loadingDiv);
@@ -426,47 +407,21 @@ console.log(sensorData.sensors.length);
 setRealRoomDetailsOnDom();
 }
 
+function returnRoomIcon (roomName) {
+//Check the input string for a corresponding image
+
+//Return the correct image path
+
+//If no results - return a placeholder image
+
+}
+
 function createSensorID (sensorID) {
 
 	var id = sensorID.replace(/[\:\/ ]/g, ""); 
 
 	return id;
 }
-
-// ################################ RUN PROGRAM ##################################################
-
-/*
-var hasLoaded = getParameterByName("loaded");
-
-if (hasLoaded != null) {
-
-console.log("The status is already here", getParameterByName("loaded"));
-
-rooms = JSON.parse(localStorage.getItem("rooms"));
-
-}
-else {
-console.log("The main status has not been loaded");
-
-createRooms();
-
-}
-
-
-
-calculateOverallStatus();
-setRoomDetailsOnDom();
-
-$(window).load(function() {
-  
-  
-
-//Save the RoomData locally
-// Put the object into storage
-localStorage.setItem('rooms', JSON.stringify(rooms));
-  
-});
-*/
 
 
 // ################################ RUN PROGRAM ##################################################
