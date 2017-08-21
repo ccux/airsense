@@ -575,7 +575,7 @@ function updateWithData (data) {
 	
 	//Update the DOM humidity
 	var roomHumidity = $('#room-humidity-' + createSensorID(parsedData.mac_address));
-	roomHumidity.text(Math.round(parsedData.data[1].value)).fadeIn(200);
+	roomHumidity.text(Math.round(parsedData.data[1].value) + '%').fadeIn(200);
 
 	//Update the Humidity class
 	var humidityClass = returnHumidityLabelClass(parsedData.data[1].value);
