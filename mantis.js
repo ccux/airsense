@@ -553,11 +553,11 @@ function webSocket () {
 }
 
 function updateWithData (data) {
-  var parsedData = JSON.parse(data);
-  var foundIt = $('.room-block-content').find('#' + parsedData.mac_address);
+  //var parsedData = JSON.parse(data);
+  //var foundIt = $('.room-block-content').find('#' + parsedData.mac_address);
 
  //$('#' + parsedData.mac_address).css( "border", "3px solid red" );
-  console.log(foundIt);
+  //console.log(foundIt);
 
 
 }
