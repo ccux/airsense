@@ -579,7 +579,10 @@ function updateWithData (data) {
 
 	//Update the Humidity class
 	var humidityClass = returnHumidityLabelClass(parsedData.data[1].value);
-	roomHumidity.toggleClass(humidityClass);
+	roomHumidity.removeClass("humidity-status-green humidity-status-yellow");
+	roomHumidity.addClass(humidityClass);
+
+	
 
 	//Update the DOM Air Quality //TODO
 
