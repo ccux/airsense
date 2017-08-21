@@ -376,7 +376,7 @@ roomBlockHTML += '&title=' + encodeURIComponent(sensorData.sensors[i].location);
 roomBlockHTML += '&temperature=' + temperature; // Room temperature to link
 roomBlockHTML += '&humidity=' + humidity; // Room temperature to link
 //roomBlockHTML += '" id="Room-' + sensorData.sensors[i].id + '-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
-roomBlockHTML += '" id="room' + sensorData.sensors[i].mac_address + '"></a><div class="room-block-content" id=' + sensorData.sensors[i].mac_address + ' ><h4 class="room-block-title" id="demo-title">';
+roomBlockHTML += '" id="' + createSensorID(sensorData.sensors[i].mac_address) + '"></a><div class="room-block-content" id=' + sensorData.sensors[i].mac_address + ' ><h4 class="room-block-title" id="demo-title">';
 roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature  Title Label
 roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';
 roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b2a7d646468737e8_Room_Square_Block_Icon.png"';
@@ -448,6 +448,13 @@ function logSensorData () {
 console.log(sensorData.sensors[0].latest_data.value);
 console.log(sensorData.sensors.length);
 setRealRoomDetailsOnDom();
+}
+
+function createSensorID (sensorID) {
+
+	var id = sensorID.replace(/[\:\/ ]/g, ""); 
+
+	return id;
 }
 
 // ################################ RUN PROGRAM ##################################################
