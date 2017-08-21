@@ -574,8 +574,8 @@ var roomLinkElement = $('#' + createSensorID(parsedData.mac_address));
 //console.log(roomContainer.length);
 //console.log(roomContainer);
 
-var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address);
-var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address);
+var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address));
+var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
 //roomTemperature.text(parsedData.);
 
 
