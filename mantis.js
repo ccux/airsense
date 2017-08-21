@@ -566,12 +566,17 @@ function updateWithData (data) {
   	
   	var parsedData = JSON.parse(data);
 
+  	//Get the DOM link - Replace the sensor values in the link //TODO
 	var roomLinkElement = $('#' + createSensorID(parsedData.mac_address));
 
+	//Update DOM temperature
 	var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address));
 	var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
 	roomTemperature.text(parsedData.data[2].value);
 	
+	//Update the DOM humidity
+
+	//Update the DOM Air Quality
 
 
 }
