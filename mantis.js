@@ -563,20 +563,15 @@ function webSocket () {
 }
 
 function updateWithData (data) {
-  var parsedData = JSON.parse(data);
-  //var foundIt = $('.room-block-content').find('#' + parsedData.mac_address);
+  	
+  	var parsedData = JSON.parse(data);
 
- //$('#' + parsedData.mac_address).css( "border", "3px solid red" );
-  //console.log(foundIt);
+	var roomLinkElement = $('#' + createSensorID(parsedData.mac_address));
 
-var roomLinkElement = $('#' + createSensorID(parsedData.mac_address));
-//var	roomContainer = roomLinkElement.nextSibling();
-//console.log(roomContainer.length);
-//console.log(roomContainer);
-
-var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address));
-var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
-//roomTemperature.text(parsedData.);
+	var roomTitle = $('#room-title-' + createSensorID(parsedData.mac_address));
+	var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
+	roomTemperature.text(parsedData.data[2].value);
+	
 
 
 }
