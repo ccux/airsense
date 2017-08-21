@@ -873,9 +873,7 @@ $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
 
 for (var i = 0; i < averageDataSet.length; i++) {
-  $('#Temp-Graph-' + i).fadeOut(function() {
   $('#Temp-Graph-' + i).fadeIn(1000 + (i*100));
-});
 }
 }
 
