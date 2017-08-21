@@ -566,6 +566,12 @@ function updateWithData (data) {
  //$('#' + parsedData.mac_address).css( "border", "3px solid red" );
   //console.log(foundIt);
 
+var roomLinkElement = $(createSensorID(parsedData.mac_address));
+var	roomContainer = roomLinkElement.nextSibling();
+console.log(roomContainer.length);
+console.log(roomContainer);
+
+
 
 }
 
