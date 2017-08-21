@@ -395,34 +395,7 @@ roomBlockHTML += 'http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b
 roomBlockHTML += '" width="21"></div></div></div></div>';
 
 $("#room--container").append(roomBlockHTML);
-
 console.log("Added the HTML Block");
-
-
-// CSS - humidity-status-green (GREEN) humidity-status (RED)  humidity-status-yellow (YELLOW)
-
-
-
-
-
-//var roomBlockDiv = document.getElementsByClassName('room-container').innerHTML = roomBlockHTML;
-
-
-//Set Humidity color
-/*var humidity = document.getElementsByClassName('room-block-humidity')[i];
-humidity.innerHTML = rooms[i].humidity + "%";
-var statusColor = humidityColor(rooms[i].humidity);
-humidity.style.color = statusColor;
-console.log("Color is: ", statusColor);
-*/
-//console.log("TEST " + document.getElementsByClassName('room-block-humidity')[0]);
-
-/*var roomIcon = document.getElementsByClassName('room-block-icon')[i];
-roomIcon.src = rooms[i].icon;*/
-
-/*var airQualIcon = document.getElementsByClassName('room-block-airquality-status-image')[i];
-var airQualIconSrc = returnAirQualStatusImage(airQualColor(rooms[i].airqual))
-airQualIcon.src = airQualIconSrc;*/
 }
 
 var roomBlockEndSpacingkHTML = '<div class="room-block-spacing"></div>';
@@ -571,6 +544,7 @@ function updateWithData (data) {
 
 	//Update DOM temperature
 	var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_address));
+
 	roomTemperature.fadeOut(function() {
 	roomTemperature.text(Math.round(parsedData.data[2].value)).fadeIn(500);
 	});

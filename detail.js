@@ -845,7 +845,7 @@ for (var i = 0; i < averageDataSet.length; i++) {
   if (i === averageDataSet.length -1) { //Set the last graph to the current value!
   	buildResult += '<div class="graph-row w-row"><div class="column-9 w-col w-col-10"><div class="graph-bar ';
 	buildResult += 'temperature-bar';
-	buildResult += '" id="Hum-Graph-' + i + '" style="height: ' + getParameterByName("temperature") * graphBarScale + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
+	buildResult += '" id="Temp-Graph-' + i + '" style="height: ' + getParameterByName("temperature") * graphBarScale + 'px;"></div></div><div class="w-col w-col-2"><div class="text-block-3">';
     buildResult += 'NU'; //Set the current Temp og Humidity and not the daily calculation
   }
   else {
@@ -871,6 +871,11 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 //Display the temperature data
 $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
+
+for (var i = 0; i < averageDataSet.length; i++) {
+  $('#Temp-Graph-' + i).hide((function() {
+  $('#Temp-Graph-' + i).fadeIn(1500 + (i*100);
+});
 }
 
 function buildHumidityGraph (averageDataSet) {
