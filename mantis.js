@@ -376,11 +376,11 @@ roomBlockHTML += '&title=' + encodeURIComponent(sensorData.sensors[i].location);
 roomBlockHTML += '&temperature=' + temperature; // Room temperature to link
 roomBlockHTML += '&humidity=' + humidity; // Room temperature to link
 //roomBlockHTML += '" id="Room-' + sensorData.sensors[i].id + '-Block"></a><div class="room-block-content"><h4 class="room-block-title" id="demo-title">';
-roomBlockHTML += '" id="' + createSensorID(sensorData.sensors[i].mac_address) + '"></a><div class="room-block-content" id=' + sensorData.sensors[i].mac_address + ' ><h4 class="room-block-title" id="demo-title">';
+roomBlockHTML += '" id="' + createSensorID(sensorData.sensors[i].mac_address) + '"></a><div class="room-block-content" id=' + sensorData.sensors[i].mac_address + ' ><h4 class="room-block-title" id="room-title-' + createSensorID(sensorData.sensors[i].mac_address) + '">';
 roomBlockHTML += sensorData.sensors[i].location.toUpperCase(); //Set temperature  Title Label
 roomBlockHTML += '</h4><img class="room-block-icon" height="50" src=';
 roomBlockHTML += '"http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db8014b2a7d646468737e8_Room_Square_Block_Icon.png"';
-roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-number">';
+roomBlockHTML += ' width="50"><h1 class="room-block-temperature temperature-number" id="room-temperature">';
 roomBlockHTML += temperature;
 roomBlockHTML += '</h1><h1 class="degree-symbol room-block-temperature">∘</h1><div class="room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="room-block-data-title">Humidity</div></div><div class="column-4 w-col w-col-6"><h4 '
 roomBlockHTML += 'class="room-block-humidity'//Humidity class
