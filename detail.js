@@ -872,9 +872,9 @@ $(".graph-week-colum-bar-container").eq(1).html(buildResult);
 $(".history-section").eq(1).fadeIn(500);
 $(".graph-row-week").eq(1).fadeIn(500);
 
-for (var i = 0; i < averageDataSet.length; i++) {
-  $('#Temp-Graph-' + i).fadeIn(1000 + (i*100));
-}
+//for (var i = 0; i < averageDataSet.length; i++) {
+//  $('#Temp-Graph-' + i).fadeIn(1000 + (i*100));
+//}
 }
 
 function buildHumidityGraph (averageDataSet) {
