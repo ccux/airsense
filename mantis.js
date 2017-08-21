@@ -539,7 +539,7 @@ function webSocket () {
               }
 
               socket.onmessage = function(msg){
-               console.log('Received: '+msg.data);
+              // console.log('Received: '+msg.data);
                updateWithData (msg.data);
               }
 
