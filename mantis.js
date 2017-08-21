@@ -8,6 +8,9 @@
 //Remove the facts section
 $('#fact-section').hide();
 
+//Create websocket reference
+var socket;
+
 
 var greenColor = '#4fc14e';
 var redColor = '#FF5454';
@@ -533,7 +536,7 @@ $('document').ready(function(){
 function webSocket () {
 
       //The user has WebSockets
-          var socket;
+          
           var host = "ws://172.104.145.165/ws/1?subscribe-broadcast";
 
           try{
@@ -579,8 +582,8 @@ var roomTemperature = $('#room-temperature-' + createSensorID(parsedData.mac_add
 }
 
 window.onbeforeunload = function() {
- //   websocket.onclose = function () {}; // disable onclose handler first
- ////   websocket.close()
-   // console.log("Websocket closed on page exit!");
+    socket.onclose = function () {}; // disable onclose handler first
+    socket.close()
+    console.log("Websocket closed on page exit!");
 };
 
