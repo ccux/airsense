@@ -877,6 +877,7 @@ for (var i = 0; i < averageDataSet.length; i++) {
   $('#Temp-Graph-' + i).fadeIn(1500 + (i*100));
 });
 }
+}
 
 function buildHumidityGraph (averageDataSet) {
 
