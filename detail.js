@@ -63,23 +63,23 @@ var historyWeekViewClick = function(btn) {
   function adjustTextForLanguage () {
 
     //Status
-    var textLabels =  $('.detail-title-heading');
-    textLabels[0].val(strings.status[userLang]);
+   
+    $('.detail-title-heading').eq(0).text(strings.status[userLang]);
     //Improvement
-    textLabels[1].val(strings.possible_improvement[userLang]);
+    $('.detail-title-heading').eq(1).text(strings.possible_improvement[userLang]);
     //Graphs - Humidity
-    textLabels[2].val(strings.humidity[userLang]);
+    $('.detail-title-heading').eq(2).text(strings.humidity[userLang]);
     //Graphs - Temperature
-    textLabels[3].val(strings.temperature[userLang]);
+    $('.detail-title-heading').eq(3).text(strings.temperature[userLang]);
     //Graphs - Air Quality
-    textLabels[4].val(strings.airQuality[userLang]);
+    $('.detail-title-heading').eq(4).text(strings.airQuality[userLang]);
     //Graphs - DAY / Week
-    $('.history-graph-view-selector')[0].val(strings.graph_day[userLang]);
-    $('.history-graph-view-selector')[2].val(strings.graph_day[userLang]);
-    $('.history-graph-view-selector')[4].val(strings.graph_day[userLang]);
-    $('.history-graph-view-selector')[1].val(strings.graph_week[userLang]);
-    $('.history-graph-view-selector')[3].val(strings.graph_week[userLang]);
-    $('.history-graph-view-selector')[5].val(strings.graph_week[userLang]);
+    $('.history-graph-view-selector').eq(0).text(strings.graph_day[userLang]);
+    $('.history-graph-view-selector').eq(2).text(strings.graph_day[userLang]);
+    $('.history-graph-view-selector').eq(4).text(strings.graph_day[userLang]);
+    $('.history-graph-view-selector').eq(1).text(strings.graph_week[userLang]);
+    $('.history-graph-view-selector').eq(3).text(strings.graph_week[userLang]);
+    $('.history-graph-view-selector').eq(5).text(strings.graph_week[userLang]);
   }
 
 //Experimental top bar app placement
