@@ -396,6 +396,11 @@ console.log("Added the end HTML Block spacing");
 //Set the credits
 $('.credits').value(strings.credits[userLang]);
 
+//Adjust value labels for language
+if (userLang === 'da') {
+	//Padding left 8
+	$('.room-block-data-title').css('padding-left', '8px');
+}
 
 //Remove the loading animation
 var loadingDiv = document.getElementById("loading");
