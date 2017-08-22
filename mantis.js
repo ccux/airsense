@@ -400,6 +400,7 @@ $('.credits').html('<p class="credits-text">' + strings.credits[userLang] + '</p
 if (userLang === 'da') {
 	//Padding left 8
 	$('.room-block-data-title').css('padding-left', '8px');
+	$('.room-block-humidity').css('padding-left', '14px');
 }
 
 //Remove the loading animation
