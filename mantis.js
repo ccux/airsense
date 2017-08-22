@@ -394,8 +394,8 @@ $("#room--container").append(roomBlockEndSpacingkHTML);
 console.log("Added the end HTML Block spacing");
 
 //Set the credits
-$('.credits').value(strings.credits[userLang]);
-
+$('.credits').html('<p class="credits-text">' + strings.credits[userLang] + '</p>');
+//<br>
 //Adjust value labels for language
 if (userLang === 'da') {
 	//Padding left 8
