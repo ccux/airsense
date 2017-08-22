@@ -60,6 +60,27 @@ var historyWeekViewClick = function(btn) {
   getSensorDataFromServer (roomID, "week");
 }
 
+  function adjustTextForLanguage () {
+
+    //Status
+    $('.detail-title-heading.status-heading-title').text(strings.status[userLang]);
+    //Improvement
+    $('.detail-title-heading.details-improvement-title.status-heading-title').text(strings.possible_improvement[userLang]);
+    //Graphs - Humidity
+    $('.detail-title-heading.graph-title.status-heading-title')[0].text(strings.humidity[userLang]);
+    //Graphs - Temperature
+    $('.detail-title-heading.graph-title.status-heading-title')[1].text(strings.temperature[userLang]);
+    //Graphs - Air Quality
+    $('.detail-title-heading.graph-title.status-heading-title')[3].text(strings.airQuality[userLang]);
+    //Graphs - DAY / Week
+    $('.history-graph-view-selector')[0].text(strings.graph_day[userLang]);
+    $('.history-graph-view-selector')[2].text(strings.graph_day[userLang]);
+    $('.history-graph-view-selector')[4].text(strings.graph_day[userLang]);
+    $('.history-graph-view-selector')[1].text(strings.graph_week[userLang]);
+    $('.history-graph-view-selector')[3].text(strings.graph_week[userLang]);
+    $('.history-graph-view-selector')[5].text(strings.graph_week[userLang]);
+  }
+
 //Experimental top bar app placement
 /*
 function scrollFunction() {
@@ -515,6 +536,10 @@ $('.history-graph-view-selector').eq(1).on('click', historyWeekViewClick);
 $('.history-graph-view-selector').eq(3).on('click', historyWeekViewClick);
 //Air quality - Week
 $('.history-graph-view-selector').eq(5).on('click', historyWeekViewClick);
+
+//Set the text depending on language
+adjustTextForLanguage();
+
 
 }); //document ready end
 
