@@ -380,7 +380,7 @@ roomBlockHTML += 'class="room-block-humidity'//Humidity class
 roomBlockHTML += '' + humidityClass + '" id="room-humidity-' + createSensorID(sensorData.sensors[i].mac_address) +'">'; //Humidity class - Extra
 roomBlockHTML += humidity; //Set humidity value
 roomBlockHTML += '%'; //Humidity unit
-roomBlockHTML += '</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">Air Quality</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
+roomBlockHTML += '</h4></div></div><div class="room-block-air-quality-row room-block-humitity-row w-row"><div class="column-3 w-col w-col-6"><div class="airquality room-block-data-title">' + strings.airQuality[userLang] + '</div></div><div class="column-4 w-col w-col-6"><img class="room-block-airquality-status-image" height="21" src="'
 roomBlockHTML += 'http://uploads.webflow.com/58dab8fd2bebde920b1f3557/58db7da10b307284023739b1_1-full.svg'; //Airquality image
 roomBlockHTML += '" width="21"></div></div></div></div>';
 
@@ -392,6 +392,9 @@ var roomBlockEndSpacingkHTML = '<div class="room-block-spacing"></div>';
 
 $("#room--container").append(roomBlockEndSpacingkHTML);
 console.log("Added the end HTML Block spacing");
+
+//Set the credits
+$('.credits').text(strings.credits[userLang]);
 
 
 //Remove the loading animation
@@ -506,11 +509,12 @@ function updateWithData (data) {
 	//Update the DOM humidity
 	var roomHumidity = $('#room-humidity-' + createSensorID(parsedData.mac_address));
 
-	roomHumidity.text(Math.round(parsedData.data[1].value) + '%').fadeIn(500);
+	
 	roomHumidity.fadeOut(function() {
 	var humidityClass = returnHumidityLabelClass(parsedData.data[1].value);
 	roomHumidity.removeClass("humidity-status-green humidity-status-yellow");
 	roomHumidity.addClass(humidityClass);
+	roomHumidity.text(Math.round(parsedData.data[1].value) + '%').fadeIn(500);
 	});
 	
 
