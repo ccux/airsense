@@ -63,15 +63,16 @@ var historyWeekViewClick = function(btn) {
   function adjustTextForLanguage () {
 
     //Status
-    $('.detail-title-heading')[0].text(strings.status[userLang]);
+    var textLabels =  $('.detail-title-heading');
+    textLabels[0].text(strings.status[userLang]);
     //Improvement
-    $('.detail-title-heading')[1].text(strings.possible_improvement[userLang]);
+    textLabels[1].text(strings.possible_improvement[userLang]);
     //Graphs - Humidity
-    $('.detail-title-heading')[2].text(strings.humidity[userLang]);
+    textLabels[2].text(strings.humidity[userLang]);
     //Graphs - Temperature
-    $('.detail-title-heading')[3].text(strings.temperature[userLang]);
+    textLabels[3].text(strings.temperature[userLang]);
     //Graphs - Air Quality
-    $('.detail-title-heading')[4].text(strings.airQuality[userLang]);
+    textLabels[4].text(strings.airQuality[userLang]);
     //Graphs - DAY / Week
     $('.history-graph-view-selector')[0].text(strings.graph_day[userLang]);
     $('.history-graph-view-selector')[2].text(strings.graph_day[userLang]);
