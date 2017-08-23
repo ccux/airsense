@@ -2,6 +2,10 @@
 
 var userLang = navigator.language || navigator.userLanguage; 
 
+if (userLang != 'en' || userLang != 'da') {       
+  userLang = 'en';
+}
+
 var strings = {
 	
 	//Front page
