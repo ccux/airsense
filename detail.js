@@ -714,7 +714,7 @@ if (dataSetArray[i] === undefined) {
 	return;
 }
 
-if (typeof dataSetArray[i][temperatureDataID] !== "undefined" || typeof dataSetArray[i + 1][temperatureDataID] !== "undefined") {
+if (typeof dataSetArray[i][temperatureDataID] !== "undefined" && typeof dataSetArray[i + 1][temperatureDataID] !== "undefined") {
 newValue = (dataSetArray[i][temperatureDataID] + dataSetArray[i + 1][temperatureDataID]) / 2;
 }
 else {
@@ -724,7 +724,7 @@ newValue = 0;
 //console.log('The date is' + newTime + ' And the value is ' + newValue);
 
 //HUMIDITY
-if (typeof dataSetArray[i][humidityDataID] !== "undefined" || typeof dataSetArray[i + 1][humidityDataID] !== "undefined") {
+if (typeof dataSetArray[i][humidityDataID] !== "undefined" && typeof dataSetArray[i + 1][humidityDataID] !== "undefined") {
 humValue = (dataSetArray[i][humidityDataID] + dataSetArray[i + 1][humidityDataID]) / 2;
 }
 else {
