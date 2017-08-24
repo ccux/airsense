@@ -709,7 +709,7 @@ if (type === "day") {
 if (i % 2 === 0) {
 
 //TEMPERATURE
-if (dataSetArray[i] === undefined) {
+if (typeof dataSetArray[i] === "undefined" || typeof dataSetArray[i +1] === "undefined") {
 	alert("Der er sket en fejl ved indlæsning af data. Prøv venligst igen om lidt.");
 	return;
 }
