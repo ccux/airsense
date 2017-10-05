@@ -346,15 +346,16 @@ console.log("Added the block padding");
 
 var temperature = 'N/A';
 var humidity = 'N/A';
-for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
-  if (sensorData.sensors[i].latest_data.data[p].name === 'temperature') {
-    temperature = Math.round(sensorData.sensors[i].latest_data.data[p].value);
-  }
-  else if (sensorData.sensors[i].latest_data.data[p].name === 'relative humidity') {
-     humidity = Math.round(sensorData.sensors[i].latest_data.data[p].value);
-  }
+if(sensorData.sensors[i].latest_data) {
+    for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
+        if (sensorData.sensors[i].latest_data.data[p].name === 'temperature') {
+            temperature = Math.round(sensorData.sensors[i].latest_data.data[p].value);
+        }
+        else if (sensorData.sensors[i].latest_data.data[p].name === 'relative humidity') {
+            humidity = Math.round(sensorData.sensors[i].latest_data.data[p].value);
+        }
+    }
 }
-
 var humidityClass = returnHumidityLabelClass(humidity);
 
 
