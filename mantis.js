@@ -346,7 +346,7 @@ console.log("Added the block padding");
 
 var temperature = 'N/A';
 var humidity = 'N/A';
-if(sensorData.sensors[i].latest_data) {
+if(sensorData.sensors[i].latest_data && sensorData.sensors[i].latest_data.data) {
     for (var p = 0; p < sensorData.sensors[i].latest_data.data.length; p++) {
         if (sensorData.sensors[i].latest_data.data[p].name === 'temperature') {
             temperature = Math.round(sensorData.sensors[i].latest_data.data[p].value);
