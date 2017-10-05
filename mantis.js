@@ -428,7 +428,10 @@ function returnRoomIcon (roomName) {
 
 function createSensorID (sensorID) {
 
-	var id = sensorID.replace(/[\:\/ ]/g, ""); 
+    var id = null;
+    if (sensorID) {
+        id = sensorID.replace(/[\:\/ ]/g, "");
+    }
 
 	return id;
 }
